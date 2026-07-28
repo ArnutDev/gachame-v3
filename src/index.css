@@ -1,0 +1,53 @@
+:root {
+  font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Theme variables - Sleek Dark Mode design system */
+  --bg-primary: #0b0c10;
+  --bg-secondary: #1f2833;
+  --bg-tertiary: #12161f;
+  --accent-cyan: #66fcf1;
+  --accent-teal: #45f3ff;
+  --text-primary: #ffffff;
+  --text-secondary: #c5c6c7;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --error: #ff4d4f;
+  --success: #52c41a;
+
+  color-scheme: dark;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
