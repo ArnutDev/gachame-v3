@@ -604,3 +604,92 @@ button {
   color: var(--text-secondary);
 }
 
+/* Diagnostic Panels CSS */
+.unit-tests-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.tests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 0.75rem;
+}
+
+.test-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+}
+
+.test-item.test-pass {
+  border-left: 4px solid var(--success);
+}
+
+.test-item.test-fail {
+  border-left: 4px solid var(--error);
+}
+
+.test-status-icon {
+  font-weight: bold;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.test-pass .test-status-icon {
+  color: var(--success);
+}
+
+.test-fail .test-status-icon {
+  color: var(--error);
+}
+
+.test-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.test-message {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.stats-table.mini-table {
+  font-size: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.stats-table.mini-table th, .stats-table.mini-table td {
+  padding: 0.5rem;
+}
+
+.flex-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.flex-buttons .btn-pull {
+  flex: 1 1 180px;
+}
+
+.flex-buttons .btn-heavy {
+  flex: 2 1 100%;
+}
+
+

@@ -4,10 +4,10 @@
     "name": "2026-08 Ranger Collab Banner",
     "type": "boost",
     "event": "2026-08",
-    "featuredItems": ["u1602e-sh", "u202608a1"],
+    "featuredItems": ["u1598e-clark", "u1598u-clark"],
     "featuredRates": {
-      "u1602e-sh": 0.88,
-      "u202608a1": 1.2
+      "u1598e-clark": 0.88,
+      "u1598u-clark": 1.2
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -16,12 +16,7 @@
       "8_ultra": 3.0,
       "8_normal": 5.0,
       "7_ultra": 22.0,
-      "7_normal": 70.0,
-      "5": 0,
-      "6": 0,
-      "7": 0,
-      "8": 0,
-      "9": 0
+      "7_normal": 70.0
     }
   },
   {
@@ -37,10 +32,6 @@
     "startDate": "2026-08-01",
     "endDate": "2026-08-31",
     "rarityRates": {
-      "8_ultra": 0,
-      "8_normal": 0,
-      "7_ultra": 0,
-      "7_normal": 0,
       "5": 48.0,
       "6": 46.0,
       "7": 3.0,

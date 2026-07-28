@@ -1,7 +1,37 @@
 [
   {
-    "Name": "Ultra Moon",
-    "Image": "https://gachame.github.io/images/rangers/u0402e-mo-thum.png",
-    "UnitCode": "u0402e-mo"
+    "Name": "7 Star Ultra Leonard",
+    "Image": "https://gachame.github.io/images/rangers/srry im lazy to find this image-thum.png",
+    "UnitCode": "srry im lazy to find this image"
+  },
+  {
+    "Name": "Pro Golfer KSM",
+    "Image": "https://gachame.github.io/images/rangers/u091u-ksm-thum.png",
+    "UnitCode": "u091u-ksm"
+  },
+  {
+    "Name": "Hatchling Honey",
+    "Image": "https://gachame.github.io/images/rangers/u093u-honey-thum.png",
+    "UnitCode": "u093u-honey"
+  },
+  {
+    "Name": "Heart Queen Alice",
+    "Image": "https://gachame.github.io/images/rangers/u099u-alice-thum.png",
+    "UnitCode": "u099u-alice"
+  },
+  {
+    "Name": "Fairy Hood Cony",
+    "Image": "https://gachame.github.io/images/rangers/u196u-cony-thum.png",
+    "UnitCode": "u196u-cony"
+  },
+  {
+    "Name": "Dragon's Son Dumpy",
+    "Image": "https://gachame.github.io/images/rangers/u266u-dumpy-thum.png",
+    "UnitCode": "u266u-dumpy"
+  },
+  {
+    "Name": "Prima Donna Lia",
+    "Image": "https://gachame.github.io/images/rangers/u364u-lia-thum.png",
+    "UnitCode": "u364u-lia"
   }
 ]

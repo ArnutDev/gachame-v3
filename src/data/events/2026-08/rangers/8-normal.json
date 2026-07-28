@@ -3,5 +3,10 @@
     "Name": "Event Ranger A1",
     "Image": "https://gachame.github.io/images/rangers/u202608a1-thum.png",
     "UnitCode": "u202608a1"
+  },
+  {
+    "Name": "Clark",
+    "Image": "https://gachame.github.io/images/rangers/u1598e-clark-thum.png",
+    "UnitCode": "u1598e-clark"
   }
 ]

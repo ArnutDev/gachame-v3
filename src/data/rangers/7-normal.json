@@ -1,7 +1,292 @@
 [
   {
-    "Name": "Sally",
-    "Image": "https://gachame.github.io/images/rangers/u0301e-sa-thum.png",
-    "UnitCode": "u0301e-sa"
+    "Name": "7 Star Super Leonard",
+    "Image": "https://gachame.github.io/images/rangers/srry im lazy to find this image-thum.png",
+    "UnitCode": "srry im lazy to find this image"
+  },
+  {
+    "Name": "Vagabond Brown",
+    "Image": "https://gachame.github.io/images/rangers/u019e-brown-thum.png",
+    "UnitCode": "u019e-brown"
+  },
+  {
+    "Name": "Luxury Sheep",
+    "Image": "https://gachame.github.io/images/rangers/u025e-yang-thum.png",
+    "UnitCode": "u025e-yang"
+  },
+  {
+    "Name": "Invincible Honey",
+    "Image": "https://gachame.github.io/images/rangers/u093e-honey-thum.png",
+    "UnitCode": "u093e-honey"
+  },
+  {
+    "Name": "Rocker ALICE",
+    "Image": "https://gachame.github.io/images/rangers/u099e-alice-thum.png",
+    "UnitCode": "u099e-alice"
+  },
+  {
+    "Name": "Ruffian Brown",
+    "Image": "https://gachame.github.io/images/rangers/u1021e-brown-thum.png",
+    "UnitCode": "u1021e-brown"
+  },
+  {
+    "Name": "Duck Car Sally",
+    "Image": "https://gachame.github.io/images/rangers/u1027e-sally-thum.png",
+    "UnitCode": "u1027e-sally"
+  },
+  {
+    "Name": "Yellow Card Dane",
+    "Image": "https://gachame.github.io/images/rangers/u1034e-dane-thum.png",
+    "UnitCode": "u1034e-dane"
+  },
+  {
+    "Name": "Tree Stump Leonard",
+    "Image": "https://gachame.github.io/images/rangers/u1041e-leonard-thum.png",
+    "UnitCode": "u1041e-leonard"
+  },
+  {
+    "Name": "HIME",
+    "Image": "https://gachame.github.io/images/rangers/u1048e-hime-thum.png",
+    "UnitCode": "u1048e-hime"
+  },
+  {
+    "Name": "Mountain Boar Moon",
+    "Image": "https://gachame.github.io/images/rangers/u1057e-moon-thum.png",
+    "UnitCode": "u1057e-moon"
+  },
+  {
+    "Name": "Balloon Rookie Cony",
+    "Image": "https://gachame.github.io/images/rangers/u1064e-cony-thum.png",
+    "UnitCode": "u1064e-cony"
+  },
+  {
+    "Name": "Bad Boy Brown",
+    "Image": "https://gachame.github.io/images/rangers/u1072e-brown-thum.png",
+    "UnitCode": "u1072e-brown"
+  },
+  {
+    "Name": "Cactus Sally",
+    "Image": "https://gachame.github.io/images/rangers/u1081e-sally-thum.png",
+    "UnitCode": "u1081e-sally"
+  },
+  {
+    "Name": "Boatswain Hunt",
+    "Image": "https://gachame.github.io/images/rangers/u1091e-hunt-thum.png",
+    "UnitCode": "u1091e-hunt"
+  },
+  {
+    "Name": "Vampire James",
+    "Image": "https://gachame.github.io/images/rangers/u1099e-james-thum.png",
+    "UnitCode": "u1099e-james"
+  },
+  {
+    "Name": "Elementary Schooler Brown",
+    "Image": "https://gachame.github.io/images/rangers/u1118e-brown-thum.png",
+    "UnitCode": "u1118e-brown"
+  },
+  {
+    "Name": "Correspondent Moon",
+    "Image": "https://gachame.github.io/images/rangers/u1135e-moon-thum.png",
+    "UnitCode": "u1135e-moon"
+  },
+  {
+    "Name": "Little Witch Cony",
+    "Image": "https://gachame.github.io/images/rangers/u1152e-cony-thum.png",
+    "UnitCode": "u1152e-cony"
+  },
+  {
+    "Name": "Ice Sled Sally",
+    "Image": "https://gachame.github.io/images/rangers/u1162e-sally-thum.png",
+    "UnitCode": "u1162e-sally"
+  },
+  {
+    "Name": "Magician Moon",
+    "Image": "https://gachame.github.io/images/rangers/u1171e-moon-thum.png",
+    "UnitCode": "u1171e-moon"
+  },
+  {
+    "Name": "Skeleton Candy Brown",
+    "Image": "https://gachame.github.io/images/rangers/u1203e-brown-thum.png",
+    "UnitCode": "u1203e-brown"
+  },
+  {
+    "Name": "Keyboard Girl Cony",
+    "Image": "https://gachame.github.io/images/rangers/u1221e-cony-thum.png",
+    "UnitCode": "u1221e-cony"
+  },
+  {
+    "Name": "Floating Brown",
+    "Image": "https://gachame.github.io/images/rangers/u122e-brown-thum.png",
+    "UnitCode": "u122e-brown"
+  },
+  {
+    "Name": "Rocketeer Charles",
+    "Image": "https://gachame.github.io/images/rangers/u124e-charles-thum.png",
+    "UnitCode": "u124e-charles"
+  },
+  {
+    "Name": "Pink Hood Cony",
+    "Image": "https://gachame.github.io/images/rangers/u196e-cony-thum.png",
+    "UnitCode": "u196e-cony"
+  },
+  {
+    "Name": "Sky Rider Moon",
+    "Image": "https://gachame.github.io/images/rangers/u278e-moon-thum.png",
+    "UnitCode": "u278e-moon"
+  },
+  {
+    "Name": "Drillmaster Brown",
+    "Image": "https://gachame.github.io/images/rangers/u285e-brown-thum.png",
+    "UnitCode": "u285e-brown"
+  },
+  {
+    "Name": "Unpretty Mong",
+    "Image": "https://gachame.github.io/images/rangers/u288e-mong-thum.png",
+    "UnitCode": "u288e-mong"
+  },
+  {
+    "Name": "Bubbly Cony",
+    "Image": "https://gachame.github.io/images/rangers/u303e-cony-thum.png",
+    "UnitCode": "u303e-cony"
+  },
+  {
+    "Name": "Marine Moon",
+    "Image": "https://gachame.github.io/images/rangers/u306e-moon-thum.png",
+    "UnitCode": "u306e-moon"
+  },
+  {
+    "Name": "Mega Machine Sally",
+    "Image": "https://gachame.github.io/images/rangers/u319e-sally-thum.png",
+    "UnitCode": "u319e-sally"
+  },
+  {
+    "Name": "Ballerina Lia",
+    "Image": "https://gachame.github.io/images/rangers/u364e-lia-thum.png",
+    "UnitCode": "u364e-lia"
+  },
+  {
+    "Name": "Venus Cony",
+    "Image": "https://gachame.github.io/images/rangers/u375e-cony-thum.png",
+    "UnitCode": "u375e-cony"
+  },
+  {
+    "Name": "Oak Barrel Edward",
+    "Image": "https://gachame.github.io/images/rangers/u378e-edward-thum.png",
+    "UnitCode": "u378e-edward"
+  },
+  {
+    "Name": "Red Raptor Sally",
+    "Image": "https://gachame.github.io/images/rangers/u381e-sally-thum.png",
+    "UnitCode": "u381e-sally"
+  },
+  {
+    "Name": "Duck Boat Cony",
+    "Image": "https://gachame.github.io/images/rangers/u383e-cony-thum.png",
+    "UnitCode": "u383e-cony"
+  },
+  {
+    "Name": "Surfer Brown",
+    "Image": "https://gachame.github.io/images/rangers/u385e-brown-thum.png",
+    "UnitCode": "u385e-brown"
+  },
+  {
+    "Name": "Robin Hood Moon",
+    "Image": "https://gachame.github.io/images/rangers/u387e-moon-thum.png",
+    "UnitCode": "u387e-moon"
+  },
+  {
+    "Name": "Apple Kart Dennis",
+    "Image": "https://gachame.github.io/images/rangers/u389e-awl-thum.png",
+    "UnitCode": "u389e-awl"
+  },
+  {
+    "Name": "Sentinel Mike",
+    "Image": "https://gachame.github.io/images/rangers/u399e-mike-thum.png",
+    "UnitCode": "u399e-mike"
+  },
+  {
+    "Name": "Mage James",
+    "Image": "https://gachame.github.io/images/rangers/u401e-james-thum.png",
+    "UnitCode": "u401e-james"
+  },
+  {
+    "Name": "Native American Jessica",
+    "Image": "https://gachame.github.io/images/rangers/u403e-jessica-thum.png",
+    "UnitCode": "u403e-jessica"
+  },
+  {
+    "Name": "Martial Artist Simon",
+    "Image": "https://gachame.github.io/images/rangers/u410e-simon-thum.png",
+    "UnitCode": "u410e-simon"
+  },
+  {
+    "Name": "Lucky Cat Sally",
+    "Image": "https://gachame.github.io/images/rangers/u417e-sally-thum.png",
+    "UnitCode": "u417e-sally"
+  },
+  {
+    "Name": "New Year Cony",
+    "Image": "https://gachame.github.io/images/rangers/u419e-cony-thum.png",
+    "UnitCode": "u419e-cony"
+  },
+  {
+    "Name": "Frozen Daniel",
+    "Image": "https://gachame.github.io/images/rangers/u421e-daniel-thum.png",
+    "UnitCode": "u421e-daniel"
+  },
+  {
+    "Name": "Shortcake Brown",
+    "Image": "https://gachame.github.io/images/rangers/u428e-brown-thum.png",
+    "UnitCode": "u428e-brown"
+  },
+  {
+    "Name": "Champagne Cony",
+    "Image": "https://gachame.github.io/images/rangers/u430e-cony-thum.png",
+    "UnitCode": "u430e-cony"
+  },
+  {
+    "Name": "Red Crab Edward",
+    "Image": "https://gachame.github.io/images/rangers/u433e-edward-thum.png",
+    "UnitCode": "u433e-edward"
+  },
+  {
+    "Name": "Collector Brownie",
+    "Image": "https://gachame.github.io/images/rangers/u436e-brownie-thum.png",
+    "UnitCode": "u436e-brownie"
+  },
+  {
+    "Name": "Novice Knight Moon",
+    "Image": "https://gachame.github.io/images/rangers/u455e-moon-thum.png",
+    "UnitCode": "u455e-moon"
+  },
+  {
+    "Name": "Novice Priestess Jessica",
+    "Image": "https://gachame.github.io/images/rangers/u457e-jessica-thum.png",
+    "UnitCode": "u457e-jessica"
+  },
+  {
+    "Name": "Chariot James",
+    "Image": "https://gachame.github.io/images/rangers/u460e-james-thum.png",
+    "UnitCode": "u460e-james"
+  },
+  {
+    "Name": "Marshmallow Brown",
+    "Image": "https://gachame.github.io/images/rangers/u463e-brown-thum.png",
+    "UnitCode": "u463e-brown"
+  },
+  {
+    "Name": "Girl Scout Merry",
+    "Image": "https://gachame.github.io/images/rangers/u465e-merry-thum.png",
+    "UnitCode": "u465e-merry"
+  },
+  {
+    "Name": "Splish Splash Cony",
+    "Image": "https://gachame.github.io/images/rangers/u470e-cony-thum.png",
+    "UnitCode": "u470e-cony"
+  },
+  {
+    "Name": "Dune Dood Pico",
+    "Image": "https://gachame.github.io/images/rangers/u472e-pico-thum.png",
+    "UnitCode": "u472e-pico"
   }
 ]
