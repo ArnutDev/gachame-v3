@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>บันทึกการทำงาน - Gacha Engine Bug Fix & Unit Tests passing</title>
+    <title>บันทึกการทำงานและอธิบายระบบสุ่ม Gacha Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,6 +16,7 @@
         --text-secondary: #c5c6c7;
         --border-color: rgba(255, 255, 255, 0.1);
         --success-color: #2ec4b6;
+        --code-bg: #111625;
       }
       
       body {
@@ -49,9 +50,11 @@
 
       h2 {
         font-family: 'Outfit', 'Sarabun', sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.35rem;
         color: var(--success-color);
-        margin-top: 1.5rem;
+        margin-top: 2rem;
+        border-left: 4px solid var(--success-color);
+        padding-left: 0.5rem;
       }
 
       p {
@@ -87,33 +90,92 @@
         display: inline-block;
         margin-bottom: 1rem;
       }
+
+      pre {
+        background-color: var(--code-bg);
+        padding: 1rem;
+        border-radius: 6px;
+        overflow-x: auto;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      code {
+        font-family: 'Outfit', Consolas, Monaco, monospace;
+        font-size: 0.9rem;
+        color: #e2e8f0;
+      }
+
+      .highlight {
+        color: var(--accent-color);
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <span class="badge">เสร็จสิ้นภารกิจ</span>
-      <h1>บันทึกสรุปการแก้ไขข้อผิดพลาดของระบบตรวจสอบและปรับปรุง Unit Tests ให้ผ่าน 100%</h1>
+      <span class="badge">เอกสารอธิบายระบบสุ่ม</span>
+      <h1>บันทึกสรุปการทำงานและอธิบายโค้ดระบบสุ่มกาชา (Gacha Engine Randomization)</h1>
       
-      <p>ได้ทำการวิเคราะห์ แก้ไขปัญหาระบบตรวจสอบคอนฟิกแบนเนอร์ รวมถึงปรับปรุงโครงสร้าง Unit Tests ทั้งหมดในระบบตรวจวินิจฉัย (Diagnostics Dashboard) ให้ทำงานได้อย่างถูกต้องและผ่านเกณฑ์การทดสอบ 100% เรียบร้อยแล้ว รายละเอียดมีดังนี้:</p>
+      <p>อ้างอิงจากโครงสร้างสถาปัตยกรรม Gacha Engine ของโครงการ ในไฟล์ <code>src/engine/gachaEngine.ts</code> ระบบสุ่มใช้กลไกการสุ่มตามอัตราถ่วงน้ำหนัก (Weighted Random Selection Algorithm) แบ่งออกเป็น 2 ขั้นตอนหลักดังนี้:</p>
 
-      <h2>1. ปัญหาการรายงานผลของ Unit Tests ที่ไม่ปกติก่อนหน้านี้</h2>
-      <p>สาเหตุหลักที่ทำให้อดีต Unit Test บางตัวรายงานผลล้มเหลว (FAIL) <b>ไม่ได้เกิดจากความผิดปกติของตัวระบบคำนวณสุ่มสถิติ (Gacha Engine)</b> แต่เกิดจาก:</p>
+      <h2>ขั้นตอนที่ 1: การสุ่มเลือกระดับความยากง่าย (Stage 1: Select Rarity)</h2>
+      <p>ระบบจะสุ่มเลือกระดับความยากง่าย (เช่น 8★ Ultra, 8★ Normal, 7★ Ultra, 7★ Normal) จากตารางความน่าจะเป็นที่กำหนดไว้ในแบนเนอร์ โดยมีหลักการทำงานดังนี้:</p>
+      <pre><code>export function selectRarity(
+  rarityRates: Record&lt;string, number&gt;,
+  randomFn: () =&gt; number = Math.random
+): string {
+  const rand = randomFn() * 100; // 1. แปลงค่าสุ่มจาก 0.0 - 1.0 ให้เป็น 0 - 100%
+  let cumulative = 0;
+
+  const keys = Object.keys(rarityRates).sort(); // 2. เรียงคีย์เพื่อลำดับการเช็คที่แน่นอน
+  for (const key of keys) {
+    const rate = rarityRates[key] || 0;
+    cumulative += rate; // 3. สะสมเรทสุ่มไปเรื่อยๆ (Cumulative Sum)
+    if (rand &lt; cumulative) { // 4. หากค่าสุ่มตกอยู่ในช่วงสะสม ให้ส่งคืนระดับนั้นทันที
+      return key;
+    }
+  }
+  return keys[keys.length - 1];
+}</code></pre>
+      <p><b>อธิบายการทำงาน:</b> ตัวแปร <code>rand</code> จะดึงค่าทศนิยมแบบสุ่มแล้วคูณด้วย 100 เพื่อสุ่มตัวเลขระหว่าง 0 ถึง 100 จากนั้นสะสมเรทไปทีละช่อง (เช่น 70% -> 92% -> 97% -> 100%) เมื่อ <code>rand</code> มีค่าน้อยกว่าเรทสะสม ณ ตำแหน่งใด แสดงว่าผลลัพธ์การสุ่มตกอยู่ในช่องระดับความยากง่ายตัวนั้น</p>
+
+      <h2>ขั้นตอนที่ 2: การสุ่มเลือกไอเทมย่อย (Stage 2: Select Item)</h2>
+      <p>เมื่อได้ระดับระดับความยากง่ายจากการสุ่มขั้นแรกแล้ว (เช่น ได้ 8★ Normal ซึ่งมีอัตราสุ่มรวมในแบนเนอร์เท่ากับ 5.0%) ระบบจะคำนวณอัตราสุ่มย่อยของไอเทมแต่ละตัวในกลุ่มนั้น และใช้กลไกถ่วงน้ำหนักย่อยในการเจาะจงสุ่มเลือกตัวละครหรืออุปกรณ์:</p>
+      
+      <h3>2.1 การคำนวณการกระจายความน่าจะเป็น (Probability Calculation)</h3>
+      <p>ก่อนเลือกไอเทม ระบบจะหาอัตราสุ่มของไอเทมแต่ละตัวโดยอ้างอิงจากฟังก์ชัน <code>calculateItemProbabilities</code>:</p>
       <ul>
-        <li><b>การสร้างโครงสร้างจำลอง (Mocking) ในแต่ละ Test Case ขัดแย้งกับกฎความปลอดภัยของแบนเนอร์</b>: ตัวอย่างเช่น การทดสอบบังคับอัตราสุ่มเป็น 100% โดยการนำค่าเดิมไปแก้ไขเฉพาะบางส่วน ทำให้ได้อัตราความน่าจะเป็นรวมของแบนเนอร์เกินกว่า 100% (เช่น 195%, 96%, 197%) ส่งผลให้ระบบ Validator บล็อกการรันและปฏิเสธแบนเนอร์นั้นๆ ออกไป</li>
-        <li><b>ปัญหาการอ้างอิงไอเทมเด่น (Featured Items) และการสะกดข้อความ Error</b>: มีการอ้างอิงตัวละคร Clark ที่ไม่มีอยู่ใน Mock Pool ของ Test Case รวมถึงมีข้อความยืนยันความคลาดเคลื่อนสะกดไม่ตรงกับที่ตัวเครื่องประมวลผลจริงส่งกลับมา</li>
+        <li><b>ตัวละครแนะนำ (Featured Items)</b>: จะได้รับอัตราความน่าจะเป็นที่ระบุตรง ๆ ไว้ในคอนฟิกแบนเนอร์ (เช่น Clark โดนกำหนดเรทสเปกไว้ที่ 0.88%)</li>
+        <li><b>ตัวละครทั่วไป (Non-featured Items)</b>: อัตราความน่าจะเป็นที่เหลือจากการหักลบ Featured Items จะถูกนำมาเฉลี่ยแบ่งเท่า ๆ กัน ให้กับตัวละครทั่วไปทุกตัวในระดับความยากง่ายนั้นๆ</li>
+        <li><b>หากไม่มีตัวละครทั่วไป</b>: อัตราความน่าจะเป็นส่วนที่เหลือทั้งหมดจะถูกแบ่งเฉลี่ยทับกลับลงไปให้กับ Featured Items ทุกตัวในระดับนั้น</li>
       </ul>
 
-      <h2>2. แนวทางการแก้ไข Unit Tests ในไฟล์ <code>src/utils/engineDiagnostics.ts</code></h2>
-      <ul>
-        <li><b>ปรับโครงสร้าง Mock Rate ให้คำนวณได้ 100% เสมอ</b>: แก้ไขให้แต่ละเคสทดสอบเคลียร์ค่าความน่าจะเป็นของระดับที่ไม่เกี่ยวข้องเป็น 0 และอัดฉีดเฉพาะระดับที่ต้องการทดสอบ (เช่น 8_normal: 100%) เพื่อให้ระบบ Validator อนุมัติการเข้าทดสอบอย่างสมบูรณ์</li>
-        <li><b>ปรับแต่ง Featured Items และล้างผลกระทบเก่า</b>: ลบรายการ Featured Items และเรทสุ่มเด่นที่ค้างอยู่ใน Mock Config ของเคสทดสอบกรณี Zero-Weight หรือกรณีสุ่มพูลขนาดใหญ่ เพื่อหลีกเลี่ยงข้อขัดแย้งของอัตราสะสม</li>
-        <li><b>แก้ไขข้อความตรวจสอบข้อผิดพลาด</b>: อัปเดตข้อความการค้นหา Error ย่อยให้ตรงกับสิ่งที่ส่งออกจาก Engine (จาก <i>exceeds the rarity threshold limit</i> เป็น <i>exceeds the total rarity rate</i>)</li>
-      </ul>
+      <h3>2.2 การสุ่มเจาะจงไอเทม (Weighted Item Selection)</h3>
+      <pre><code>export function selectItem&lt;T extends Ranger | Gear&gt;(
+  rarityPool: T[],
+  itemRates: Map&lt;string, number&gt;,
+  rarityRate: number,
+  randomFn: () =&gt; number = Math.random
+): T {
+  // ... จัดการกรณีพูลมี 0 หรือ 1 ชิ้น ...
+  const rand = randomFn() * rarityRate; // สุ่มตัวเลขตั้งแต่ 0 ถึงเรทสะสมของระดับความยากง่ายนั้นๆ (เช่น 0 - 5.0%)
+  let cumulative = 0;
 
-      <h2>3. ผลการทดสอบปัจจุบัน</h2>
+  for (const item of rarityPool) {
+    const rate = itemRates.get(item.id) || 0;
+    cumulative += rate;
+    if (rand &lt; cumulative) {
+      return item;
+    }
+  }
+  return rarityPool[rarityPool.length - 1];
+}</code></pre>
+      <p><b>อธิบายการทำงาน:</b> ฟังก์ชัน <code>selectItem</code> ทำการคูณค่าสุ่มกับ <code>rarityRate</code> ของระดับความยากง่ายปัจจุบัน เพื่อให้ขอบเขตค่าสุ่ม <code>rand</code> เหมาะสมกับระดับนั้น ๆ จากนั้นลูปบวกสะสมเรทของไอเทมทีละชิ้น และเลือกชิ้นที่ค่าสุ่มตกลงในสัดส่วนน้ำหนักที่กำหนดไว้</p>
+
+      <h2>จุดเด่นของการสุ่มสถาปัตยกรรมนี้ (Engine Features)</h2>
       <ul>
-        <li>การรันชุดทดสอบ Unit Tests ทั้ง 9 ตัวรายงานสถานะเป็น <b>PASS (ผ่านสำเร็จ) 100% ทั้งหมด</b></li>
-        <li>การคอมไพล์ในระดับ Production บิลด์สำเร็จได้อย่างสมบูรณ์</li>
+        <li><span class="highlight">รองรับการสลับฟังก์ชันสุ่ม (Injectable PRNG)</span>: ตัวแปร <code>randomFn</code> ถูกกำหนดให้สามารถรับฟังก์ชันสุ่มใดๆ ก็ได้จากภายนอก ซึ่งโดยปกติจะรันโดยใช้ <code>Math.random</code> ของเบราว์เซอร์ แต่สามารถแทนที่ด้วยฟังก์ชันคำนวณเลขสุ่มเทียม (Pseudo-Random Number Generator: PRNG) ที่ฟิกเมล็ดพันธุ์ (Seed) ได้ เพื่อใช้ในกรณีทดสอบความเสถียรและจำลองค่าสุ่มให้ออกมาเหมือนกันทุกรอบ (Deterministic Testing)</li>
+        <li><span class="highlight">ไม่มีระบบ Pity หรือการล็อกเรท</span>: โครงสร้างเป็นไปตามกฎความน่าจะเป็นบริสุทธิ์ (Generic Weighted Selection) ไม่มีการแทรกแซงหรือปรับปรุงเรทสุ่มแบบไดนามิกใดๆ ในตัวโค้ด</li>
       </ul>
     </div>
   </body>
