@@ -45,6 +45,7 @@ export interface BenchmarkResult {
  */
 export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): TestCaseResult[] {
   const results: TestCaseResult[] = [];
+  const isGear = banner.type === 'gear';
 
   // Helper for test assertions
   const assertTest = (name: string, assertion: () => boolean, errMessage: string) => {
@@ -64,26 +65,42 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
     }
   };
 
+  // Helper to generate a clean 100% rate config on a single rarity
+  const getClean100PercentRates = (targetRarity: string): Partial<Record<string, number>> => {
+    const keys = isGear ? ['5', '6', '7', '8', '9'] : ['7_normal', '7_ultra', '8_normal', '8_ultra'];
+    const rates: Record<string, number> = {};
+    keys.forEach((k) => {
+      rates[k] = k === targetRarity ? 100.0 : 0;
+    });
+    return rates;
+  };
+
+  // Rarity labels for tests
+  const rarityA = isGear ? '5' : '7_normal'; // Dominant
+  const rarityB = isGear ? '6' : '7_ultra';  // Sub-dominant
+  const rarityC = isGear ? '7' : '8_normal'; // Rare
+  const rarityD = isGear ? '8' : '8_ultra';  // Ultra-rare
+
   // Test 1: Weighted Rarity Selection (Deterministic checks using mock randomFn)
   assertTest(
     'Weighted Rarity Selection Bucket Mapping',
     () => {
       const mockBanner = { ...banner };
       
-      // Rand = 5 (5%) -> should fall in '7_normal'
+      // Rand = 5 (5%) -> should fall in rarityA
       const outcome1 = rollGacha(mockBanner, pool, 0, () => 0.05);
-      // Rand = 80 (80%) -> should fall in '7_ultra'
+      // Rand = 80 (80%) -> should fall in rarityB
       const outcome2 = rollGacha(mockBanner, pool, 0, () => 0.80);
-      // Rand = 95 (95%) -> should fall in '8_normal'
+      // Rand = 95 (95%) -> should fall in rarityC
       const outcome3 = rollGacha(mockBanner, pool, 0, () => 0.95);
-      // Rand = 99 (99%) -> should fall in '8_ultra'
-      const outcome4 = rollGacha(mockBanner, pool, 0, () => 0.99);
+      // Rand = 98 (98%) for gear or 99 (99%) for ranger -> should fall in rarityD
+      const outcome4 = rollGacha(mockBanner, pool, 0, () => (isGear ? 0.98 : 0.99));
 
       return (
-        outcome1.rarity === '7_normal' &&
-        outcome2.rarity === '7_ultra' &&
-        outcome3.rarity === '8_normal' &&
-        outcome4.rarity === '8_ultra'
+        outcome1.rarity === rarityA &&
+        outcome2.rarity === rarityB &&
+        outcome3.rarity === rarityC &&
+        outcome4.rarity === rarityD
       );
     },
     'Deterministic rarity checks mapped to incorrect probability buckets.'
@@ -93,7 +110,7 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Empty Pool Exception Throwing',
     () => {
-      const emptyPool: Ranger[] = [];
+      const emptyPool: any[] = [];
       try {
         rollGacha(banner, emptyPool, 0);
         return false;
@@ -108,38 +125,28 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Single Item Pool fallback selection',
     () => {
-      const singleItemPool: Ranger[] = [
+      const testRarity = isGear ? '5' : '8_normal';
+      const singleItemPool: any[] = [
         {
-          id: 'single_char',
-          name: 'Single Character',
-          rarity: '8_normal',
+          id: 'single_item',
+          name: 'Single Item',
+          rarity: testRarity,
           type: 'normal',
           image: '',
         },
       ];
       
-      // Clean config forcing 100% total rate to 8_normal
       const mockBanner: Banner = {
         ...banner,
         featuredItems: [],
         featuredRates: {},
-        rarityRates: {
-          '8_ultra': 0,
-          '8_normal': 100.0,
-          '7_ultra': 0,
-          '7_normal': 0,
-          '5': 0,
-          '6': 0,
-          '7': 0,
-          '8': 0,
-          '9': 0
-        },
+        rarityRates: getClean100PercentRates(testRarity),
       };
 
       const outcome1 = rollGacha(mockBanner, singleItemPool, 0, () => 0.1);
       const outcome2 = rollGacha(mockBanner, singleItemPool, 0, () => 0.9);
 
-      return outcome1.item.id === 'single_char' && outcome2.item.id === 'single_char';
+      return outcome1.item.id === 'single_item' && outcome2.item.id === 'single_item';
     },
     'Engine failed to return the single available item in a rarity pool.'
   );
@@ -148,9 +155,10 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Zero-Weight Items Exclusion',
     () => {
-      const poolWithZero: Ranger[] = [
-        { id: 'item_a', name: 'A', rarity: '8_normal', type: 'normal', image: '' },
-        { id: 'item_b', name: 'B', rarity: '8_normal', type: 'normal', image: '' },
+      const testRarity = isGear ? '5' : '8_normal';
+      const poolWithZero: any[] = [
+        { id: 'item_a', name: 'A', rarity: testRarity, type: 'normal', image: '' },
+        { id: 'item_b', name: 'B', rarity: testRarity, type: 'normal', image: '' },
       ];
 
       const mockBanner: Banner = {
@@ -160,17 +168,7 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
           'item_a': 0.0,
           'item_b': 100.0,
         },
-        rarityRates: {
-          '8_ultra': 0,
-          '8_normal': 100.0,
-          '7_ultra': 0,
-          '7_normal': 0,
-          '5': 0,
-          '6': 0,
-          '7': 0,
-          '8': 0,
-          '9': 0
-        },
+        rarityRates: getClean100PercentRates(testRarity),
       };
 
       const outcomes = rollMultiGacha(mockBanner, poolWithZero, 100, () => 0.5);
@@ -185,9 +183,10 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Decimal Weight Range Precision',
     () => {
-      const decimalPool: Ranger[] = [
-        { id: 'char_a', name: 'A', rarity: '8_normal', type: 'normal', image: '' },
-        { id: 'char_b', name: 'B', rarity: '8_normal', type: 'normal', image: '' },
+      const testRarity = isGear ? '5' : '8_normal';
+      const decimalPool: any[] = [
+        { id: 'char_a', name: 'A', rarity: testRarity, type: 'normal', image: '' },
+        { id: 'char_b', name: 'B', rarity: testRarity, type: 'normal', image: '' },
       ];
 
       const mockBanner: Banner = {
@@ -196,17 +195,7 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
         featuredRates: {
           'char_a': 33.3, // 33.3% featured rate inside 100% rarity rate
         },
-        rarityRates: {
-          '8_ultra': 0,
-          '8_normal': 100.0, // Force 100% selection to 8_normal
-          '7_ultra': 0,
-          '7_normal': 0,
-          '5': 0,
-          '6': 0,
-          '7': 0,
-          '8': 0,
-          '9': 0
-        },
+        rarityRates: getClean100PercentRates(testRarity),
       };
 
       // char_a is featured with 33.3% rate. char_b gets remaining 66.7%.
@@ -224,27 +213,18 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Large Weight Values Support',
     () => {
+      const testRarity = isGear ? '9' : '8_ultra';
       const mockBanner: Banner = {
         ...banner,
         featuredItems: [],
         featuredRates: {},
-        rarityRates: {
-          '8_ultra': 100.0,
-          '8_normal': 0,
-          '7_ultra': 0,
-          '7_normal': 0,
-          '5': 0,
-          '6': 0,
-          '7': 0,
-          '8': 0,
-          '9': 0
-        },
+        rarityRates: getClean100PercentRates(testRarity),
       };
 
       const outcomes = rollMultiGacha(mockBanner, pool, 50);
-      const all8Ultra = outcomes.every(o => o.rarity === '8_ultra');
+      const allTargetRarity = outcomes.every(o => o.rarity === testRarity);
 
-      return all8Ultra;
+      return allTargetRarity;
     },
     'Setting a rarity to 100% rate did not yield that rarity exclusively.'
   );
@@ -253,14 +233,14 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Invalid config: Sum != 100% detection',
     () => {
+      const keys = isGear ? ['5', '6', '7', '8', '9'] : ['7_normal', '7_ultra', '8_normal', '8_ultra'];
+      const badRates = { ...banner.rarityRates };
+      const firstKey = keys[0];
+      badRates[firstKey] = (badRates[firstKey] || 0) / 2; // halved
+
       const badBanner: Banner = {
         ...banner,
-        rarityRates: {
-          '8_ultra': 3.0,
-          '8_normal': 5.0,
-          '7_ultra': 22.0,
-          '7_normal': 50.0, // Sum = 80
-        },
+        rarityRates: badRates,
       };
       const validation = validateBannerConfig(badBanner, pool);
       return !validation.isValid && validation.errors.some(e => e.includes('must sum to 100%'));
@@ -271,11 +251,15 @@ export function runEngineUnitTests(banner: Banner, pool: (Ranger | Gear)[]): Tes
   assertTest(
     'Invalid config: Featured exceeds rarity rate detection',
     () => {
+      if (pool.length === 0) return false;
+      const sampleItem = pool[0];
+      const rarityRate = banner.rarityRates[sampleItem.rarity] || 0;
+
       const badBanner: Banner = {
         ...banner,
-        featuredItems: ['u1598e-clark'],
+        featuredItems: [sampleItem.id],
         featuredRates: {
-          'u1598e-clark': 6.0, // Exceeds 8_normal rate of 5.0%
+          [sampleItem.id]: rarityRate + 10.0, // Exceeds rarity rate
         },
       };
       const validation = validateBannerConfig(badBanner, pool);
