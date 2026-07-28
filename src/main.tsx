@@ -10,6 +10,7 @@ import GearGacha from './pages/GearGacha';
 import Collection from './pages/Collection';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
+import DevTesting from './pages/DevTesting';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route path="collection" element={<Collection />} />
           <Route path="statistics" element={<Statistics />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="dev" element={<DevTesting />} />
         </Route>
       </Routes>
     </BrowserRouter>

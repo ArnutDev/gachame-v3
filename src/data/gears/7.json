@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "Name": "Leonard's Mighty Toolbox",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_007_icon.png",
+    "ItemCode": "eq_acc_evt_007"
+  },
+  {
+    "Name": "Leonard's Delicate Device",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_017_icon.png",
+    "ItemCode": "eq_acc_evt_017"
+  },
+  {
+    "Name": "Leonard's Smart Pen",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_027_icon.png",
+    "ItemCode": "eq_acc_evt_027"
+  },
+  {
+    "Name": "Leonard's Mighty Helmet",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_007_icon.png",
+    "ItemCode": "eq_amr_evt_007"
+  },
+  {
+    "Name": "Leonard's Swift Pants",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_017_icon.png",
+    "ItemCode": "eq_amr_evt_017"
+  },
+  {
+    "Name": "Leonard's Ingenious Outfit",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_027_icon.png",
+    "ItemCode": "eq_amr_evt_027"
+  },
+  {
+    "Name": "Leonard's Mighty Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_007_icon.png",
+    "ItemCode": "eq_wpn_evt_007"
+  },
+  {
+    "Name": "Leonard's Swift Gun",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_017_icon.png",
+    "ItemCode": "eq_wpn_evt_017"
+  },
+  {
+    "Name": "Leonard's Ingenious Pliers",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_027_icon.png",
+    "ItemCode": "eq_wpn_evt_027"
+  }
+]

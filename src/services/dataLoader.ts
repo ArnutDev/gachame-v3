@@ -6,12 +6,14 @@ import {
   RangerRarity,
   GearRarity,
   RangerType,
+  Banner,
 } from '../types';
 
 // Dynamically discover all JSON files inside src/data folder using Vite glob imports
 const baseRangerFiles = import.meta.glob('/src/data/rangers/*.json');
 const baseGearFiles = import.meta.glob('/src/data/gears/*.json');
 const eventFiles = import.meta.glob('/src/data/events/**/*.json');
+const bannerFiles = import.meta.glob('/src/data/banners.json');
 
 export interface ValidationResult {
   isValid: boolean;
@@ -265,4 +267,26 @@ export async function loadCombinedGears(rarity: GearRarity, event?: string): Pro
   });
 
   return Array.from(uniqueGearsMap.values());
+}
+
+/**
+ * Loads the active banners configuration.
+ */
+export async function loadBanners(): Promise<Banner[]> {
+  const fileKey = '/src/data/banners.json';
+  const resolver = bannerFiles[fileKey];
+  if (!resolver) {
+    return [];
+  }
+  try {
+    const module = await resolver();
+    const data = (module as { default: unknown }).default;
+    if (!Array.isArray(data)) {
+      throw new Error('Banners configuration must be an array');
+    }
+    return data as Banner[];
+  } catch (error) {
+    console.error('Error loading banners:', error);
+    throw error;
+  }
 }

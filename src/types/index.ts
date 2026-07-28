@@ -65,6 +65,7 @@ export interface Banner {
   startDate: string; // ISO date format or YYYY-MM-DD
   endDate: string; // ISO date format or YYYY-MM-DD
   rarityRates: Record<RangerRarity | GearRarity, number>; // Rarity probability distribution
+  event?: string; // Optional event directory associated with this banner
 }
 
 /**

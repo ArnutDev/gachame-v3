@@ -1,1 +1,212 @@
-[]
+[
+  {
+    "Name": "Angel Wing Ring",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0006_icon.png",
+    "ItemCode": "eq_acc_0006"
+  },
+  {
+    "Name": "Guardian Medal",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0016_icon.png",
+    "ItemCode": "eq_acc_0016"
+  },
+  {
+    "Name": "Invincible Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0026_icon.png",
+    "ItemCode": "eq_acc_0026"
+  },
+  {
+    "Name": "Angel Wing Key",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0036_icon.png",
+    "ItemCode": "eq_acc_0036"
+  },
+  {
+    "Name": "Black Pearl Bracelet",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0046_icon.png",
+    "ItemCode": "eq_acc_0046"
+  },
+  {
+    "Name": "Angel Wing Necklace",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0056_icon.png",
+    "ItemCode": "eq_acc_0056"
+  },
+  {
+    "Name": "Angel Wing Earrings",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0066_icon.png",
+    "ItemCode": "eq_acc_0066"
+  },
+  {
+    "Name": "Destiny Watch",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0076_icon.png",
+    "ItemCode": "eq_acc_0076"
+  },
+  {
+    "Name": "Dark Wing Purse",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0086_icon.png",
+    "ItemCode": "eq_acc_0086"
+  },
+  {
+    "Name": "Dark Mage's Bead",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0096_icon.png",
+    "ItemCode": "eq_acc_0096"
+  },
+  {
+    "Name": "Glorious Tear Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0106_icon.png",
+    "ItemCode": "eq_acc_0106"
+  },
+  {
+    "Name": "Queen Sally's Brooch",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_016_icon.png",
+    "ItemCode": "eq_acc_evt_016"
+  },
+  {
+    "Name": "Shu Military Tactics",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_066_icon.png",
+    "ItemCode": "eq_acc_evt_066"
+  },
+  {
+    "Name": "Lodger's Brew",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_086_icon.png",
+    "ItemCode": "eq_acc_evt_086"
+  },
+  {
+    "Name": "Heart Crown",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0006_icon.png",
+    "ItemCode": "eq_amr_0006"
+  },
+  {
+    "Name": "Peace Mask",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0016_icon.png",
+    "ItemCode": "eq_amr_0016"
+  },
+  {
+    "Name": "Sacred Armor",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0026_icon.png",
+    "ItemCode": "eq_amr_0026"
+  },
+  {
+    "Name": "Cloud Wing Helmet",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0036_icon.png",
+    "ItemCode": "eq_amr_0036"
+  },
+  {
+    "Name": "Cloud Wing Shoes",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0046_icon.png",
+    "ItemCode": "eq_amr_0046"
+  },
+  {
+    "Name": "Dark God Coat",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0056_icon.png",
+    "ItemCode": "eq_amr_0056"
+  },
+  {
+    "Name": "Guardian Shield",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0066_icon.png",
+    "ItemCode": "eq_amr_0066"
+  },
+  {
+    "Name": "Cloud Wing Glasses",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0076_icon.png",
+    "ItemCode": "eq_amr_0076"
+  },
+  {
+    "Name": "Dark God Gloves",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0086_icon.png",
+    "ItemCode": "eq_amr_0086"
+  },
+  {
+    "Name": "Dark God Shorts",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0096_icon.png",
+    "ItemCode": "eq_amr_0096"
+  },
+  {
+    "Name": "Commander Coat",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0106_icon.png",
+    "ItemCode": "eq_amr_0106"
+  },
+  {
+    "Name": "Queen Sally's Glove",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_016_icon.png",
+    "ItemCode": "eq_amr_evt_016"
+  },
+  {
+    "Name": "Liu Bei's Clothing",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_066_icon.png",
+    "ItemCode": "eq_amr_evt_066"
+  },
+  {
+    "Name": "Zhang Fei's Boot",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_086_icon.png",
+    "ItemCode": "eq_amr_evt_086"
+  },
+  {
+    "Name": "Dark Black Sword",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0006_icon.png",
+    "ItemCode": "eq_wpn_0006"
+  },
+  {
+    "Name": "Dark Mage Staff",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0016_icon.png",
+    "ItemCode": "eq_wpn_0016"
+  },
+  {
+    "Name": "Moon Magic Wand",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0026_icon.png",
+    "ItemCode": "eq_wpn_0026"
+  },
+  {
+    "Name": "Planet Sniper",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0036_icon.png",
+    "ItemCode": "eq_wpn_0036"
+  },
+  {
+    "Name": "Guardian Bow",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0046_icon.png",
+    "ItemCode": "eq_wpn_0046"
+  },
+  {
+    "Name": "Dark God Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0056_icon.png",
+    "ItemCode": "eq_wpn_0056"
+  },
+  {
+    "Name": "Clover Boomerang",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0066_icon.png",
+    "ItemCode": "eq_wpn_0066"
+  },
+  {
+    "Name": "Devil Tail Whip",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0076_icon.png",
+    "ItemCode": "eq_wpn_0076"
+  },
+  {
+    "Name": "Lava Blade Saw",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0086_icon.png",
+    "ItemCode": "eq_wpn_0086"
+  },
+  {
+    "Name": "Galaxy Broom",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0096_icon.png",
+    "ItemCode": "eq_wpn_0096"
+  },
+  {
+    "Name": "Glorious Magic Wand",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0106_icon.png",
+    "ItemCode": "eq_wpn_0106"
+  },
+  {
+    "Name": "Queen Sally's Magic Wand",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_016_icon.png",
+    "ItemCode": "eq_wpn_evt_016"
+  },
+  {
+    "Name": "Liu Bei's Sword Set",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_066_icon.png",
+    "ItemCode": "eq_wpn_evt_066"
+  },
+  {
+    "Name": "Zhang Fei's Snake Pike",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_086_icon.png",
+    "ItemCode": "eq_wpn_evt_086"
+  }
+]

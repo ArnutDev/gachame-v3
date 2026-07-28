@@ -1,0 +1,51 @@
+[
+  {
+    "id": "collab_boost_2026_08",
+    "name": "2026-08 Ranger Collab Banner",
+    "type": "boost",
+    "event": "2026-08",
+    "featuredItems": ["u1602e-sh", "u202608a1"],
+    "featuredRates": {
+      "u1602e-sh": 0.88,
+      "u202608a1": 1.2
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    }
+  },
+  {
+    "id": "gear_9star_rateup",
+    "name": "9★ Gear Rate Up Banner",
+    "type": "gear",
+    "event": "2026-08",
+    "featuredItems": ["eq_2606_acc_08"],
+    "featuredRates": {
+      "eq_2606_acc_08": 0.4
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 0,
+      "8_normal": 0,
+      "7_ultra": 0,
+      "7_normal": 0,
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  }
+]

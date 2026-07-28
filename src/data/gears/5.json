@@ -1,1 +1,167 @@
-[]
+[
+  {
+    "Name": "Thunder Ring",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0005_icon.png",
+    "ItemCode": "eq_acc_0005"
+  },
+  {
+    "Name": "Bravery Medal",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0015_icon.png",
+    "ItemCode": "eq_acc_0015"
+  },
+  {
+    "Name": "Pirate Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0025_icon.png",
+    "ItemCode": "eq_acc_0025"
+  },
+  {
+    "Name": "Cupid's Key",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0035_icon.png",
+    "ItemCode": "eq_acc_0035"
+  },
+  {
+    "Name": "Ribbon Bracelet",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0045_icon.png",
+    "ItemCode": "eq_acc_0045"
+  },
+  {
+    "Name": "Butterfly Necklace",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0055_icon.png",
+    "ItemCode": "eq_acc_0055"
+  },
+  {
+    "Name": "Butterfly Earrings",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0065_icon.png",
+    "ItemCode": "eq_acc_0065"
+  },
+  {
+    "Name": "Skull Watch",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0075_icon.png",
+    "ItemCode": "eq_acc_0075"
+  },
+  {
+    "Name": "Night Sky Purse",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0085_icon.png",
+    "ItemCode": "eq_acc_0085"
+  },
+  {
+    "Name": "Hell Bead",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0095_icon.png",
+    "ItemCode": "eq_acc_0095"
+  },
+  {
+    "Name": "Gold Hero Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_0105_icon.png",
+    "ItemCode": "eq_acc_0105"
+  },
+  {
+    "Name": "Magician's Hat",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0005_icon.png",
+    "ItemCode": "eq_amr_0005"
+  },
+  {
+    "Name": "Robotic Mask",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0015_icon.png",
+    "ItemCode": "eq_amr_0015"
+  },
+  {
+    "Name": "Phoenix Armor",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0025_icon.png",
+    "ItemCode": "eq_amr_0025"
+  },
+  {
+    "Name": "Skull Fire Helmet",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0035_icon.png",
+    "ItemCode": "eq_amr_0035"
+  },
+  {
+    "Name": "Phoenix Shoes",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0045_icon.png",
+    "ItemCode": "eq_amr_0045"
+  },
+  {
+    "Name": "Midnight Robe",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0055_icon.png",
+    "ItemCode": "eq_amr_0055"
+  },
+  {
+    "Name": "Chaos Shield",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0065_icon.png",
+    "ItemCode": "eq_amr_0065"
+  },
+  {
+    "Name": "Phoenix Glasses",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0075_icon.png",
+    "ItemCode": "eq_amr_0075"
+  },
+  {
+    "Name": "Phoenix Gloves",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0085_icon.png",
+    "ItemCode": "eq_amr_0085"
+  },
+  {
+    "Name": "Midnight Shorts",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0095_icon.png",
+    "ItemCode": "eq_amr_0095"
+  },
+  {
+    "Name": "Classic Gold Deco Coat",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_0105_icon.png",
+    "ItemCode": "eq_amr_0105"
+  },
+  {
+    "Name": "Crystal Sword",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0005_icon.png",
+    "ItemCode": "eq_wpn_0005"
+  },
+  {
+    "Name": "Parrot Staff",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0015_icon.png",
+    "ItemCode": "eq_wpn_0015"
+  },
+  {
+    "Name": "Cupid's Magic Wand",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0025_icon.png",
+    "ItemCode": "eq_wpn_0025"
+  },
+  {
+    "Name": "Fire Magnum",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0035_icon.png",
+    "ItemCode": "eq_wpn_0035"
+  },
+  {
+    "Name": "Dark Crow Bow",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0045_icon.png",
+    "ItemCode": "eq_wpn_0045"
+  },
+  {
+    "Name": "Skull Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0055_icon.png",
+    "ItemCode": "eq_wpn_0055"
+  },
+  {
+    "Name": "Lightning Boomerang",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0065_icon.png",
+    "ItemCode": "eq_wpn_0065"
+  },
+  {
+    "Name": "Lightning Whip",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0075_icon.png",
+    "ItemCode": "eq_wpn_0075"
+  },
+  {
+    "Name": "Electric Saw",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0085_icon.png",
+    "ItemCode": "eq_wpn_0085"
+  },
+  {
+    "Name": "Lightning Broom",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0095_icon.png",
+    "ItemCode": "eq_wpn_0095"
+  },
+  {
+    "Name": "Legendary Wind Axe",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_0105_icon.png",
+    "ItemCode": "eq_wpn_0105"
+  }
+]
