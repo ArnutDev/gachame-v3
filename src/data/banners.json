@@ -26,9 +26,17 @@
     "name": "9★ Gear Rate Up Banner",
     "type": "gear",
     "event": "2026-08",
-    "featuredItems": ["eq_2606_acc_08"],
+    "featuredItems": [
+      "eq_9star_xxx_01",
+      "eq_8star_xxx_01",
+      "eq_7star_xxx_01",
+      "eq_6star_xxx_01"
+    ],
     "featuredRates": {
-      "eq_2606_acc_08": 0.4
+      "eq_9star_xxx_01": 0.4,
+      "eq_8star_xxx_01": 0.3,
+      "eq_7star_xxx_01": 0.6,
+      "eq_6star_xxx_01": 20
     },
     "active": true,
     "startDate": "2026-08-01",
