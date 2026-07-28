@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>บันทึกการทำงาน - GachaMe Data Loader Setup</title>
+    <title>บันทึกการทำงาน - GachaMe Engine Setup</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -92,31 +92,29 @@
   <body>
     <div class="container">
       <span class="badge">เสร็จสิ้นภารกิจ</span>
-      <h1>บันทึกสรุปการติดตั้ง Data Loading & Validation Utilities</h1>
+      <h1>บันทึกสรุปการพัฒนา Gacha Engine</h1>
       
-      <p>ได้ทำการติดตั้งฟังก์ชันยูทิลิตี้สำหรับโหลดและตรวจสอบความถูกต้องของโครงสร้างไฟล์ JSON ข้อมูลเกม (Rangers & Gears) ตามข้อกำหนดใน <code>docs/json-schema.md</code> ปราศจากขั้นตอนการสุ่มใดๆ เรียบร้อยแล้ว รายละเอียดมีดังนี้:</p>
+      <p>ได้ทำการพัฒนาโมดูลตัวคำนวณการสุ่มกาชา (Gacha Engine) ในไฟล์ <code>src/engine/gachaEngine.ts</code> ตามขั้นตอนขั้นตอนวิธี (Algorithm) ที่ระบุในเอกสาร <code>docs/probability-engine.md</code> โดยแยกส่วนการทำงานออกจากกันอย่างอิสระและเป็นอิสระจาก React โดยสิ้นเชิง เรียบร้อยแล้ว รายละเอียดมีดังนี้:</p>
 
-      <h2>1. ยูทิลิตี้ดาวน์โหลดและตรวจสอบข้อมูล (DataLoader Utility)</h2>
-      <p>เขียนไว้ในไฟล์ <code>src/services/dataLoader.ts</code> โดยรองรับการโหลดข้อมูลแบบ dynamic:</p>
+      <h2>1. สถาปัตยกรรมการแยกส่วนของฟังก์ชันการสุ่ม (Decoupled Engine Logic)</h2>
       <ul>
-        <li><code>validateRangerRaw</code> &amp; <code>validateGearRaw</code>: ทำหน้าที่ตรวจสอบว่าข้อมูล JSON เป็น Array, อ็อบเจกต์ภายในไม่มีฟิลด์ที่ว่างเปล่า (Name, Image, UnitCode/ItemCode) และไม่มีรหัสไอดีที่ซ้ำซ้อนกันในชุดข้อมูล</li>
-        <li><code>loadBaseRangers</code> &amp; <code>loadBaseGears</code>: โหลดข้อมูลถาวรเริ่มต้น (Base Data) จากโฟลเดอร์ <code>src/data/</code> โดยอ้างอิงระดับความหายาก (Rarity)</li>
-        <li><code>loadEventRangers</code> &amp; <code>loadEventGears</code>: โหลดข้อมูลเฉพาะช่วงเวลาอีเวนต์ (Event Data) จากโฟลเดอร์ตามรูปแบบ <code>events/YYYY-MM/</code></li>
-        <li><code>loadCombinedRangers</code> &amp; <code>loadCombinedGears</code>: ประมวลผลและรวมชุดข้อมูล Base Data เข้ากับ Event Data เพื่อสร้างข้อมูลสำเร็จรูปสำหรับนำไปประยุกต์ใช้ในตู้สุ่มและ UI</li>
+        <li><code>validateBannerConfig</code>: ทำหน้าที่ตรวจสอบแบนเนอร์กาชาก่อนการสุ่ม (เช่น อัตราสุ่มรวมต้องได้ 100% พอดี, ไอเทมพรีเจอร์ต้องอยู่ในฐานข้อมูล, อัตราสุ่มไอเทมฟีเจอร์ต้องไม่เกินเพดานของความหายากนั้นๆ)</li>
+        <li><code>generatePoolByRarity</code>: แยกประชากรไอเทมในตู้กาชาออกเป็นกลุ่มย่อยตามระดับความหายาก (Stage 1.1 Pool Generation)</li>
+        <li><code>selectRarity</code>: สุ่มหาความหายากที่จะได้รับตามสัดส่วนของตู้ (Stage 1 Selection)</li>
+        <li><code>calculateItemProbabilities</code>: คำนวณความน่าจะเป็นของไอเทมย่อยแบบ Dynamic โดยคิดสัดส่วนไอเทมฟีเจอร์และเฉลี่ยสัดส่วนอัตราที่เหลือให้กับไอเทมปกติเท่าๆ กัน (Remaining Rate Distribution Formula)</li>
+        <li><code>selectItem</code>: สุ่มเลือกไอเทมปลายทางจากรายการความหายากตามความน่าจะเป็นที่คำนวณไว้ข้างต้น (Stage 2 Selection)</li>
+        <li><code>rollGacha</code> / <code>rollMultiGacha</code>: ฟังก์ชันประมวลผลกระบวนการสุ่มกาชา 1 ครั้ง หรือการสุ่มพร้อมกันทีละหลายครั้ง</li>
       </ul>
 
-      <h2>2. ไฟล์ข้อมูล JSON จำลองที่สร้างขึ้น (Mock JSON Data Files)</h2>
-      <p>สร้างโครงสร้างไฟล์ตามมาตรฐานเพื่อให้ระบบโหลดไปใช้งานและพร้อมทดสอบ:</p>
-      <div class="file-list">
-        src/data/rangers/7-normal.json, 7-ultra.json, 8-normal.json, 8-ultra.json<br />
-        src/data/gears/5.json, 6.json, 7.json, 8.json, 9.json<br />
-        src/data/events/2026-08/rangers/8-normal.json, 8-ultra.json<br />
-        src/data/events/2026-08/gears/9.json
-      </div>
-
-      <h2>3. การตรวจสอบความเรียบร้อย</h2>
+      <h2>2. สถาปัตยกรรมทางเทคนิค (Technical Details)</h2>
       <ul>
-        <li>การรันคำสั่ง <code>npm run build</code> ผ่านการตรวจสอบของ TypeScript Strict Mode ได้สมบูรณ์และถูกต้อง</li>
+        <li><b>ไม่มีความเกี่ยวข้องกับ React</b>: ทุกฟังก์ชันเป็น Vanilla TypeScript ที่รับค่าพารามิเตอร์และคืนผลลัพธ์เป็นข้อมูลดิบ สามารถนำไปทดสอบ (Unit Test) หรือนำไปเชื่อมโยงกับ Framework อื่นๆ ได้ง่าย</li>
+        <li><b>รองรับการทำ Deterministic</b>: ทุกฟังก์ชันสุ่มรองรับการส่งฟังก์ชัน <code>randomFn</code> เข้ามาทดแทน <code>Math.random()</code> เพื่อจำลองค่าการทดสอบที่ควบคุมและทำนายผลลัพธ์ได้อย่างแม่นยำ</li>
+      </ul>
+
+      <h2>3. การทดสอบและการตรวจสอบความถูกต้อง</h2>
+      <ul>
+        <li>รันคำสั่ง <code>npm run build</code> แล้ว บิลด์โปรเจกต์ผ่านการตรวจสอบอย่างละเอียดของ TypeScript Compiler โดยไม่มีข้อผิดพลาด</li>
       </ul>
     </div>
   </body>
