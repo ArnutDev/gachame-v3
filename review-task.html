@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>บันทึกการทำงาน - GachaMe Routing Setup</title>
+    <title>บันทึกการทำงาน - GachaMe TypeScript Types Setup</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -92,30 +92,31 @@
   <body>
     <div class="container">
       <span class="badge">เสร็จสิ้นภารกิจ</span>
-      <h1>บันทึกสรุปการจัดทำระบบ Routing ใน GachaMe</h1>
+      <h1>บันทึกสรุปการจัดทำ TypeScript Type Definitions</h1>
       
-      <p>ได้ทำการติดตั้งระบบการนำทาง (Routing) โดยใช้ <code>react-router-dom</code> และสร้างหน้าว่างของแต่ละเพจเรียบร้อยแล้ว รายละเอียดมีดังนี้:</p>
+      <p>ได้ทำการประกาศประเภทตัวแปร TypeScript ทั้งหมดตามรูปแบบที่ระบุใน <code>docs/json-schema.md</code>, <code>docs/data-format.md</code> และ <code>docs/probability-engine.md</code> โดยปราศจากการเขียนลอจิกการทำงานใดๆ เรียบร้อยแล้ว รายละเอียดมีดังนี้:</p>
 
-      <h2>1. หน้าเพจเริ่มต้นที่ถูกสร้างขึ้น (Placeholder Pages)</h2>
-      <p>สร้าง Component เปล่าสำหรับแสดงผลเฉพาะหัวข้อของหน้าเพจ (Page Title) ภายใต้ <code>src/pages/</code>:</p>
+      <h2>1. โครงสร้างข้อมูลที่ออกแบบและสร้างขึ้น (TypeScript Types/Interfaces)</h2>
+      <p>เขียนไว้ในไฟล์ <code>src/types/index.ts</code>:</p>
       <ul>
-        <li><code>Home.tsx</code>: หน้าแรกแสดงผล "Home"</li>
-        <li><code>RangerGacha.tsx</code>: หน้าสำหรับสุ่มเรนเจอร์แสดงผล "Ranger Gacha"</li>
-        <li><code>GearGacha.tsx</code>: หน้าสำหรับสุ่มอุปกรณ์แสดงผล "Gear Gacha"</li>
-        <li><code>Collection.tsx</code>: หน้าแสดงสมุดสะสมไอเทมแสดงผล "Collection"</li>
-        <li><code>Statistics.tsx</code>: หน้าแสดงสถิติการสุ่มแสดงผล "Statistics"</li>
-        <li><code>Settings.tsx</code>: หน้าตั้งค่าระบบจำลองแสดงผล "Settings"</li>
+        <li><code>RangerRaw</code>: รูปแบบอ็อบเจกต์เรนเจอร์ดิบ (Name, Image, UnitCode) ตามที่มีระบุในฐานไฟล์ JSON</li>
+        <li><code>GearRaw</code>: รูปแบบอ็อบเจกต์อุปกรณ์ดิบ (Name, Image, ItemCode) ตามที่มีระบุในฐานไฟล์ JSON</li>
+        <li><code>Ranger</code>: โครงสร้างข้อมูลเรนเจอร์ที่เสร็จสมบูรณ์สำหรับการใช้งานในระบบและแสดงผล (มีฟิลด์ id, name, rarity, type, image, event, releaseDate)</li>
+        <li><code>Gear</code>: โครงสร้างข้อมูลอุปกรณ์ที่เสร็จสมบูรณ์สำหรับการใช้งานในระบบและแสดงผล (มีฟิลด์ id, name, rarity, image, event)</li>
+        <li><code>Banner</code>: โครงสร้างการตั้งค่าตู้สุ่มกาชา (มีฟิลด์เกี่ยวกับตู้สุ่ม เช่น featuredItems, featuredRates, rarityRates, Active Status และวันเวลา)</li>
+        <li><code>RangerRarity</code>, <code>RangerType</code>, <code>GearRarity</code>, <code>BannerType</code>: Union types กำหนดขอบเขตค่าตัวแปรตามข้อกำหนด</li>
+        <li><code>GachaPullRequest</code>, <code>GachaRollOutcome</code>: โครงสร้างสำหรับการรับส่งข้อมูลในระหว่างกระบวนการคำนวณการสุ่มกาชา</li>
       </ul>
 
-      <h2>2. การตั้งค่าระบบ Routing และเมนูนำทาง</h2>
-      <ul>
-        <li>อัปเดตไฟล์ <code>src/main.tsx</code> เพื่อกำหนด <code>BrowserRouter</code>, <code>Routes</code> และ <code>Route</code></li>
-        <li>สร้าง Layout หลักที่มีเมนูนำทาง (Navigation Bar) ซึ่งใช้ <code>NavLink</code> ช่วยให้กดเปลี่ยนหน้าต่างๆ และดึงเนื้อหามาแสดงผลผ่าน <code>Outlet</code> ได้ทันที</li>
-      </ul>
+      <h2>2. ไฟล์ที่ถูกสร้างใหม่</h2>
+      <div class="file-list">
+        src/types/index.ts (เก็บ Interface และ Type Definitions ทั้งหมดของระบบกาชา)
+      </div>
 
-      <h2>3. การตรวจสอบความถูกต้อง</h2>
+      <h2>3. การทดสอบและการตรวจสอบความถูกต้อง</h2>
       <ul>
-        <li>ทดสอบการคอมไพล์ซอร์สโค้ดและบิลด์โปรเจกต์ผ่านคำสั่ง <code>npm run build</code> พบว่าไม่มีข้อผิดพลาดทางด้าน TypeScript หรือ Vite</li>
+        <li>ตรวจสอบโครงสร้าง Type ต่างๆ ว่าตรงตามที่ JSON Schema กำหนดทุกประการ</li>
+        <li>รันคำสั่งตรวจสอบการคอมไพล์โปรเจกต์ <code>npm run build</code> แล้ว สามารถผ่านการตรวจสอบแบบ Strict Mode ได้ 100% ไม่มีข้อผิดพลาด</li>
       </ul>
     </div>
   </body>

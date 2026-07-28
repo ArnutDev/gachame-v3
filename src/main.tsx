@@ -1,32 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, NavLink, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 
+import Layout from './components/Layout';
 import Home from './pages/Home';
 import RangerGacha from './pages/RangerGacha';
 import GearGacha from './pages/GearGacha';
 import Collection from './pages/Collection';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
-
-const Layout = () => {
-  return (
-    <div>
-      <nav style={{ display: 'flex', gap: '1rem', padding: '1rem', borderBottom: '1px solid var(--border-color)' }}>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/ranger-gacha">Ranger Gacha</NavLink>
-        <NavLink to="/gear-gacha">Gear Gacha</NavLink>
-        <NavLink to="/collection">Collection</NavLink>
-        <NavLink to="/statistics">Statistics</NavLink>
-        <NavLink to="/settings">Settings</NavLink>
-      </nav>
-      <main style={{ padding: '2rem' }}>
-        <Outlet />
-      </main>
-    </div>
-  );
-};
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
