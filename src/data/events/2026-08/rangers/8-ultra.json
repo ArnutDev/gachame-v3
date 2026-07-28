@@ -1,7 +1,22 @@
 [
   {
-    "Name": "Ultra Clark",
-    "Image": "https://gachame.github.io/images/rangers/u1598u-clark-thum.png",
-    "UnitCode": "u1598u-clark"
+    "Name": "Class 1-1 Prez. Haruka",
+    "Image": "https://gachame.github.io/images/rangers/u1602u-sh-thum.png",
+    "UnitCode": "u1602u-sh"
+  },
+  {
+    "Name": "Bofurin Leader Hajime",
+    "Image": "https://gachame.github.io/images/rangers/u1604u-uh-thum.png",
+    "UnitCode": "u1604u-uh"
+  },
+  {
+    "Name": "Class 1-1 V.P. Hayato",
+    "Image": "https://gachame.github.io/images/rangers/u1606u-sh-thum.png",
+    "UnitCode": "u1606u-sh"
+  },
+  {
+    "Name": "Tamon Y2 Leader Ren Kaji",
+    "Image": "https://gachame.github.io/images/rangers/u1608u-kr-thum.png",
+    "UnitCode": "u1608u-kr"
   }
 ]

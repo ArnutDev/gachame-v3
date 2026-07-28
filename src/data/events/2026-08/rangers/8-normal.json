@@ -1,12 +1,22 @@
 [
   {
-    "Name": "Event Ranger A1",
-    "Image": "https://gachame.github.io/images/rangers/u202608a1-thum.png",
-    "UnitCode": "u202608a1"
+    "Name": "Haruka",
+    "Image": "https://gachame.github.io/images/rangers/u1602e-sh-thum.png",
+    "UnitCode": "u1602e-sh"
   },
   {
-    "Name": "Clark",
-    "Image": "https://gachame.github.io/images/rangers/u1598e-clark-thum.png",
-    "UnitCode": "u1598e-clark"
+    "Name": "Hajime",
+    "Image": "https://gachame.github.io/images/rangers/u1604e-uh-thum.png",
+    "UnitCode": "u1604e-uh"
+  },
+  {
+    "Name": "Hayato",
+    "Image": "https://gachame.github.io/images/rangers/u1606e-sh-thum.png",
+    "UnitCode": "u1606e-sh"
+  },
+  {
+    "Name": "Ren Kaji",
+    "Image": "https://gachame.github.io/images/rangers/u1608e-kr-thum.png",
+    "UnitCode": "u1608e-kr"
   }
 ]
