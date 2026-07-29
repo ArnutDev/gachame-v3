@@ -23,7 +23,7 @@ export function validateBannerConfig(
   const errors: string[] = [];
 
   // 1. Rarity totals must sum to 100%
-  const isGearBanner = banner.type === 'gear';
+  const isGearBanner = banner.type === 'gear' || banner.type === 'gear_boost';
   const relevantRarities: (RangerRarity | GearRarity)[] = isGearBanner
     ? ['5', '6', '7', '8', '9']
     : ['7_normal', '7_ultra', '8_normal', '8_ultra'];

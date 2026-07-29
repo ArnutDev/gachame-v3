@@ -3,7 +3,7 @@ export type RangerType = 'normal' | 'collab' | 'limited';
 
 export type GearRarity = '5' | '6' | '7' | '8' | '9';
 
-export type BannerType = 'normal' | 'boost' | 'collaboration' | 'gear' | 'limited';
+export type BannerType = 'normal' | 'boost' | 'gear' | 'gear_boost';
 
 /**
  * Raw Ranger structure parsed from base and event JSON files.
@@ -84,4 +84,31 @@ export interface GachaRollOutcome {
   rarity: RangerRarity | GearRarity;
   isFeatured: boolean;
   rollIndex: number;
+}
+
+export interface PullRecord {
+  id: string; // Unique identifier for each pull record
+  timestamp: number;
+  bannerId: string;
+  bannerName: string;
+  itemId: string;
+  itemName: string;
+  itemImage: string;
+  rarity: RangerRarity | GearRarity;
+  isFeatured: boolean;
+  itemType: 'ranger' | 'gear';
+}
+
+export interface UserSettings {
+  animationSpeed: 'normal' | 'fast' | 'skip';
+  soundEnabled: boolean;
+  theme: 'dark' | 'light';
+}
+
+export interface GachaState {
+  selectedBannerId: string | null;
+  pullHistory: PullRecord[];
+  ownedRangers: Record<string, number>; // Maps UnitCode to quantity owned
+  ownedGears: Record<string, number>; // Maps ItemCode to quantity owned
+  settings: UserSettings;
 }
