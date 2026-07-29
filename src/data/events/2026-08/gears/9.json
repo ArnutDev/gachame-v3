@@ -1,17 +1,17 @@
 [
   {
-    "Name": "Suo's Earrings-test1",
-    "Image": "https://gachame.github.io/images/gears/eq_2606_acc_08_icon.png",
+    "Name": "gear9star_1",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_28_icon.png",
     "ItemCode": "eq_9star_xxx_01"
   },
   {
-    "Name": "Suo's Earrings-test2",
-    "Image": "https://gachame.github.io/images/gears/eq_2606_acc_08_icon.png",
+    "Name": "gear9star_2",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_18_icon.png",
     "ItemCode": "eq_9star_xxx_02"
   },
   {
-    "Name": "Suo's Earrings-test3",
-    "Image": "https://gachame.github.io/images/gears/eq_2606_acc_08_icon.png",
+    "Name": "gear9star_3",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_08_icon.png",
     "ItemCode": "eq_9star_xxx_03"
   }
 ]

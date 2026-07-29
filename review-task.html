@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>บันทึกสรุปงานล่าสุด (Latest Task Review)</title>
+    <title>สรุปความคืบหน้า GachaMe (Task Review Summary)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -17,7 +17,6 @@
         --border-color: rgba(255, 255, 255, 0.1);
         --success-color: #2ec4b6;
       }
-      
       body {
         margin: 0;
         padding: 2rem;
@@ -27,9 +26,8 @@
         display: flex;
         justify-content: center;
       }
-
       .container {
-        max-width: 800px;
+        max-width: 700px;
         width: 100%;
         background-color: var(--card-bg);
         border: 1px solid var(--border-color);
@@ -37,39 +35,25 @@
         padding: 2.5rem;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       }
-
       h1 {
         font-family: 'Outfit', 'Sarabun', sans-serif;
         color: var(--accent-color);
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin-top: 0;
         border-bottom: 2px solid var(--border-color);
         padding-bottom: 1rem;
       }
-
       h2 {
         font-family: 'Outfit', 'Sarabun', sans-serif;
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         color: var(--success-color);
-        margin-top: 2rem;
-        border-left: 4px solid var(--success-color);
-        padding-left: 0.5rem;
+        margin-top: 1.5rem;
       }
-
-      p {
-        color: var(--text-secondary);
-        line-height: 1.6;
-      }
-
-      ul {
-        padding-left: 1.5rem;
-      }
-
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         color: var(--text-secondary);
+        line-height: 1.5;
       }
-
       .badge {
         background-color: var(--success-color);
         color: var(--bg-color);
@@ -80,56 +64,37 @@
         display: inline-block;
         margin-bottom: 1rem;
       }
-
-      .analogy-box {
-        background-color: rgba(102, 252, 241, 0.05);
-        border: 1px dashed var(--accent-color);
-        padding: 1rem;
-        border-radius: 6px;
-        margin-top: 0.75rem;
-        font-size: 0.95rem;
-      }
     </style>
   </head>
   <body>
     <div class="container">
-      <span class="badge">สรุปผลงาน Task ล่าสุด</span>
-      <h1>การพัฒนาฟีเจอร์คลังสะสมประวัติการสุ่ม (On-Page Collection History)</h1>
+      <span class="badge">Latest Version Summary</span>
+      <h1>สรุปฟีเจอร์และการปรับปรุงระบบ GachaMe</h1>
       
-      <p>ได้ทำการพัฒนาฟีเจอร์แสดงผลคลังสะสมของผู้เล่นในหน้าจอ Gacha (Ranger & Gear) โดยดึงข้อมูลและประมวลผลจาก Global State ร่วมกับข้อมูล JSON โดยตรง ทำให้ผู้เล่นเห็นประวัติของที่สุ่มได้อัปเดตแบบเรียลไทม์ โดยไม่ต้องเปลี่ยนหน้าเว็บไปมา:</p>
-
-      <h2>รายละเอียดการพัฒนาล่าสุด</h2>
+      <h2>1. หน้าจำลองการสุ่มและปุ่มกด (Gacha Simulation & Actions)</h2>
       <ul>
-        <li><b>การแยกการจัดแสดงผลลัพธ์ของสะสม (Event First Display):</b>
-          <ul>
-            <li><b>ตัวละคร/เกียร์ที่เป็นอีเวนต์ประจำเดือน:</b> จัดให้เรียงแสดงก่อนเป็นลำดับแรกสุดในรูปแบบการ์ดสวยงาม โดยแสดงรูปภาพ (ImageContainer), ชื่อ, ระดับดาว และจำนวนที่สุ่มได้สะสม</li>
-            <li><b>ตัวละคร/เกียร์ทั่วไป (ไม่ใช่อีเวนต์):</b> จัดเรียงแสดงผลต่อท้ายในรูปแบบแผงการ์ดข้อความขนาดกระชับ โดยแสดงเฉพาะชื่อระดับดาวและจำนวนสะสม **ไม่แสดงรูปภาพ** เพื่อความเป็นระเบียบและลดภาระอินเทอร์เน็ต</li>
-          </ul>
-        </li>
-        <li><b>ระบบค้นหา (Search Component):</b> พัฒนาคอมโพเนนต์พิมพ์ค้นหาชื่อตัวละคร/อุปกรณ์เกียร์ในคลังสะสมอัปเดตรีลไทม์</li>
-        <li><b>ระบบคัดกรอง (Inline Filter Tabs):</b> พัฒนาชุดปุ่มคัดกรองแบบ Inline สวยงามภายในตัวเพื่อคุมพื้นที่ ได้แก่:
-          <ul>
-            <li>คัดกรองตามความเกี่ยวข้อง: แสดงทั้งหมด / เฉพาะของอีเวนต์ / เฉพาะของทั่วไป</li>
-            <li>คัดกรองตามระดับความยาก (Rarity): เลือกกรองเฉพาะระดับดาวที่สนใจ (เช่น 8★ Ultra ของ Ranger หรือ 9★ ของตู้เกียร์)</li>
-          </ul>
-        </li>
-        <li><b>การประมวลผลแบบไร้การซ้ำซ้อน (Data Integrity):</b> ทำการอ่านและดีดูพลิเคตข้อมูลรายชื่อตัวละคร (Deduplication) ข้าม Event และ Base อัตโนมัติในตอนโหลด โดยไม่มีการก๊อปปี้หรือฝังข้อมูลจำลองดิบลงในหน้า View</li>
-        <li><b>ระบบป้ายฉลากแบนเนอร์รายเดือน (Dynamic Month-Based Tags):</b> ออกแบบระบบการอ่านประเภทตู้และเลขเดือนอย่างสมมาตรทั้ง Ranger และ Gear (โดยตัดประเภทตู้ยุบเหลือเพียง <code>normal / boost / gear / gear_boost</code> เท่านั้น) เพื่อจัดป้ายดังนี้:
-          <ul>
-            <li><b>เดือนคู่ (เช่น เดือน 8 Collab):</b> ตู้ Ranger ปกติขึ้นป้าย <b>Collab</b>, ตู้ Ranger บัฟขึ้นป้าย <b>Collab Rate-Up</b> ส่วนตู้ Gear ปกติขึ้นป้าย <b>Collab Gear</b>, ตู้ Gear บัฟขึ้นป้าย <b>Collab Gear Rate-Up</b></li>
-            <li><b>เดือนคี่:</b> ตู้ปกติของทั้ง Ranger และ Gear จะไม่ขึ้นป้ายบอกประเภทใดๆ เลย (ไม่มี Tag) และตู้บัฟ (Boost) จะขึ้นป้ายเฉพาะคำว่า <b>Rate-Up</b> เท่านั้น</li>
-          </ul>
-        </li>
-        <li><b>การอัปเดตระบบตรวจสอบโครงสร้างตู้สุ่ม (Banner Type Validator Update):</b> แก้ไขไฟล์ตรวจสอบความถูกต้องโครงสร้าง JSON (Structural Validation) ให้รองรับชุดประเภทตู้ใหม่ ส่งผลให้แอปพลิเคชันทำการโหลดฐานข้อมูลเข้าระบบ (Initialization) ได้อย่างสมบูรณ์แบบไม่มีข้อผิดพลาด</li>
-        <li><b>การเรียงลำดับตู้สุ่มปกติขึ้นก่อน (Normal Banner Priority Sorting):</b> เพิ่มคำสั่งจัดเรียงข้อมูลในระบบ View ให้ตู้สุ่มรูปแบบปกติ (Normal / Gear) อยู่ลำดับแรกสุดในรายการแบนเนอร์เสมอ ตามด้วยตู้บัฟเรตอัป (Rate-Up) เพื่อให้ผู้เล่นเลือกตู้สุ่มได้ง่ายเป็นระบบครับ</li>
+        <li><b>ปรับคำปุ่มสุ่ม:</b> เปลี่ยนจาก <code>Pull 1x</code> เป็น <code>1 times</code> และปุ่มสุ่มแบบชุดเป็น <code>6+1 times</code> (Ranger) และ <code>5+1 times</code> (Gear) รวมถึงในปุ่มหมุนซ้ำบนโมดอล</li>
+        <li><b>ปรับสไตล์ปุ่ม Reset History:</b> เปลี่ยนเป็นปุ่มสีฟ้าเรืองแสงเด่นชัดสไตล์เดียวกับปุ่มสุ่ม พร้อมเอาไอคอน <code>🔄</code> ออก</li>
+        <li><b>ปรับปรุงความชัดเจนหัวตู้สุ่ม:</b> ลบความจางและปรับสี Period (ชื่อเดือน) ให้สว่างชัดเจน พร้อมลบหัวข้อ <code>Featured Rewards (x items)</code> บนการ์ดแบนเนอร์ออกเพื่อความสะอาดตา</li>
       </ul>
 
-      <div class="analogy-box">
-        <b>ตัวอย่างเปรียบเทียบในชีวิตประจำวัน: "การจัดการอัลบั้มสติกเกอร์สะสมของเล่นหลังจากหมุนกาชาปอง"</b><br/>
-        * <b>การจัดวางแสดงผลการ์ดแบบแยกรูป/ข้อความ:</b> เปรียบเหมือนเวลาที่เรานำของเล่นที่สุ่มได้มาจัดเรียงในตู้โชว์ โดยเลือกหยิบตุ๊กตาตัวลิมิเต็ดอีเวนต์ที่หายาก [Event Rangers] มาตั้งเรียงแถวหน้าสุดพร้อมกล่องรูปภาพโชว์ความสวยงาม 
-        ส่วนตุ๊กตาหมีตัวธรรมดาทั่วไป [Base Rangers] ที่มีอยู่เยอะมากและไม่เด่น เราก็นำไปจดบันทึกเป็นรายชื่อสรุปแปะกระดาษไว้ท้ายตู้โชว์เฉยๆ เพื่อประหยัดพื้นที่ในการจัดแสดงแต่ยังสามารถตรวจสอบนับจำนวนได้<br/>
-        * <b>ช่องค้นหาและตัวกรอง:</b> เปรียบเหมือนการเปิดสมุดสารบัญเช็กรายชื่อของเล่นเพื่อค้นหาอย่างรวดเร็วโดยไม่ต้องหยิบกวาดดูทีละตัว
-      </div>
+      <h2>2. ดีไซน์และการแสดงผลการ์ดสะสม (Card & Collection Display)</h2>
+      <ul>
+        <li><b>ป้ายสถานะไดนามิก (Dynamic Tags):</b> สุ่มได้ของเด่นประจำตู้จะขึ้นป้ายสีฟ้า โดยแสดงคำว่า <code>Collab</code> สำหรับเดือนคู่ และจะเปลี่ยนสลับไปแสดงคำว่า <code>Event</code> สำหรับเดือนคี่โดยอัตโนมัติ</li>
+        <li><b>คุมสีความหายาก (Rarity Coloring):</b> ดึงแถบสีม่วงของตัว Ultra และลบวงเล็บคำว่า <code>(Ultra)</code> ด้านหลังจำนวนดาว โดยให้แสดงดาวสีเหลืองทอง <code>★</code> และข้อความระดับดาวสีเทาพรีเมียมเหมือนการ์ดระดับ 7 ดาวทั่วไปเพื่อให้การ์ดคลีนตาและไม่แย่งซีนตัวเด่น</li>
+        <li><b>ระบบเกียร์:</b> ปรับสีกราฟิกดาวของฝั่งอุปกรณ์เกียร์ให้อิงตามคู่สีเหลืองทองและเทาเช่นเดียวกับเรนเจอร์</li>
+      </ul>
+
+      <h2>3. การเคลียร์ค่าการสุ่ม (Data Reset Flow)</h2>
+      <ul>
+        <li><b>Auto-Reset on Refresh:</b> เมื่อกด Refresh หน้าจอเบราว์เซอร์ ประวัติการสุ่ม (History) และของที่ครอบครองจะถูกเคลียร์ล้างใหม่ทั้งหมดโดยอัตโนมัติ (แต่ยังคงจำตู้ล่าสุดที่เลือกไว้เหมือนเดิม)</li>
+      </ul>
+
+      <h2>4. โครงสร้างเมนูผู้พัฒนา (Developer About Page)</h2>
+      <ul>
+        <li><b>ลบเมนูเก่า:</b> ลบหน้า <code>Collection</code> และ <code>Statistics</code> ออกทั้งหมดเพื่อความเรียบง่าย</li>
+        <li><b>หน้า About:</b> เปลี่ยนแปลงเมนู Settings เดิมเป็นหน้า <b>About ของผู้พัฒนา</b> แสดงภาพ GitHub โปรไฟล์, รายละเอียด, อีเมล, และปุ่มลิงก์สไตล์สีฟ้าเรืองแสงไปยัง Google Form</li>
+      </ul>
     </div>
   </body>
 </html>

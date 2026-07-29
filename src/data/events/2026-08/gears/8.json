@@ -1,17 +1,7 @@
 [
   {
-    "Name": "Leonard's Tough Watch",
-    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_08_icon.png",
+    "Name": "gear8star_1",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_28_icon.png",
     "ItemCode": "eq_8star_xxx_01"
-  },
-  {
-    "Name": "Leonard's Quick Visor",
-    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_18_icon.png",
-    "ItemCode": "eq_8star_xxx_02"
-  },
-  {
-    "Name": "Leonard's Mysterious Syringe",
-    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_28_icon.png",
-    "ItemCode": "eq_8star_xxx_03"
   }
 ]

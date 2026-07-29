@@ -11,7 +11,7 @@ const validationErrors: string[] = [];
  * Helper to compile the entire item pool (Ranger or Gear) associated with a banner.
  */
 async function compilePoolForBanner(banner: Banner): Promise<(Ranger | Gear)[]> {
-  const isGear = banner.type === 'gear';
+  const isGear = banner.type === 'gear' || banner.type === 'gear_boost';
   if (isGear) {
     const rarities: GearRarity[] = ['5', '6', '7', '8', '9'];
     const pools = await Promise.all(

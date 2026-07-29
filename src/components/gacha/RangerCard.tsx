@@ -22,22 +22,30 @@ export default function RangerCard({
   const isCollab = ranger.type === 'collab';
 
   // Determine rarity colors for aesthetic styles
-  let rarityBorderClass = 'border-border-color';
+  let rarityBorderClass = 'border-border-color/60 hover:border-border-color/90';
   let rarityTextClass = 'text-text-secondary';
   let rarityGlowClass = '';
 
-  if (isCollab) {
+  const isEvent = !!ranger.event || isCollab;
+
+  // Parse month number to check even/odd
+  let isEvenMonth = true;
+  if (ranger.event) {
+    const parts = ranger.event.split('-');
+    if (parts.length >= 2) {
+      const month = parseInt(parts[1], 10);
+      if (!isNaN(month)) {
+        isEvenMonth = month % 2 === 0;
+      }
+    }
+  }
+
+  const eventLabel = isEvenMonth ? 'Collab' : 'Event';
+
+  if (isEvent) {
     rarityBorderClass = 'border-accent-cyan/30 hover:border-accent-cyan/60';
     rarityTextClass = 'text-accent-cyan';
     rarityGlowClass = 'shadow-md shadow-accent-cyan/5';
-  } else if (isUltra) {
-    rarityBorderClass = 'border-purple-500/30 hover:border-purple-500/60';
-    rarityTextClass = 'text-purple-400';
-    rarityGlowClass = 'shadow-md shadow-purple-500/5';
-  } else if (starCount === 8) {
-    rarityBorderClass = 'border-yellow-500/30 hover:border-yellow-500/60';
-    rarityTextClass = 'text-yellow-500';
-    rarityGlowClass = 'shadow-md shadow-yellow-500/5';
   }
 
   return (
@@ -56,13 +64,13 @@ export default function RangerCard({
       {/* Type badge (e.g. Collab / Ultra) */}
       {showTypeBadge && (
         <div className="absolute top-2 left-2 z-10 flex flex-col gap-1">
-          {isCollab && (
+          {isEvent && (
             <span className="px-1.5 py-0.5 bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-[8px] font-bold rounded uppercase tracking-wider">
-              Collab
+              {eventLabel}
             </span>
           )}
           {isUltra && (
-            <span className="px-1.5 py-0.5 bg-purple-500/10 border border-purple-500/30 text-purple-400 text-[8px] font-bold rounded uppercase tracking-wider">
+            <span className="px-1.5 py-0.5 bg-white/5 border border-white/10 text-text-secondary text-[8px] font-bold rounded uppercase tracking-wider">
               Ultra
             </span>
           )}
@@ -84,17 +92,10 @@ export default function RangerCard({
       </h4>
 
       {/* Star Rarity Display */}
-      <div className="flex items-center justify-center gap-0.5 mt-auto">
-        <span className={`text-[11px] font-bold ${rarityTextClass} mr-1`}>
-          {starCount}★
+      <div className="flex items-center justify-center mt-auto">
+        <span className={`text-[11px] font-extrabold ${rarityTextClass} flex items-center gap-0.5`}>
+          {starCount}<span className="text-yellow-500">★</span>
         </span>
-        <div className="flex text-yellow-500 text-[10px]">
-          {Array.from({ length: Math.min(starCount, 8) }).map((_, idx) => (
-            <span key={idx} className={isUltra ? 'text-purple-400' : 'text-yellow-500'}>
-              ★
-            </span>
-          ))}
-        </div>
       </div>
     </Card>
   );

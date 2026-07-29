@@ -17,29 +17,29 @@ export default function GearCard({
   const rarityNum = parseInt(gear.rarity, 10) || 5;
   const isEvent = !!gear.event;
 
+  // Parse month number to check even/odd
+  let isEvenMonth = true;
+  if (gear.event) {
+    const parts = gear.event.split('-');
+    if (parts.length >= 2) {
+      const month = parseInt(parts[1], 10);
+      if (!isNaN(month)) {
+        isEvenMonth = month % 2 === 0;
+      }
+    }
+  }
+
+  const eventLabel = isEvenMonth ? 'Collab' : 'Event';
+
   // Determine specific rarity styling classes
-  let rarityBorderClass = 'border-border-color';
+  let rarityBorderClass = 'border-border-color/60 hover:border-border-color/90';
   let rarityTextClass = 'text-text-secondary';
   let rarityGlowClass = '';
 
-  if (rarityNum === 9) {
-    rarityBorderClass = 'border-red-500/30 hover:border-red-500/60';
-    rarityTextClass = 'text-red-500';
-    rarityGlowClass = 'shadow-md shadow-red-500/5 ring-1 ring-red-500/10';
-  } else if (rarityNum === 8) {
-    rarityBorderClass = 'border-yellow-500/30 hover:border-yellow-500/60';
-    rarityTextClass = 'text-yellow-500';
-    rarityGlowClass = 'shadow-md shadow-yellow-500/5';
-  } else if (rarityNum === 7) {
-    rarityBorderClass = 'border-purple-500/30 hover:border-purple-500/60';
-    rarityTextClass = 'text-purple-400';
-    rarityGlowClass = 'shadow-md shadow-purple-500/5';
-  } else if (rarityNum === 6) {
-    rarityBorderClass = 'border-blue-500/30 hover:border-blue-500/60';
-    rarityTextClass = 'text-blue-400';
-  } else {
-    rarityBorderClass = 'border-gray-500/30 hover:border-gray-500/60';
-    rarityTextClass = 'text-gray-400';
+  if (isEvent) {
+    rarityBorderClass = 'border-accent-teal/30 hover:border-accent-teal/60';
+    rarityTextClass = 'text-accent-teal';
+    rarityGlowClass = 'shadow-md shadow-accent-teal/5';
   }
 
   return (
@@ -58,8 +58,8 @@ export default function GearCard({
       {/* Event specific tag */}
       {isEvent && (
         <div className="absolute top-2 left-2 z-10">
-          <span className="px-1.5 py-0.5 bg-accent-teal/10 border border-accent-teal/30 text-accent-teal text-[8px] font-bold rounded uppercase tracking-wider">
-            Event
+          <span className="px-1.5 py-0.5 bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-[8px] font-bold rounded uppercase tracking-wider">
+            {eventLabel}
           </span>
         </div>
       )}
@@ -79,20 +79,10 @@ export default function GearCard({
       </h4>
 
       {/* Rarity Stars text and symbol */}
-      <div className="flex items-center justify-center gap-0.5 mt-auto">
-        <span className={`text-[11px] font-bold ${rarityTextClass} mr-1`}>
-          {rarityNum}★
+      <div className="flex items-center justify-center mt-auto">
+        <span className={`text-[11px] font-extrabold ${rarityTextClass} flex items-center gap-0.5`}>
+          {rarityNum}<span className="text-yellow-500">★</span>
         </span>
-        <div className="flex text-yellow-500 text-[10px]">
-          {Array.from({ length: rarityNum }).map((_, idx) => (
-            <span
-              key={idx}
-              className={rarityNum === 9 ? 'text-red-500' : rarityNum === 8 ? 'text-yellow-500' : 'text-purple-400'}
-            >
-              ★
-            </span>
-          ))}
-        </div>
       </div>
     </Card>
   );

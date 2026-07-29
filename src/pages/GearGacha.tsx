@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGacha } from '../hooks/useGacha';
 import BannerCard from '../components/gacha/BannerCard';
 import Modal from '../components/ui/Modal';
 import PullResultCard from '../components/gacha/PullResultCard';
 import Button from '../components/ui/Button';
-import { GachaRollOutcome } from '../types';
+import { GachaRollOutcome, Gear, GearRarity } from '../types';
 import GearHistory from '../components/gacha/GearHistory';
+import { getCombinedGears } from '../data/repositories/gearRepository';
 
 export default function GearGacha() {
   const {
@@ -13,6 +14,7 @@ export default function GearGacha() {
     currentBanner,
     selectBanner,
     performPull,
+    resetHistory,
     isLoading,
     error: stateError,
   } = useGacha();
@@ -22,6 +24,42 @@ export default function GearGacha() {
   const [lastPullCount, setLastPullCount] = useState<number>(1);
   const [pullError, setPullError] = useState<string | null>(null);
   const [isPulling, setIsPulling] = useState<boolean>(false);
+  const [gearCatalog, setGearCatalog] = useState<Gear[]>([]);
+
+  // Load Gear details for featured item preview
+  useEffect(() => {
+    async function loadCatalog() {
+      try {
+        const events = Array.from(new Set(banners.map((b) => b.event).filter(Boolean))) as string[];
+        const rarities: GearRarity[] = ['5', '6', '7', '8', '9'];
+        const basePools = await Promise.all(rarities.map((r) => getCombinedGears(r)));
+        const eventPools = await Promise.all(
+          events.map((ev) => Promise.all(rarities.map((r) => getCombinedGears(r, ev))))
+        );
+        const all = [...basePools.flat(), ...eventPools.flat().flat()];
+        const unique = Array.from(new Map(all.map((g) => [g.id, g])).values());
+        setGearCatalog(unique);
+      } catch (err) {
+        console.error('Failed to load Gear catalog', err);
+      }
+    }
+    if (banners.length > 0) {
+      loadCatalog();
+    }
+  }, [banners]);
+
+  // Automatically select the first Gear banner on page mount if a Ranger banner is active in global state
+  useEffect(() => {
+    if (banners.length > 0) {
+      const isCurrentRanger = currentBanner && currentBanner.type !== 'gear' && currentBanner.type !== 'gear_boost';
+      if (!currentBanner || isCurrentRanger) {
+        const firstGear = banners.find((b) => (b.type === 'gear' || b.type === 'gear_boost') && b.active);
+        if (firstGear) {
+          selectBanner(firstGear.id);
+        }
+      }
+    }
+  }, [currentBanner, banners, selectBanner]);
 
   // Filter in Gear banners and sort normal gear banners first
   const gearBanners = banners
@@ -42,8 +80,9 @@ export default function GearGacha() {
       
       setResults(outcomes);
       setShowResults(true);
-    } catch (err: any) {
-      setPullError(err.message || 'Something went wrong during the pull');
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : 'Something went wrong during the pull';
+      setPullError(errorMsg);
     } finally {
       setIsPulling(false);
     }
@@ -57,13 +96,23 @@ export default function GearGacha() {
   return (
     <div className="py-6 px-4 max-w-6xl mx-auto">
       {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary tracking-tight font-sans">
-          Gear <span className="text-accent-teal">Gacha Simulator</span>
-        </h1>
-        <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
-          Select an active Gear banner and simulate pulls. Experience the premium card flip reveals and verify gear distribution.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary tracking-tight font-sans">
+            Gear <span className="text-accent-teal">Gacha Simulator</span>
+          </h1>
+          <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
+            Select an active Gear banner and simulate pulls. Experience the premium card flip reveals and verify gear distribution.
+          </p>
+        </div>
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={resetHistory}
+          className="self-start sm:self-center shrink-0 font-bold"
+        >
+          Reset History
+        </Button>
       </div>
 
       {/* Error Displays */}
@@ -93,6 +142,26 @@ export default function GearGacha() {
               onSelect={() => selectBanner(banner.id)}
               onPull={handlePull}
               disabled={isLoading}
+              featuredItemsDetails={(() => {
+                if (banner.type === 'gear_boost') {
+                  // Buff banner: show only the buffed items listed in banner.featuredItems
+                  return banner.featuredItems
+                    .map((itemId) => {
+                      const item = gearCatalog.find((g) => g.id === itemId);
+                      return item ? { id: item.id, name: item.name, image: item.image, rarity: item.rarity } : null;
+                    })
+                    .filter((item): item is NonNullable<typeof item> => item !== null);
+                } else {
+                  // Non-buff banner: show top 6 event gears of that event month sorted by rarity descending
+                  const eventGears = gearCatalog.filter(
+                    (g) => g.event === banner.event
+                  );
+                  const sortedEventGears = [...eventGears]
+                    .sort((a, b) => parseInt(b.rarity, 10) - parseInt(a.rarity, 10))
+                    .slice(0, 6);
+                  return sortedEventGears.map((g) => ({ id: g.id, name: g.name, image: g.image, rarity: g.rarity }));
+                }
+              })()}
             />
           ))}
         </div>
@@ -150,19 +219,19 @@ export default function GearGacha() {
           {/* Action buttons inside Modal */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
             <Button
-              variant="outline"
+              variant="secondary"
+              onClick={handleCloseResults}
+              className="px-8 font-bold text-sm tracking-wider uppercase"
+            >
+              Confirm
+            </Button>
+            <Button
+              variant="secondary"
               disabled={isLoading}
               onClick={() => handlePull(lastPullCount)}
               className="px-6 font-bold text-sm tracking-wider uppercase"
             >
-              สุ่มอีกครั้ง ({lastPullCount}x)
-            </Button>
-            <Button
-              variant="primary"
-              onClick={handleCloseResults}
-              className="px-8 font-bold text-sm tracking-wider uppercase"
-            >
-              ยืนยัน
+              Pull Again ({lastPullCount === 1 ? '1 times' : '5+1 times'})
             </Button>
           </div>
         </div>

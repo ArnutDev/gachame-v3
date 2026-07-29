@@ -23,7 +23,7 @@ export default function Button({
   // Variant mappings matching our premium design
   const variantClasses = {
     primary: 'bg-gradient-to-r from-accent-cyan to-accent-teal text-bg-primary border-none shadow-lg shadow-accent-cyan/10 hover:opacity-95',
-    secondary: 'bg-bg-secondary text-text-primary border border-border-color hover:border-accent-cyan hover:bg-bg-secondary/80',
+    secondary: 'bg-accent-cyan/10 text-text-primary border border-accent-cyan/70 hover:border-accent-cyan hover:bg-accent-cyan/20 shadow-md shadow-accent-cyan/10',
     accent: 'bg-transparent text-accent-cyan border border-accent-cyan/30 hover:border-accent-cyan hover:bg-accent-cyan/5',
     danger: 'bg-error/15 text-error border border-error/30 hover:bg-error/25',
     ghost: 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-white/5',

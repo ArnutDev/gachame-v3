@@ -10,9 +10,7 @@ export default function Navigation({ closeMenu }: NavigationProps) {
     { path: '/', label: 'Home' },
     { path: '/ranger-gacha', label: 'Ranger Gacha' },
     { path: '/gear-gacha', label: 'Gear Gacha' },
-    { path: '/collection', label: 'Collection' },
-    { path: '/statistics', label: 'Statistics' },
-    { path: '/settings', label: 'Settings' },
+    { path: '/about', label: 'About' },
   ];
 
   return (

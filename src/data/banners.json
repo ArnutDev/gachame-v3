@@ -1,31 +1,28 @@
 [
   {
-    "id": "my_new_ranger_banner_02",
-    "name": "ไม่บัฟ",
+    "id": "collab_ranger_2026_08_box_1",
+    "name": "Ranger non rate-up",
     "type": "normal",
     "event": "2026-08",
-    "featuredItems": ["u1602u-sh", "u1604u-uh"],
-    "active": true,
-    "startDate": "2026-08-01",
-    "endDate": "2026-08-31",
-    "rarityRates": {
-      "8_ultra": 5.0,
-      "8_normal": 10.0,
-      "7_ultra": 25.0,
-      "7_normal": 60.0
-    }
-  },
-  {
-    "id": "collab_boost_2026_08",
-    "name": "บัฟ",
-    "type": "boost",
-    "event": "2026-08",
-    "featuredItems": ["u1602u-sh", "u1604u-uh", "u1602e-sh", "u1604e-uh"],
+    "featuredItems": [
+      "u1602u-sh",
+      "u1604u-uh",
+      "u1606u-sh",
+      "u1608u-kr",
+      "u1602e-sh",
+      "u1604e-uh",
+      "u1606e-sh",
+      "u1608e-kr"
+    ],
     "featuredRates": {
       "u1602u-sh": 0.12,
       "u1604u-uh": 0.12,
+      "u1606u-sh": 0.12,
+      "u1608u-kr": 0.12,
       "u1602e-sh": 0.88,
-      "u1604e-uh": 0.88
+      "u1604e-uh": 0.88,
+      "u1606e-sh": 0.88,
+      "u1608e-kr": 0.88
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -38,21 +35,69 @@
     }
   },
   {
-    "id": "gear_9star_non_rateup",
-    "name": "9★ Gear Non Rate Up Banner",
+    "id": "collab_ranger_2026_08_box_2",
+    "name": "Ranger rate-up",
+    "type": "boost",
+    "event": "2026-08",
+    "featuredItems": ["u1602u-sh", "u1604u-uh", "u1602e-sh", "u1604e-uh"],
+    "featuredRates": {
+      "u1602u-sh": 0.18,
+      "u1604u-uh": 0.18,
+      "u1602e-sh": 1.32,
+      "u1604e-uh": 1.32
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "collab_ranger_2026_08_box_3",
+    "name": "Ranger rate-up",
+    "type": "boost",
+    "event": "2026-08",
+    "featuredItems": ["u1606u-sh", "u1608u-kr", "u1606e-sh", "u1608e-kr"],
+    "featuredRates": {
+      "u1606u-sh": 0.18,
+      "u1608u-kr": 0.18,
+      "u1606e-sh": 1.32,
+      "u1608e-kr": 1.32
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_1",
+    "name": "Gear non rate up",
     "type": "gear",
     "event": "2026-08",
     "featuredItems": [
       "eq_9star_xxx_01",
+      "eq_9star_xxx_02",
+      "eq_9star_xxx_03",
       "eq_8star_xxx_01",
       "eq_7star_xxx_01",
       "eq_6star_xxx_01"
     ],
     "featuredRates": {
-      "eq_9star_xxx_01": 0.4,
-      "eq_8star_xxx_01": 0.3,
+      "eq_9star_xxx_01": 0.2,
+      "eq_9star_xxx_02": 0.2,
+      "eq_9star_xxx_03": 0.2,
+      "eq_8star_xxx_01": 1.0,
       "eq_7star_xxx_01": 0.6,
-      "eq_6star_xxx_01": 20
+      "eq_6star_xxx_01": 4.55
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -66,8 +111,8 @@
     }
   },
   {
-    "id": "gear_9star_rateup1",
-    "name": "9★ Gear Rate Up Banner",
+    "id": "collab_gear_2026_08_box_2",
+    "name": "Gear rate up",
     "type": "gear_boost",
     "event": "2026-08",
     "featuredItems": [
@@ -77,10 +122,10 @@
       "eq_6star_xxx_01"
     ],
     "featuredRates": {
-      "eq_9star_xxx_01": 0.4,
-      "eq_8star_xxx_01": 0.3,
+      "eq_9star_xxx_01": 0.2,
+      "eq_8star_xxx_01": 1.0,
       "eq_7star_xxx_01": 0.6,
-      "eq_6star_xxx_01": 20
+      "eq_6star_xxx_01": 4.55
     },
     "active": true,
     "startDate": "2026-08-01",

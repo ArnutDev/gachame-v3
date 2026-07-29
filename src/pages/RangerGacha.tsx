@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGacha } from '../hooks/useGacha';
 import BannerCard from '../components/gacha/BannerCard';
 import Modal from '../components/ui/Modal';
 import PullResultCard from '../components/gacha/PullResultCard';
 import Button from '../components/ui/Button';
-import { GachaRollOutcome } from '../types';
+import { GachaRollOutcome, Ranger, RangerRarity } from '../types';
 import RangerHistory from '../components/gacha/RangerHistory';
+import { getCombinedRangers } from '../data/repositories/rangerRepository';
 
 export default function RangerGacha() {
   const {
@@ -13,6 +14,7 @@ export default function RangerGacha() {
     currentBanner,
     selectBanner,
     performPull,
+    resetHistory,
     isLoading,
     error: stateError,
   } = useGacha();
@@ -22,6 +24,42 @@ export default function RangerGacha() {
   const [lastPullCount, setLastPullCount] = useState<number>(1);
   const [pullError, setPullError] = useState<string | null>(null);
   const [isPulling, setIsPulling] = useState<boolean>(false);
+  const [rangerCatalog, setRangerCatalog] = useState<Ranger[]>([]);
+
+  // Load Ranger details for featured item preview
+  useEffect(() => {
+    async function loadCatalog() {
+      try {
+        const events = Array.from(new Set(banners.map((b) => b.event).filter(Boolean))) as string[];
+        const rarities: RangerRarity[] = ['7_normal', '7_ultra', '8_normal', '8_ultra'];
+        const basePools = await Promise.all(rarities.map((r) => getCombinedRangers(r)));
+        const eventPools = await Promise.all(
+          events.map((ev) => Promise.all(rarities.map((r) => getCombinedRangers(r, ev))))
+        );
+        const all = [...basePools.flat(), ...eventPools.flat().flat()];
+        const unique = Array.from(new Map(all.map((r) => [r.id, r])).values());
+        setRangerCatalog(unique);
+      } catch (err) {
+        console.error('Failed to load Ranger catalog', err);
+      }
+    }
+    if (banners.length > 0) {
+      loadCatalog();
+    }
+  }, [banners]);
+
+  // Automatically select the first Ranger banner on page mount if a Gear banner is active in global state
+  useEffect(() => {
+    if (banners.length > 0) {
+      const isCurrentGear = currentBanner && (currentBanner.type === 'gear' || currentBanner.type === 'gear_boost');
+      if (!currentBanner || isCurrentGear) {
+        const firstRanger = banners.find((b) => b.type !== 'gear' && b.type !== 'gear_boost' && b.active);
+        if (firstRanger) {
+          selectBanner(firstRanger.id);
+        }
+      }
+    }
+  }, [currentBanner, banners, selectBanner]);
 
   // Filter out Gear banners and sort normal banners first
   const rangerBanners = banners
@@ -42,8 +80,9 @@ export default function RangerGacha() {
       
       setResults(outcomes);
       setShowResults(true);
-    } catch (err: any) {
-      setPullError(err.message || 'Something went wrong during the pull');
+    } catch (err) {
+      const errorMsg = err instanceof Error ? err.message : 'Something went wrong during the pull';
+      setPullError(errorMsg);
     } finally {
       setIsPulling(false);
     }
@@ -57,13 +96,23 @@ export default function RangerGacha() {
   return (
     <div className="py-6 px-4 max-w-6xl mx-auto">
       {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary tracking-tight font-sans">
-          Ranger <span className="text-accent-cyan">Gacha Simulator</span>
-        </h1>
-        <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
-          Select an active Ranger banner and simulate pulls. Verify drop percentages and experience the premium reveal animations.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-text-primary tracking-tight font-sans">
+            Ranger <span className="text-accent-cyan">Gacha Simulator</span>
+          </h1>
+          <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
+            Select an active Ranger banner and simulate pulls. Verify drop percentages and experience the premium reveal animations.
+          </p>
+        </div>
+        <Button
+          variant="secondary"
+          size="sm"
+          onClick={resetHistory}
+          className="self-start sm:self-center shrink-0 font-bold"
+        >
+          Reset History
+        </Button>
       </div>
 
       {/* Error Displays */}
@@ -93,6 +142,29 @@ export default function RangerGacha() {
               onSelect={() => selectBanner(banner.id)}
               onPull={handlePull}
               disabled={isLoading}
+              featuredItemsDetails={(() => {
+                if (banner.type === 'boost') {
+                  // Buff banner: show only the buffed characters resolved to their 8_normal forms
+                  const mapped = banner.featuredItems
+                    .map((itemId) => {
+                      const basePart = itemId.substring(0, 5); // e.g. "u1602"
+                      return rangerCatalog.find(
+                        (r) => r.id.startsWith(basePart) && r.rarity === '8_normal'
+                      );
+                    })
+                    .filter((r): r is Ranger => r !== undefined);
+                  
+                  // Deduplicate by ID
+                  const unique = Array.from(new Map(mapped.map((r) => [r.id, r])).values());
+                  return unique.map((r) => ({ id: r.id, name: r.name, image: r.image, rarity: r.rarity }));
+                } else {
+                  // Non-buff banner: show all 4 event Rangers of that event month having '8_normal' rarity
+                  const eventNormals = rangerCatalog.filter(
+                    (r) => r.event === banner.event && r.rarity === '8_normal'
+                  );
+                  return eventNormals.map((r) => ({ id: r.id, name: r.name, image: r.image, rarity: r.rarity }));
+                }
+              })()}
             />
           ))}
         </div>
@@ -150,19 +222,19 @@ export default function RangerGacha() {
           {/* Action buttons inside Modal */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
             <Button
-              variant="outline"
+              variant="secondary"
+              onClick={handleCloseResults}
+              className="px-8 font-bold text-sm tracking-wider uppercase"
+            >
+              Confirm
+            </Button>
+            <Button
+              variant="secondary"
               disabled={isLoading}
               onClick={() => handlePull(lastPullCount)}
               className="px-6 font-bold text-sm tracking-wider uppercase"
             >
-              สุ่มอีกครั้ง ({lastPullCount}x)
-            </Button>
-            <Button
-              variant="primary"
-              onClick={handleCloseResults}
-              className="px-8 font-bold text-sm tracking-wider uppercase"
-            >
-              ยืนยัน
+              Pull Again ({lastPullCount === 1 ? '1 times' : '6+1 times'})
             </Button>
           </div>
         </div>

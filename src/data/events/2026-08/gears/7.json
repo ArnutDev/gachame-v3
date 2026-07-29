@@ -1,12 +1,7 @@
 [
   {
-    "Name": "Leonard's Quick Visor",
-    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_18_icon.png",
+    "Name": "eq_7star_xxx_01",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_027_icon.png",
     "ItemCode": "eq_7star_xxx_01"
-  },
-  {
-    "Name": "Leonard's Mysterious Syringe",
-    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_28_icon.png",
-    "ItemCode": "eq_7star_xxx_02"
   }
 ]

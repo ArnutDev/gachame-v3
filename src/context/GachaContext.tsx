@@ -56,22 +56,32 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
         const loadedBanners = await getBanners();
         setBanners(loadedBanners);
 
-        // Hydrate state from localStorage
+        // Hydrate state from localStorage (only settings and banner ID)
         const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (stored) {
           try {
             const parsed = JSON.parse(stored);
-            if (parsed.pullHistory) setPullHistory(parsed.pullHistory);
-            if (parsed.ownedRangers) setOwnedRangers(parsed.ownedRangers);
-            if (parsed.ownedGears) setOwnedGears(parsed.ownedGears);
             if (parsed.settings) setSettings({ ...DEFAULT_SETTINGS, ...parsed.settings });
             
-            // Set initial selected banner
-            if (parsed.selectedBannerId && loadedBanners.some(b => b.id === parsed.selectedBannerId)) {
-              setSelectedBannerId(parsed.selectedBannerId);
-            } else if (loadedBanners.length > 0) {
-              setSelectedBannerId(loadedBanners[0].id);
+            const initialBannerId = parsed.selectedBannerId && loadedBanners.some(b => b.id === parsed.selectedBannerId)
+              ? parsed.selectedBannerId
+              : (loadedBanners.length > 0 ? loadedBanners[0].id : null);
+              
+            if (initialBannerId) {
+              setSelectedBannerId(initialBannerId);
             }
+
+            // Reset history in localStorage on refresh
+            localStorage.setItem(
+              LOCAL_STORAGE_KEY,
+              JSON.stringify({
+                selectedBannerId: initialBannerId,
+                pullHistory: [],
+                ownedRangers: {},
+                ownedGears: {},
+                settings: parsed.settings || DEFAULT_SETTINGS,
+              })
+            );
           } catch (e) {
             console.error('Failed to parse stored localStorage state:', e);
             if (loadedBanners.length > 0) {
@@ -116,7 +126,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
     setError(null);
 
     try {
-      const isGear = currentBanner.type === 'gear';
+      const isGear = currentBanner.type === 'gear' || currentBanner.type === 'gear_boost';
       let itemsPool: (Ranger | Gear)[] = [];
 
       // Load combined pool dynamically

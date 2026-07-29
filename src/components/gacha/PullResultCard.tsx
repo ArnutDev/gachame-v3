@@ -15,13 +15,10 @@ export default function PullResultCard({
   onFinishedReveal,
 }: PullResultCardProps) {
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
-  const isGear = 'ItemCode' in outcome.item;
+  const isGear = !('type' in outcome.item);
   const isFeatured = outcome.isFeatured;
   
   // Rarity flags
-  const is8StarRanger = !isGear && outcome.rarity === '8_ultra';
-  const is9StarGear = isGear && outcome.rarity === '9';
-  const isUltraRare = is8StarRanger || is9StarGear;
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
@@ -72,13 +69,11 @@ export default function PullResultCard({
 
   // Card front (Revealed state)
   const renderCardFront = () => {
-    // Add special highlighting wrapper classes for ultra-rare/featured pulls
+    // Add special highlighting wrapper classes for featured pulls
     let highlightClasses = 'w-full h-full';
     
     if (isFeatured) {
       highlightClasses += ' ring-2 ring-accent-cyan shadow-xl shadow-accent-cyan/15 animate-scaleIn';
-    } else if (isUltraRare) {
-      highlightClasses += ' ring-2 ring-yellow-500 shadow-xl shadow-yellow-500/15 animate-scaleIn';
     } else {
       highlightClasses += ' animate-scaleIn';
     }
@@ -86,9 +81,6 @@ export default function PullResultCard({
     return (
       <div className={highlightClasses}>
         {/* Spotlight light burst behind rarity card */}
-        {isUltraRare && (
-          <div className="absolute inset-0 bg-radial-gradient from-yellow-500/15 to-transparent pointer-events-none rounded-lg blur-lg animate-pulse" />
-        )}
         {isFeatured && (
           <div className="absolute inset-0 bg-radial-gradient from-accent-cyan/15 to-transparent pointer-events-none rounded-lg blur-lg animate-pulse" />
         )}
@@ -100,11 +92,6 @@ export default function PullResultCard({
         )}
 
         {/* Featured Overlay Label */}
-        {isFeatured && (
-          <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 z-10 px-3 py-0.5 bg-gradient-to-r from-accent-cyan to-accent-teal text-bg-primary text-[8px] font-black uppercase tracking-wider rounded-full shadow-md shadow-accent-cyan/20">
-            Featured!
-          </div>
-        )}
       </div>
     );
   };

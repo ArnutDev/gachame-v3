@@ -109,7 +109,7 @@ export default function RangerHistory() {
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
         </svg>
-        <span>กำลังโหลดคลังสะสม...</span>
+        <span>Loading collection history...</span>
       </div>
     );
   }
@@ -122,25 +122,25 @@ export default function RangerHistory() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
           <h2 className="text-xl font-bold text-text-primary tracking-tight font-sans flex items-center gap-2">
-            <span>🎯</span> คลังเรนเจอร์ในครอบครอง
+            <span>🎯</span> Owned Ranger Inventory
           </h2>
           <p className="text-text-secondary text-xs mt-1">
-            สะสมทั้งหมด: <span className="text-accent-cyan font-bold font-mono">{ownedList.length}</span> ชนิด (รวม {ownedList.reduce((sum, item) => sum + item.count, 0)} ตัว)
+            Total Collected: <span className="text-accent-cyan font-bold font-mono">{ownedList.length}</span> types (Total {ownedList.reduce((sum, item) => sum + item.count, 0)} units)
           </p>
         </div>
         
         {/* Search */}
-        <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="ค้นหาเรนเจอร์..." />
+        <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search rangers..." />
       </div>
 
       {/* Inline Filters */}
       <div className="flex flex-wrap items-center gap-4 mb-6 text-xs bg-bg-secondary/20 p-4 border border-border-color rounded-xl">
         {/* Event filter group */}
         <div className="flex flex-col gap-1.5">
-          <span className="text-text-secondary/60 font-semibold uppercase tracking-wider text-[10px]">ประเภทตัวละคร</span>
+          <span className="text-text-secondary/60 font-semibold uppercase tracking-wider text-[10px]">Ranger Category</span>
           <div className="flex bg-bg-secondary/45 p-0.5 rounded-lg border border-border-color/40">
             {(['all', 'event', 'normal'] as const).map((t) => {
-              const label = t === 'all' ? 'ทั้งหมด' : t === 'event' ? 'เฉพาะอีเวนต์' : 'ทั่วไป';
+              const label = t === 'all' ? 'All' : t === 'event' ? 'Event Only' : 'Base Only';
               const active = eventTypeFilter === t;
               return (
                 <button
@@ -161,12 +161,12 @@ export default function RangerHistory() {
 
         {/* Rarity filter group */}
         <div className="flex flex-col gap-1.5">
-          <span className="text-text-secondary/60 font-semibold uppercase tracking-wider text-[10px]">ระดับดาว (Rarity)</span>
+          <span className="text-text-secondary/60 font-semibold uppercase tracking-wider text-[10px]">Rarity</span>
           <div className="flex flex-wrap bg-bg-secondary/45 p-0.5 rounded-lg border border-border-color/40 gap-0.5">
             {(['all', '8_ultra', '8_normal', '7_ultra', '7_normal'] as const).map((r) => {
               const label =
                 r === 'all'
-                  ? 'ทั้งหมด'
+                  ? 'All'
                   : r.replace('8_ultra', '8★ Ultra')
                      .replace('8_normal', '8★ Normal')
                      .replace('7_ultra', '7★ Ultra')
@@ -194,8 +194,8 @@ export default function RangerHistory() {
       {!hasItems ? (
         <div className="flex flex-col items-center justify-center p-12 text-center border border-border-color rounded-xl bg-bg-secondary/10">
           <span className="text-3xl mb-3">🔍</span>
-          <h4 className="text-sm font-bold text-text-secondary">ไม่พบเรนเจอร์ที่ค้นหา</h4>
-          <p className="text-text-secondary/60 text-xs mt-1">ลองเปลี่ยนคำค้นหาหรือตัวกรองระดับดาว</p>
+          <h4 className="text-sm font-bold text-text-secondary">No matching rangers found</h4>
+          <p className="text-text-secondary/60 text-xs mt-1">Try changing your search query or rarity filter</p>
         </div>
       ) : (
         <div className="space-y-8">
@@ -203,7 +203,7 @@ export default function RangerHistory() {
           {eventItems.length > 0 && (
             <div>
               <h3 className="text-xs font-bold text-accent-cyan uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span>●</span> ตัวละครอีเวนต์ (Event Rangers)
+                <span>●</span> Event Rangers
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-4">
                 {eventItems.map(({ count, details }) => {
@@ -246,7 +246,7 @@ export default function RangerHistory() {
           {normalItems.length > 0 && (
             <div>
               <h3 className="text-xs font-bold text-text-secondary/80 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span>●</span> ตัวละครทั่วไป (Base Rangers)
+                <span>●</span> Base Rangers
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {normalItems.map(({ count, details }) => {
