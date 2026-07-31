@@ -19,6 +19,7 @@ export default function RangerGacha() {
     isLoading,
     error: stateError,
     rangerPityCount,
+    rangerRubySpent,
     rangerBoxesClaimed,
   } = useGacha();
 
@@ -118,7 +119,9 @@ export default function RangerGacha() {
             size="sm"
             onClick={() => setIsGuaranteeOpen(true)}
             className={`font-bold uppercase tracking-wider gap-2 relative ${
-              rangerAvailable > 0 ? 'animate-pulse shadow-md shadow-accent-cyan/15 border-accent-cyan/50' : ''
+              rangerAvailable > 0 
+                ? 'animate-pulse shadow-md shadow-accent-cyan/15 border-accent-cyan/50' 
+                : 'bg-accent-cyan/25 border-accent-cyan/80 hover:bg-accent-cyan/35 text-text-primary'
             }`}
           >
             <span>🎁 Guarantee Box</span>
@@ -132,10 +135,28 @@ export default function RangerGacha() {
             variant="secondary"
             size="sm"
             onClick={resetHistory}
-            className="font-bold"
+            className="font-bold uppercase tracking-wider text-[11px] bg-accent-cyan/25 border-accent-cyan/80 hover:bg-accent-cyan/35 text-text-primary"
           >
-            Reset History
+            RESET HISTORY
           </Button>
+        </div>
+      </div>
+
+      {/* Gacha Stats Bar (Top) */}
+      <div className="flex flex-wrap gap-4 mb-6 animate-fadeIn">
+        <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-bg-secondary/35 border border-white/5 backdrop-blur-md shadow-md shadow-black/5">
+          <span className="text-base text-accent-cyan select-none">📊</span>
+          <div className="text-left">
+            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">Total Pulls</div>
+            <div className="text-sm font-black text-text-primary font-mono">{rangerPityCount} <span className="text-[10px] text-text-secondary/80 font-medium font-sans">times</span></div>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-bg-secondary/35 border border-white/5 backdrop-blur-md shadow-md shadow-black/5">
+          <span className="text-base select-none">♦️</span>
+          <div className="text-left">
+            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">Ruby Spent</div>
+            <div className="text-sm font-black text-yellow-300 font-mono">{rangerRubySpent} <span className="text-[9px] text-yellow-300 font-sans tracking-wide uppercase">Ruby</span></div>
+          </div>
         </div>
       </div>
 

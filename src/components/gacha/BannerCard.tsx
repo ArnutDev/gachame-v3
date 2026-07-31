@@ -48,7 +48,7 @@ export default function BannerCard({
         if (isRateUp) {
           return {
             label: isGear ? 'Collab Gear Rate-Up' : 'Collab Rate-Up',
-            colorClass: 'bg-orange-500/10 border-orange-500/30 text-orange-400',
+            colorClass: 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400',
           };
         }
         return {

@@ -19,11 +19,22 @@ export default function ImageContainer({
 }: ImageContainerProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const imgRef = React.useRef<HTMLImageElement>(null);
 
   // Reset states if source changes
   useEffect(() => {
     setLoading(true);
     setError(false);
+
+    // If image is already complete (cached), set loading to false immediately
+    if (imgRef.current && imgRef.current.complete) {
+      if (imgRef.current.naturalWidth > 0) {
+        setLoading(false);
+      } else {
+        setError(true);
+        setLoading(false);
+      }
+    }
   }, [src]);
 
   // Aspect ratio mapping
@@ -78,6 +89,7 @@ export default function ImageContainer({
         )
       ) : (
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
           onLoad={() => setLoading(false)}

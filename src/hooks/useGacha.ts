@@ -32,6 +32,8 @@ export function useGacha() {
     claimGearGuarantee,
     rangerPityCount,
     gearPityCount,
+    rangerRubySpent,
+    gearRubySpent,
     rangerBoxesClaimed,
     gearBox90Claimed,
     gearBox150Claimed,
@@ -120,6 +122,8 @@ export function useGacha() {
     // Pity states
     rangerPityCount,
     gearPityCount,
+    rangerRubySpent,
+    gearRubySpent,
     rangerBoxesClaimed,
     gearBox90Claimed,
     gearBox150Claimed,

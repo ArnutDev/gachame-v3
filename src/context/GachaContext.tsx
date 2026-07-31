@@ -37,6 +37,8 @@ export interface GachaContextType {
   // Guarantee states
   rangerPityCount: number;
   gearPityCount: number;
+  rangerRubySpent: number;
+  gearRubySpent: number;
   rangerBoxesClaimed: number;
   gearBox90Claimed: boolean;
   gearBox150Claimed: boolean;
@@ -59,6 +61,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
   // Guarantee states
   const [rangerPityCount, setRangerPityCount] = useState<number>(0);
   const [gearPityCount, setGearPityCount] = useState<number>(0);
+  const [rangerRubySpent, setRangerRubySpent] = useState<number>(0);
+  const [gearRubySpent, setGearRubySpent] = useState<number>(0);
   const [rangerBoxesClaimed, setRangerBoxesClaimed] = useState<number>(0);
   const [gearBox90Claimed, setGearBox90Claimed] = useState<boolean>(false);
   const [gearBox150Claimed, setGearBox150Claimed] = useState<boolean>(false);
@@ -90,6 +94,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
             // Hydrate pity states
             if (parsed.rangerPityCount !== undefined) setRangerPityCount(parsed.rangerPityCount);
             if (parsed.gearPityCount !== undefined) setGearPityCount(parsed.gearPityCount);
+            if (parsed.rangerRubySpent !== undefined) setRangerRubySpent(parsed.rangerRubySpent);
+            if (parsed.gearRubySpent !== undefined) setGearRubySpent(parsed.gearRubySpent);
             if (parsed.rangerBoxesClaimed !== undefined) setRangerBoxesClaimed(parsed.rangerBoxesClaimed);
             if (parsed.gearBox90Claimed !== undefined) setGearBox90Claimed(parsed.gearBox90Claimed);
             if (parsed.gearBox150Claimed !== undefined) setGearBox150Claimed(parsed.gearBox150Claimed);
@@ -105,6 +111,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
                 settings: parsed.settings || DEFAULT_SETTINGS,
                 rangerPityCount: 0,
                 gearPityCount: 0,
+                rangerRubySpent: 0,
+                gearRubySpent: 0,
                 rangerBoxesClaimed: 0,
                 gearBox90Claimed: false,
                 gearBox150Claimed: false,
@@ -208,19 +216,32 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
 
       const updatedHistory = [...newRecords, ...pullHistory];
 
-      // Calculate pity increment
+      // Calculate pity increment and Ruby cost
       let nextRangerPity = rangerPityCount;
       let nextGearPity = gearPityCount;
+      let nextRangerRuby = rangerRubySpent;
+      let nextGearRuby = gearRubySpent;
+
       if (isGear) {
         // pull 1 times = 1 pull, pull 5+1 times (pullCount = 6) = 5 pulls
         const pityIncrement = pullCount === 6 ? 5 : pullCount;
         nextGearPity = gearPityCount + pityIncrement;
         setGearPityCount(nextGearPity);
+
+        // Gear ruby calculation: 1 pull = 40, 5+1 (pullCount = 6) = 200
+        const rubyIncrement = pullCount === 6 ? 200 : (pullCount * 40);
+        nextGearRuby = gearRubySpent + rubyIncrement;
+        setGearRubySpent(nextGearRuby);
       } else {
         // pull 1 times = 1 pull, pull 6+1 times (pullCount = 7) = 6 pulls
         const pityIncrement = pullCount === 7 ? 6 : pullCount;
         nextRangerPity = rangerPityCount + pityIncrement;
         setRangerPityCount(nextRangerPity);
+
+        // Ranger ruby calculation: 1 pull = 50, 6+1 (pullCount = 7) = 300
+        const rubyIncrement = pullCount === 7 ? 300 : (pullCount * 50);
+        nextRangerRuby = rangerRubySpent + rubyIncrement;
+        setRangerRubySpent(nextRangerRuby);
       }
 
       // Update state
@@ -239,6 +260,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           settings,
           rangerPityCount: nextRangerPity,
           gearPityCount: nextGearPity,
+          rangerRubySpent: nextRangerRuby,
+          gearRubySpent: nextGearRuby,
           rangerBoxesClaimed,
           gearBox90Claimed,
           gearBox150Claimed,
@@ -261,6 +284,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
     setOwnedGears({});
     setRangerPityCount(0);
     setGearPityCount(0);
+    setRangerRubySpent(0);
+    setGearRubySpent(0);
     setRangerBoxesClaimed(0);
     setGearBox90Claimed(false);
     setGearBox150Claimed(false);
@@ -275,6 +300,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
         settings,
         rangerPityCount: 0,
         gearPityCount: 0,
+        rangerRubySpent: 0,
+        gearRubySpent: 0,
         rangerBoxesClaimed: 0,
         gearBox90Claimed: false,
         gearBox150Claimed: false,
@@ -297,6 +324,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           settings: updated,
           rangerPityCount,
           gearPityCount,
+          rangerRubySpent,
+          gearRubySpent,
           rangerBoxesClaimed,
           gearBox90Claimed,
           gearBox150Claimed,
@@ -305,7 +334,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
       
       return updated;
     });
-  }, [selectedBannerId, pullHistory, ownedRangers, ownedGears, rangerPityCount, gearPityCount, rangerBoxesClaimed, gearBox90Claimed, gearBox150Claimed]);
+  }, [selectedBannerId, pullHistory, ownedRangers, ownedGears, rangerPityCount, gearPityCount, rangerRubySpent, gearRubySpent, rangerBoxesClaimed, gearBox90Claimed, gearBox150Claimed]);
 
   // 6. Claim Ranger Guarantee Box Action
   const claimRangerGuarantee = useCallback(async (): Promise<GachaRollOutcome | null> => {
@@ -317,7 +346,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
 
     setIsLoading(true);
     try {
-      const rarities: RangerRarity[] = ['8_normal', '8_ultra'];
+      const rarities: RangerRarity[] = ['8_normal'];
       const pools = await Promise.all(
         rarities.map((r) => getCombinedRangers(r, currentBanner.event))
       );
@@ -373,6 +402,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           settings,
           rangerPityCount,
           gearPityCount,
+          rangerRubySpent,
+          gearRubySpent,
           rangerBoxesClaimed: nextClaimed,
           gearBox90Claimed,
           gearBox150Claimed,
@@ -386,7 +417,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setIsLoading(false);
     }
-  }, [currentBanner, pullHistory, ownedRangers, ownedGears, settings, rangerPityCount, rangerBoxesClaimed, gearPityCount, gearBox90Claimed, gearBox150Claimed, selectedBannerId]);
+  }, [currentBanner, pullHistory, ownedRangers, ownedGears, settings, rangerPityCount, rangerBoxesClaimed, gearPityCount, gearBox90Claimed, gearBox150Claimed, selectedBannerId, rangerRubySpent, gearRubySpent]);
 
   // 7. Claim Gear Guarantee Box Action
   const claimGearGuarantee = useCallback(async (boxMilestone: 90 | 150): Promise<GachaRollOutcome | null> => {
@@ -461,6 +492,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           settings,
           rangerPityCount,
           gearPityCount,
+          rangerRubySpent,
+          gearRubySpent,
           rangerBoxesClaimed,
           gearBox90Claimed: nextBox90Claimed,
           gearBox150Claimed: nextBox150Claimed,
@@ -474,7 +507,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
     } finally {
       setIsLoading(false);
     }
-  }, [currentBanner, pullHistory, ownedRangers, ownedGears, settings, rangerPityCount, rangerBoxesClaimed, gearPityCount, gearBox90Claimed, gearBox150Claimed, selectedBannerId]);
+  }, [currentBanner, pullHistory, ownedRangers, ownedGears, settings, rangerPityCount, rangerBoxesClaimed, gearPityCount, gearBox90Claimed, gearBox150Claimed, selectedBannerId, rangerRubySpent, gearRubySpent]);
 
   return (
     <GachaContext.Provider
@@ -493,6 +526,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
         updateSettings,
         rangerPityCount,
         gearPityCount,
+        rangerRubySpent,
+        gearRubySpent,
         rangerBoxesClaimed,
         gearBox90Claimed,
         gearBox150Claimed,

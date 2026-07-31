@@ -698,5 +698,15 @@
     "Name": "Maintenance Genius Clark",
     "Image": "https://gachame.github.io/images/rangers/u1598u-clark-thum.png",
     "UnitCode": "u1598u-clark"
+  },
+  {
+    "Name": "Sharp Mantis Moon",
+    "Image": "https://gachame.github.io/images/rangers/u1613u-moon-thum.png",
+    "UnitCode": "u1613u-moon"
+  },
+  {
+    "Name": "Bee Princess Cony",
+    "Image": "https://gachame.github.io/images/rangers/u1611u-cony-thum.png",
+    "UnitCode": "u1611u-cony"
   }
 ]

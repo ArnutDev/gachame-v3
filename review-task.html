@@ -164,6 +164,60 @@
         <li><b>หน้าต่างและอนิเมชันเปิดกล่อง (GuaranteeModal & Unboxing Animation):</b> พัฒนาคอมโพเนนต์ [GuaranteeModal.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/gacha/GuaranteeModal.tsx) เพื่อสร้างหน้าต่าง Modal จัดการเปิดกล่องการันตี มีการจำลองแอนิเมชันเปิดกล่องแบบกล่องสั่นสะเทือนเรืองแสง (Spinning & Pinging bounce unboxing) ก่อนจะเปิดเผยข้อมูลภาพไอเทม ชื่อระบุระดับความหายากแบบสวยงามสไตล์ LINE Rangers</li>
         <li><b>ปุ่มกดเปิดกล่อง (Claim Trigger Buttons):</b> ติดตั้งปุ่ม <code>🎁 Guarantee Box</code> ในหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) และ [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) วางไว้ข้างๆ ปุ่ม Reset History โดยปุ่มจะมีตัวเลขแสดงจำนวนกล่องที่รอเปิดพร้อมเอฟเฟกต์แอนิเมชันปุ่มสั่นไหวกระตุ้นความสนใจ (Pulse & Glow animation) เมื่อมีกล่องที่พร้อมเปิดสุ่มรางวัล</li>
       </ul>
+
+      <h2>13. ปรับเปลี่ยนข้อความและเพิ่มความสว่างของปุ่มควบคุม (Reset Button casing & Brightness Boost)</h2>
+      <ul>
+        <li><b>ตัวอักษรพิมพ์ใหญ่ทั้งหมด (All Uppercase Casing):</b> แก้ไขปุ่มล้างประวัติการสุ่มในหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) และ [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) จากคำเดิม <code>Reset History</code> ให้เป็นภาษาอังกฤษตัวพิมพ์ใหญ่ทั้งหมดคือ <code>RESET HISTORY</code> พร้อมตกแต่งระยะห่างอักษรด้วยคลาส <code>tracking-wider</code> เพื่อความหนักแน่นและเข้ากับสไตล์ปุ่มส่วนอื่น</li>
+        <li><b>เพิ่มความสว่างพื้นหลังปุ่ม (Background Brightness Boost):</b> ปรับสีพื้นหลังของปุ่มการันตี <code>🎁 Guarantee Box</code> ในสถานะปกติ (Locked) และปุ่ม <code>RESET HISTORY</code> ให้สว่างโดดเด่นขึ้น โดยสำหรับเรนเจอร์ใช้สีฟ้าสว่าง <code>bg-accent-cyan/25 border-accent-cyan/80</code> และสำหรับเกียร์ใช้สีเขียวสว่าง <code>bg-accent-teal/25 border-accent-teal/80</code> พร้อมไฮไลต์เส้นขอบให้ชัดเจนยิ่งขึ้นเพื่อการโต้ตอบที่ชัดเจนขึ้น</li>
+      </ul>
+
+      <h2>14. การตรวจสอบปัญหาภาพเรนเจอร์คอลแลบไม่แสดงผล (Featured Image 404 Analysis)</h2>
+      <ul>
+        <li><b>วิเคราะห์ลิงก์รูปภาพ:</b> ตรวจสอบที่อยู่ภาพของตัวละครอีเวนต์ <code>2026-08</code> เช่น Kafka (<code>u1617e-ka-thum.png</code>) และเกียร์อีเวนต์ พบว่าที่อยู่เซิร์ฟเวอร์ที่ระบุไว้ใน JSON (<code>https://gachame.github.io/images/rangers/...</code>) คืนค่าผลลัพธ์เป็น <b>404 Not Found</b> เนื่องจากไฟล์รูปภาพเหล่ายังไม่ได้ถูกอัปโหลดขึ้นเซิร์ฟเวอร์หลักของโปรเจกต์ ในขณะที่ภาพตัวละครถาวรหลักๆ ที่มีไฟล์บนเซิร์ฟเวอร์อยู่แล้วจะแสดงผลได้สมบูรณ์เป็นปกติ</li>
+        <li><b>ความสอดคล้องของพฤติกรรมเว็บ:</b> ยืนยันว่าโค้ดการโหลดและการแสดงภาพในหน้าตู้และในโมดอลผลลัพธ์สุ่มทำงานถูกต้องตรงตามโครงสร้างโมเดล <code>Ranger</code> / <code>Gear</code> ปัญหานี้จึงเกิดจากทรัพยากรภาพบนคลาวด์ภายนอกขาดหายไป และจะทำงานปกติทันทีเมื่อรูปภาพถูกอัปโหลดขึ้นไปที่เซิร์ฟเวอร์ GitHub Pages</li>
+      </ul>
+
+      <h2>15. แก้ไข Race Condition รูปภาพจาก Cache ใน React (Image Cache onLoad Bug Fix)</h2>
+      <ul>
+        <li><b>สาเหตุของปัญหา (Root Cause):</b> เมื่อรูปภาพถูกโหลดเสร็จสิ้นและเก็บไว้ในแคชของเบราว์เซอร์แล้ว (เช่น รูปเรนเจอร์เรทอัพที่พรีวิวบนการ์ดหน้าตู้สุ่ม) การเมาท์คอมโพเนนต์การ์ดใหม่ในหน้า Modal ผลลัพธ์สุ่มจะโหลดรูปจากแคชอย่างรวดเร็วมากจนทำให้อีเวนต์ <code>onLoad</code> ของแท็ก <code>&lt;img&gt;</code> ใน React ทำงานเสร็จก่อนที่ React จะผูก Event Listener ทัน ส่งผลให้สถานะ <code>loading</code> ค้างอยู่ที่ <code>true</code> ทำให้ภาพมีค่าความทึบแสงเป็น 0% (กลายเป็นวงกลมสีดำ)</li>
+        <li><b>การแก้ปัญหาด้วย Image Ref & Effect:</b> อัปเดตคอมโพเนนต์ [ImageContainer.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/ui/ImageContainer.tsx) โดยใช้ <code>useRef</code> ในการชี้ไปยังแท็กรูปภาพ <code>&lt;img&gt;</code> และเพิ่มการดักจับสถานะแคชใน <code>useEffect</code> ด้วยการตรวจเช็คคุณสมบัติ <code>complete</code> และ <code>naturalWidth</code> หากรูปภาพดาวน์โหลดเสร็จสิ้นแล้วจาก Cache ระบบจะตั้งค่าสถานะ <code>loading</code> เป็น <code>false</code> ทันที ทำให้รูปภาพแสดงผลขึ้นมาได้ในทุกสถานการณ์อย่างไร้รอยต่อ</li>
+      </ul>
+
+      <h2>16. การจำกัดรางวัลการันตีเรนเจอร์ให้ได้รับเฉพาะร่าง 8 ดาวปกติ (Limit Ranger Pity Box to 8 Star Normal Only)</h2>
+      <ul>
+        <li><b>การจำกัดสิทธิ์ของรางวัล (Reward Pool Constraint):</b> แก้ไขฟังก์ชัน <code>claimRangerGuarantee</code> ในไฟล์ [GachaContext.tsx](file:///D:/Arnut/Coding_projects/gachame/src/context/GachaContext.tsx) ให้ดึงเฉพาะเรนเจอร์ระดับความหายากแบบ <code>8_normal</code> (ร่าง 8 ดาวปกติ) เท่านั้นเพื่อเป็นรางวัลจากการเปิดกล่องการันตี (Pity Box) โดยนำตัวแปร <code>8_ultra</code> (ร่าง 8 ดาวอัลตร้า) ออกจากอาร์เรย์การค้นหาข้อมูลอย่างเด็ดขาด</li>
+        <li><b>อัปเดตคำอธิบายหน้าเว็บ (UI Label updates):</b> ปรับปรุงคำอธิบายรายละเอียดในกล่องการันตีของเรนเจอร์ในไฟล์คอมโพเนนต์ [GuaranteeModal.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/gacha/GuaranteeModal.tsx) เพื่อระบุอย่างชัดเจนว่าผู้เล่นจะได้รับแบบสุ่มเฉพาะ <code>8★ Normal Event Ranger</code> เมื่อเปิดกล่องการันตี</li>
+      </ul>
+
+      <h2>17. แสดงสถิติจำนวนครั้งและ Ruby ที่ใช้ใน Modal ผลลัพธ์ (Display Pull Count & Ruby Cost in Modal)</h2>
+      <ul>
+        <li><b>การคำนวณและแสดงผลในตู้สุ่มเรนเจอร์:</b> เพิ่มแถบข้อมูลพรีเมียม (Stats Bar) ในหน้าต่างผลลัพธ์สุ่มหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) โดยคำนวณจากจำนวนผลลัพธ์: หากสุ่มแบบ 7 ตัวแสดงค่า <code>6+1 times</code> และใช้ <code>300 Ruby</code> หากสุ่ม 1 ตัวแสดงค่า <code>1 times</code> และใช้ <code>50 Ruby</code></li>
+        <li><b>การคำนวณและแสดงผลในตู้สุ่มเกียร์:</b> เพิ่มแถบข้อมูลพรีเมียมในหน้าต่างผลลัพธ์สุ่มหน้า [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) เช่นกัน โดยคำนวณอัตรา: หากสุ่มแบบ 6 ชิ้นแสดงค่า <code>5+1 times</code> และใช้ <code>200 Ruby</code> หากสุ่ม 1 ชิ้นแสดงค่า <code>1 times</code> และใช้ <code>40 Ruby</code></li>
+      </ul>
+
+      <h2>18. ปรับปรุงระบบสถิติสะสมใน Modal การสุ่ม (Cumulative Pulls and Ruby Spent Tracking)</h2>
+      <ul>
+        <li><b>การเพิ่มตัวแปรรักษาค่าการใช้งานสะสม (Cumulative State Integration):</b> เพิ่มตัวแปรสถานะ <code>rangerRubySpent</code> และ <code>gearRubySpent</code> เข้าไปใน [GachaContext.tsx](file:///D:/Arnut/Coding_projects/gachame/src/context/GachaContext.tsx) และ [useGacha.ts](file:///D:/Arnut/Coding_projects/gachame/src/hooks/useGacha.ts) เพื่อสะสมจำนวน Ruby ทั้งหมดที่ผู้ใช้ใช้งานในการสุ่มครั้งต่อๆ ไป โดยจัดเก็บข้อมูลลงใน Local Storage และล้างค่ากลับเป็น 0 ทันทีเมื่อผู้ใช้งานคลิกปุ่ม Reset History</li>
+        <li><b>การคำนวณอัตราสะสม (Cost Calculation Rules):</b> เมื่อเรียกใช้ฟังก์ชัน <code>performPull</code>:
+          <ul>
+            <li>ตู้เรนเจอร์: เพิ่มจำนวน Ruby สะสมครั้งละ 50 Ruby ต่อการสุ่ม 1 ครั้ง และครั้งละ 300 Ruby ต่อการสุ่มแบบ 6+1 ครั้ง</li>
+            <li>ตู้เกียร์: เพิ่มจำนวน Ruby สะสมครั้งละ 40 Ruby ต่อการสุ่ม 1 ครั้ง และครั้งละ 200 Ruby ต่อการสุ่มแบบ 5+1 ครั้ง</li>
+          </ul>
+        </li>
+        <li><b>การแสดงผลบนหน้าต่าง Modal (Modal Stats Update):</b> อัปเดตในหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) และ [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) ให้ดึงค่าสะสมรวมทั้งหมด (<code>Total Pulls</code> และ <code>Total Ruby</code>) มาแสดงผลในแถบข้อมูลด้านบนของ Modal ผลลัพธ์การสุ่ม เพื่อแสดงความคืบหน้าสะสมทุกครั้งที่กด Gacha สุ่มต่อเนื่อง</li>
+      </ul>
+
+      <h2>19. ย้ายการแสดงผลสถิติสะสมขึ้นสู่หน้าจอหลักของตู้นั้นๆ (Relocate Stats to Main Gacha Pages Header)</h2>
+      <ul>
+        <li><b>ย้ายข้อมูลสถิติไปไว้ที่หน้าหลัก:</b> ย้ายแถบสถิติแสดงจำนวนครั้งสุ่มรวม (<code>Total Pulls</code>) และ Ruby ที่ใช้รวม (<code>Ruby Spent</code>) จากในหน้าต่าง Modal ผลลัพธ์ ขึ้นไปจัดวางบนหน้าจอหลักของหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) และ [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) โดยวางไว้ใต้คำอธิบายหัวข้อหลัก (Header) ก่อนขึ้นตู้แบนเนอร์</li>
+        <li><b>การออกแบบความสวยงามในหน้าหลัก:</b> จัดดีไซน์เป็นบ็อกซ์การ์ดขนาดเล็ก (Sleek Micro-Metrics Cards) สีพื้นหลังโปร่งแสงพร้อมขอบบางหรูหรา วางไอคอนความรู้สึกเป็นกันเอง (📊 และ 💎) มีเอฟเฟกต์เฟดตอนโหลดสร้างมิตินำสายตาทุกครั้งที่มีการอัปเดตตัวเลข</li>
+      </ul>
+
+      <h2>20. ปรับความสว่างของตัวอักษรและเปลี่ยนไอคอนเพชรสีแดง (Stats Text Brightness & Red Diamond Icon)</h2>
+      <ul>
+        <li><b>ปรับความสว่างข้อความป้ายกำกับ (Brightness Boost):</b> แก้ไขสีตัวอักษรป้ายกำกับ <code>Total Pulls</code> และ <code>Ruby Spent</code> ในหน้าจอหลักของทั้งสองหน้าสุ่ม โดยปรับจากคลาส <code>text-text-secondary/50</code> (เดิมซึ่งมืดเกินไป) ให้เป็น <code>text-text-secondary/90</code> เพื่อให้ความสว่างและมองเห็นชัดเจนสะดุดตายิ่งขึ้น พร้อมเปลี่ยนการเรนเดอร์สีค่า Ruby ให้สว่างเด่นด้วยสีเหลืองอ่อน <code>text-yellow-300</code></li>
+        <li><b>ใช้ไอคอนเพชรสีแดง (Red Diamond Icon):</b> เปลี่ยนสัญลักษณ์ภาพแทนค่า Ruby จากเดิมที่เป็นเพชรสีฟ้า (<code>💎</code>) ไปเป็นสัญลักษณ์เพชรสีแดง (<code>♦️</code> - Red Diamond Suit Emoji) เพื่อให้เข้ากับระบบการตกแต่งและความประสงค์ของผู้ใช้งาน</li>
+      </ul>
     </div>
   </body>
 </html>

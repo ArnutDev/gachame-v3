@@ -1,17 +1,17 @@
 [
   {
-    "Name": "gear9star_1",
-    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_28_icon.png",
-    "ItemCode": "eq_9star_xxx_01"
+    "Name": "Kikoru's Weapon",
+    "Image": "https://gachame.github.io/images/gears/eq_2608_wpn_09_icon.png",
+    "ItemCode": "eq_2608_wpn_09"
   },
   {
-    "Name": "gear9star_2",
-    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_18_icon.png",
-    "ItemCode": "eq_9star_xxx_02"
+    "Name": "Hoshina's Weapon",
+    "Image": "https://gachame.github.io/images/gears/eq_2608_wpn_19_icon.png",
+    "ItemCode": "eq_2608_wpn_19"
   },
   {
-    "Name": "gear9star_3",
-    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_08_icon.png",
-    "ItemCode": "eq_9star_xxx_03"
+    "Name": "Narumi's Weapon",
+    "Image": "https://gachame.github.io/images/gears/eq_2608_wpn_29_icon.png",
+    "ItemCode": "eq_2608_wpn_29"
   }
 ]

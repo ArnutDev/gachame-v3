@@ -1,7 +1,12 @@
 [
   {
-    "Name": "gear8star_1",
-    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_28_icon.png",
-    "ItemCode": "eq_8star_xxx_01"
+    "Name": "Defense Force Mask",
+    "Image": "https://gachame.github.io/images/gears/eq_2608_acc_08_icon.png",
+    "ItemCode": "eq_2608_acc_08"
+  },
+  {
+    "Name": "Kikoru's Hair Bows",
+    "Image": "https://gachame.github.io/images/gears/eq_2608_acc_18_icon.png",
+    "ItemCode": "eq_2608_acc_18"
   }
 ]

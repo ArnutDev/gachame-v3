@@ -1,28 +1,28 @@
 [
   {
     "id": "collab_ranger_2026_08_box_1",
-    "name": "Ranger non rate-up",
+    "name": "Rangers from Kaiju No. 8 tie-up",
     "type": "normal",
     "event": "2026-08",
     "featuredItems": [
-      "u1602u-sh",
-      "u1604u-uh",
-      "u1606u-sh",
-      "u1608u-kr",
-      "u1602e-sh",
-      "u1604e-uh",
-      "u1606e-sh",
-      "u1608e-kr"
+      "u1617e-ka",
+      "u1619e-ki",
+      "u1621e-re",
+      "u1623e-ho",
+      "u1617u-ka",
+      "u1619u-ki",
+      "u1621u-re",
+      "u1623u-ho"
     ],
     "featuredRates": {
-      "u1602u-sh": 0.12,
-      "u1604u-uh": 0.12,
-      "u1606u-sh": 0.12,
-      "u1608u-kr": 0.12,
-      "u1602e-sh": 0.88,
-      "u1604e-uh": 0.88,
-      "u1606e-sh": 0.88,
-      "u1608e-kr": 0.88
+      "u1617e-ka": 0.88,
+      "u1619e-ki": 0.88,
+      "u1621e-re": 0.88,
+      "u1623e-ho": 0.88,
+      "u1617u-ka": 0.12,
+      "u1619u-ki": 0.12,
+      "u1621u-re": 0.12,
+      "u1623u-ho": 0.12
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -36,15 +36,15 @@
   },
   {
     "id": "collab_ranger_2026_08_box_2",
-    "name": "Ranger rate-up",
+    "name": "Rangers from Kaiju No. 8 tie-up",
     "type": "boost",
     "event": "2026-08",
-    "featuredItems": ["u1602u-sh", "u1604u-uh", "u1602e-sh", "u1604e-uh"],
+    "featuredItems": ["u1617e-ka", "u1619e-ki", "u1617u-ka", "u1619u-ki"],
     "featuredRates": {
-      "u1602u-sh": 0.18,
-      "u1604u-uh": 0.18,
-      "u1602e-sh": 1.32,
-      "u1604e-uh": 1.32
+      "u1617e-ka": 1.32,
+      "u1619e-ki": 1.32,
+      "u1617u-ka": 0.18,
+      "u1619u-ki": 0.18
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -58,15 +58,15 @@
   },
   {
     "id": "collab_ranger_2026_08_box_3",
-    "name": "Ranger rate-up",
+    "name": "Rangers from Kaiju No. 8 tie-up",
     "type": "boost",
     "event": "2026-08",
-    "featuredItems": ["u1606u-sh", "u1608u-kr", "u1606e-sh", "u1608e-kr"],
+    "featuredItems": ["u1621e-re", "u1623e-ho", "u1621u-re", "u1623u-ho"],
     "featuredRates": {
-      "u1606u-sh": 0.18,
-      "u1608u-kr": 0.18,
-      "u1606e-sh": 1.32,
-      "u1608e-kr": 1.32
+      "u1621e-re": 1.32,
+      "u1623e-ho": 1.32,
+      "u1621u-re": 0.18,
+      "u1623u-ho": 0.18
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -78,26 +78,27 @@
       "7_normal": 70.0
     }
   },
+
   {
     "id": "collab_gear_2026_08_box_1",
-    "name": "Gear non rate up",
+    "name": "Gears from Kaiju No. 8 tie-up",
     "type": "gear",
     "event": "2026-08",
     "featuredItems": [
-      "eq_9star_xxx_01",
-      "eq_9star_xxx_02",
-      "eq_9star_xxx_03",
-      "eq_8star_xxx_01",
-      "eq_7star_xxx_01",
-      "eq_6star_xxx_01"
+      "eq_2608_wpn_09",
+      "eq_2608_wpn_19",
+      "eq_2608_wpn_29",
+      "eq_2608_acc_08",
+      "eq_2608_acc_18",
+      "eq_2608_amr_07"
     ],
     "featuredRates": {
-      "eq_9star_xxx_01": 0.2,
-      "eq_9star_xxx_02": 0.2,
-      "eq_9star_xxx_03": 0.2,
-      "eq_8star_xxx_01": 1.0,
-      "eq_7star_xxx_01": 0.6,
-      "eq_6star_xxx_01": 4.55
+      "eq_2608_wpn_09": 0.2,
+      "eq_2608_wpn_19": 0.2,
+      "eq_2608_wpn_29": 0.2,
+      "eq_2608_acc_08": 0.5,
+      "eq_2608_acc_18": 0.5,
+      "eq_2608_amr_07": 2.0
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -112,20 +113,58 @@
   },
   {
     "id": "collab_gear_2026_08_box_2",
-    "name": "Gear rate up",
+    "name": "Gears from Kaiju No. 8 tie-up",
     "type": "gear_boost",
     "event": "2026-08",
-    "featuredItems": [
-      "eq_9star_xxx_01",
-      "eq_8star_xxx_01",
-      "eq_7star_xxx_01",
-      "eq_6star_xxx_01"
-    ],
+    "featuredItems": ["eq_2608_wpn_09", "eq_2608_acc_08", "eq_2608_amr_07"],
     "featuredRates": {
-      "eq_9star_xxx_01": 0.2,
-      "eq_8star_xxx_01": 1.0,
-      "eq_7star_xxx_01": 0.6,
-      "eq_6star_xxx_01": 4.55
+      "eq_2608_wpn_09": 0.6,
+      "eq_2608_acc_08": 1.0,
+      "eq_2608_amr_07": 1.5
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_3",
+    "name": "Gears from Kaiju No. 8 tie-up",
+    "type": "gear_boost",
+    "event": "2026-08",
+    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredRates": {
+      "eq_2608_wpn_19": 0.6,
+      "eq_2608_acc_18": 1.0,
+      "eq_2608_amr_07": 1.5
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_4",
+    "name": "Gears from Kaiju No. 8 tie-up",
+    "type": "gear_boost",
+    "event": "2026-08",
+    "featuredItems": ["eq_2608_wpn_29", "eq_2608_acc_08", "eq_2608_amr_07"],
+    "featuredRates": {
+      "eq_2608_wpn_29": 0.6,
+      "eq_2608_acc_08": 1.0,
+      "eq_2608_amr_07": 1.5
     },
     "active": true,
     "startDate": "2026-08-01",

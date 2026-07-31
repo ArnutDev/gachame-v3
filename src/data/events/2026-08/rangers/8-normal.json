@@ -1,22 +1,22 @@
 [
   {
-    "Name": "Haruka",
-    "Image": "https://gachame.github.io/images/rangers/u1602e-sh-thum.png",
-    "UnitCode": "u1602e-sh"
+    "Name": "Kafka",
+    "Image": "https://gachame.github.io/images/rangers/u1617e-ka-thum.png",
+    "UnitCode": "u1617e-ka"
   },
   {
-    "Name": "Hajime",
-    "Image": "https://gachame.github.io/images/rangers/u1604e-uh-thum.png",
-    "UnitCode": "u1604e-uh"
+    "Name": "Kikoru",
+    "Image": "https://gachame.github.io/images/rangers/u1619e-ki-thum.png",
+    "UnitCode": "u1619e-ki"
   },
   {
-    "Name": "Hayato",
-    "Image": "https://gachame.github.io/images/rangers/u1606e-sh-thum.png",
-    "UnitCode": "u1606e-sh"
+    "Name": "Reno",
+    "Image": "https://gachame.github.io/images/rangers/u1621e-re-thum.png",
+    "UnitCode": "u1621e-re"
   },
   {
-    "Name": "Ren Kaji",
-    "Image": "https://gachame.github.io/images/rangers/u1608e-kr-thum.png",
-    "UnitCode": "u1608e-kr"
+    "Name": "Hoshina",
+    "Image": "https://gachame.github.io/images/rangers/u1623e-ho-thum.png",
+    "UnitCode": "u1623e-ho"
   }
 ]

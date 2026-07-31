@@ -748,5 +748,15 @@
     "Name": "Mechanic Clark",
     "Image": "https://gachame.github.io/images/rangers/u1598e-clark-thum.png",
     "UnitCode": "u1598e-clark"
+  },
+  {
+    "Name": "Mantis Moon",
+    "Image": "https://gachame.github.io/images/rangers/u1613e-moon-thum.png",
+    "UnitCode": "u1613e-moon"
+  },
+  {
+    "Name": "Honeybee Cony",
+    "Image": "https://gachame.github.io/images/rangers/u1611e-cony-thum.png",
+    "UnitCode": "u1611e-cony"
   }
 ]

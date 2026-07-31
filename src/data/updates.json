@@ -135,5 +135,15 @@
     "version": "2.4.1",
     "date": "29-05-2026",
     "changes": ["Fixed bug in Gears gacha"]
+  },
+  {
+    "version": "3.0.0",
+    "date": "31-07-2026",
+    "changes": [
+      "Brand-new user interface.",
+      "Rebuilt gacha system. (beta)",
+      "New gacha history and tracking system.",
+      "Add new content for August."
+    ]
   }
 ]

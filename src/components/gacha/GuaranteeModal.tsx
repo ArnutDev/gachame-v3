@@ -147,7 +147,7 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                   Ranger Pity Box
                 </h4>
                 <p className="text-xs text-text-secondary mb-6 max-w-sm">
-                  Receive a random <span className="text-accent-cyan font-bold">8★ Event Ranger</span> of {eventName} for every 100 pulls. (6+1 counts as 6 pulls)
+                  Receive a random <span className="text-accent-cyan font-bold">8★ Normal Event Ranger</span> of {eventName} for every 100 pulls. (6+1 counts as 6 pulls)
                 </p>
 
                 {/* Progress bar */}
