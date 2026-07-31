@@ -28,6 +28,13 @@ export function useGacha() {
     performPull,
     resetHistory,
     updateSettings,
+    claimRangerGuarantee,
+    claimGearGuarantee,
+    rangerPityCount,
+    gearPityCount,
+    rangerBoxesClaimed,
+    gearBox90Claimed,
+    gearBox150Claimed,
   } = context;
 
   // 1. Derived Quantities
@@ -107,6 +114,15 @@ export function useGacha() {
     performPull,
     resetHistory,
     updateSettings,
+    claimRangerGuarantee,
+    claimGearGuarantee,
+
+    // Pity states
+    rangerPityCount,
+    gearPityCount,
+    rangerBoxesClaimed,
+    gearBox90Claimed,
+    gearBox150Claimed,
 
     // Derived values
     totalPullsCount,

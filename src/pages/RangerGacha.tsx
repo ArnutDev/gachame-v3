@@ -7,6 +7,7 @@ import Button from '../components/ui/Button';
 import { GachaRollOutcome, Ranger, RangerRarity } from '../types';
 import RangerHistory from '../components/gacha/RangerHistory';
 import { getCombinedRangers } from '../data/repositories/rangerRepository';
+import GuaranteeModal from '../components/gacha/GuaranteeModal';
 
 export default function RangerGacha() {
   const {
@@ -17,12 +18,18 @@ export default function RangerGacha() {
     resetHistory,
     isLoading,
     error: stateError,
+    rangerPityCount,
+    rangerBoxesClaimed,
   } = useGacha();
 
   const [showResults, setShowResults] = useState<boolean>(false);
   const [results, setResults] = useState<GachaRollOutcome[]>([]);
   const [lastPullCount, setLastPullCount] = useState<number>(1);
   const [pullError, setPullError] = useState<string | null>(null);
+  const [isGuaranteeOpen, setIsGuaranteeOpen] = useState<boolean>(false);
+
+  const rangerEarned = Math.floor(rangerPityCount / 100);
+  const rangerAvailable = Math.max(0, rangerEarned - rangerBoxesClaimed);
   const [isPulling, setIsPulling] = useState<boolean>(false);
   const [rangerCatalog, setRangerCatalog] = useState<Ranger[]>([]);
 
@@ -105,14 +112,31 @@ export default function RangerGacha() {
             Select an active Ranger banner and simulate pulls.
           </p>
         </div>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={resetHistory}
-          className="self-start sm:self-center shrink-0 font-bold"
-        >
-          Reset History
-        </Button>
+        <div className="flex items-center gap-3 self-start sm:self-center shrink-0">
+          <Button
+            variant={rangerAvailable > 0 ? "primary" : "secondary"}
+            size="sm"
+            onClick={() => setIsGuaranteeOpen(true)}
+            className={`font-bold uppercase tracking-wider gap-2 relative ${
+              rangerAvailable > 0 ? 'animate-pulse shadow-md shadow-accent-cyan/15 border-accent-cyan/50' : ''
+            }`}
+          >
+            <span>🎁 Guarantee Box</span>
+            {rangerAvailable > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[8px] font-black text-white ring-2 ring-bg-primary">
+                {rangerAvailable}
+              </span>
+            )}
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={resetHistory}
+            className="font-bold"
+          >
+            Reset History
+          </Button>
+        </div>
       </div>
 
       {/* Error Displays */}
@@ -273,6 +297,12 @@ export default function RangerGacha() {
 
       {/* Owned Collection History Section */}
       <RangerHistory />
+
+      <GuaranteeModal
+        isOpen={isGuaranteeOpen}
+        onClose={() => setIsGuaranteeOpen(false)}
+        type="ranger"
+      />
     </div>
   );
 }

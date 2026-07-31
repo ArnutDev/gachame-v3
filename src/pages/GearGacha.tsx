@@ -7,6 +7,7 @@ import Button from '../components/ui/Button';
 import { GachaRollOutcome, Gear, GearRarity } from '../types';
 import GearHistory from '../components/gacha/GearHistory';
 import { getCombinedGears } from '../data/repositories/gearRepository';
+import GuaranteeModal from '../components/gacha/GuaranteeModal';
 
 export default function GearGacha() {
   const {
@@ -17,12 +18,18 @@ export default function GearGacha() {
     resetHistory,
     isLoading,
     error: stateError,
+    gearPityCount,
+    gearBox90Claimed,
+    gearBox150Claimed,
   } = useGacha();
 
   const [showResults, setShowResults] = useState<boolean>(false);
   const [results, setResults] = useState<GachaRollOutcome[]>([]);
   const [lastPullCount, setLastPullCount] = useState<number>(1);
   const [pullError, setPullError] = useState<string | null>(null);
+  const [isGuaranteeOpen, setIsGuaranteeOpen] = useState<boolean>(false);
+
+  const gearAvailable = (gearPityCount >= 90 && !gearBox90Claimed ? 1 : 0) + (gearPityCount >= 150 && !gearBox150Claimed ? 1 : 0);
   const [isPulling, setIsPulling] = useState<boolean>(false);
   const [gearCatalog, setGearCatalog] = useState<Gear[]>([]);
 
@@ -105,14 +112,31 @@ export default function GearGacha() {
             Select an active Gear banner and simulate pulls.
           </p>
         </div>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={resetHistory}
-          className="self-start sm:self-center shrink-0 font-bold"
-        >
-          Reset History
-        </Button>
+        <div className="flex items-center gap-3 self-start sm:self-center shrink-0">
+          <Button
+            variant={gearAvailable > 0 ? "primary" : "secondary"}
+            size="sm"
+            onClick={() => setIsGuaranteeOpen(true)}
+            className={`font-bold uppercase tracking-wider gap-2 relative ${
+              gearAvailable > 0 ? 'animate-pulse shadow-md shadow-accent-teal/15 border-accent-teal/50 bg-gradient-to-r from-accent-teal to-emerald-400 text-bg-primary' : ''
+            }`}
+          >
+            <span>🎁 Guarantee Box</span>
+            {gearAvailable > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[8px] font-black text-white ring-2 ring-bg-primary">
+                {gearAvailable}
+              </span>
+            )}
+          </Button>
+          <Button
+            variant="secondary"
+            size="sm"
+            onClick={resetHistory}
+            className="font-bold"
+          >
+            Reset History
+          </Button>
+        </div>
       </div>
 
       {/* Error Displays */}
@@ -270,6 +294,12 @@ export default function GearGacha() {
 
       {/* Owned Collection History Section */}
       <GearHistory />
+
+      <GuaranteeModal
+        isOpen={isGuaranteeOpen}
+        onClose={() => setIsGuaranteeOpen(false)}
+        type="gear"
+      />
     </div>
   );
 }

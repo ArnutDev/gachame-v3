@@ -144,6 +144,26 @@
         <li><b>กรอบการ์ดหน้าแรกสีฟ้าและสีปุ่มนำทาง:</b> ปรับแต่งกรอบ (Border) ของการ์ดนำทางทั้งสองใบในหน้า [Home.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Home.tsx) ให้เป็นโทนสีฟ้าเรืองแสง <code>border-accent-cyan/45</code> ตั้งแต่สถานะปกติ เพื่อสร้างมิติที่เข้ากับโลโก้แบรนด์ พร้อมเปลี่ยนสีปุ่มในตัวการ์ดสุ่มเรนเจอร์ (Ranger Card) ให้ใช้เกรเดียนท์เฉดสีเขียวทีลเรืองแสงแบบเดียวกันกับการ์ดสุ่มเกียร์เพื่อความกลมกลืนตามต้องการ</li>
         <li><b>แก้ไขพื้นหลังเมนูโมบายล์หาย (Containing Block Issue):</b> แก้ไขไฟล์สไตล์ [index.css](file:///D:/Arnut/Coding_projects/gachame/src/index.css) ในส่วน <code>.nav-wrapper</code> ของหน้าจออุปกรณ์เคลื่อนที่ โดยเปลี่ยนคุณสมบัติการวัดขอบล่างจาก <code>bottom: 0</code> มาเป็นการกำหนดความสูงแน่นอนด้วย <code>height: calc(100vh - 70px)</code> เพื่อแก้ปัญหา Container ทรุดตัวเหลือความสูง 0 พิกเซลจากผลกระทบของ Positioning Context ของ header ที่มี backdrop-filter และตั้งค่าความทึบสีพื้นหลังให้อ่านง่ายเป็น <code>rgba(11, 12, 16, 0.98)</code></li>
       </ul>
+
+      <h2>12. ระบบการันตีตู้สุ่มเรนเจอร์และเกียร์ (Gacha Guarantee/Pity Box System)</h2>
+      <ul>
+        <li><b>การคำนวณและเก็บคะแนนการันตี (Pity State Tracking):</b> เพิ่มฟิลด์สถานะ <code>rangerPityCount</code>, <code>gearPityCount</code>, <code>rangerBoxesClaimed</code>, <code>gearBox90Claimed</code> และ <code>gearBox150Claimed</code> ลงใน [GachaContext.tsx](file:///D:/Arnut/Coding_projects/gachame/src/context/GachaContext.tsx) เพื่อบันทึกคะแนนสะสมและสถานะการเปิดกล่องของประวัติสุ่ม และบันทึกข้อมูลแบบถาวรใน Local Storage โดยเมื่อรีเซ็ตประวัติหรือรีเฟรชเบราว์เซอร์ ข้อมูลส่วนนี้จะถูกเคลียร์เพื่อความถูกต้อง</li>
+        <li><b>เงื่อนไขคะแนนสะสม (Pity Increment Rules):</b>
+          <ul>
+            <li>ตู้สุ่มเรนเจอร์: การกดแบบ 1 ครั้งนับเป็น 1 Pull และการกดแบบ 6+1 ครั้งนับเป็น 6 Pulls</li>
+            <li>ตู้สุ่มเกียร์: การกดแบบ 1 ครั้งนับเป็น 1 Pull และการกดแบบ 5+1 ครั้งนับเป็น 5 Pulls</li>
+          </ul>
+        </li>
+        <li><b>กล่องรางวัลการันตี (Guarantee Rewards & Constraints):</b>
+          <ul>
+            <li>กล่องเรนเจอร์: ได้รับทุกๆ 100 Pulls โดยจะสุ่มได้รับเรนเจอร์ร่าง 8 ดาวในอีเวนต์นั้นๆ จำนวน 1 ตัว หากกดเกิน 100/200 ครั้งจะแสดงสัญลักษณ์สะสมกล่องไว้สูงสุด 1 ใบ และไม่ซ้อนทับกันจนกว่าจะกดเปิด</li>
+            <li>กล่องเกียร์: ได้รับกล่องใบแรกเมื่อครบ 90 Pulls และกล่องใบที่สองเมื่อครบ 150 Pulls โดยจะสุ่มได้รับเกียร์ในอีเวนต์นั้นๆ จำนวน 1 ชิ้น และไม่สามารถมีซ้อนทับกันได้เกิน 2 กล่อง</li>
+            <li>การสุ่มไอเทมจากกล่องเหล่านี้จะถูกบันทึกประวัติการสุ่มและคำนวณสถิติของพอร์ตฟอลิโอตามปกติ</li>
+          </ul>
+        </li>
+        <li><b>หน้าต่างและอนิเมชันเปิดกล่อง (GuaranteeModal & Unboxing Animation):</b> พัฒนาคอมโพเนนต์ [GuaranteeModal.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/gacha/GuaranteeModal.tsx) เพื่อสร้างหน้าต่าง Modal จัดการเปิดกล่องการันตี มีการจำลองแอนิเมชันเปิดกล่องแบบกล่องสั่นสะเทือนเรืองแสง (Spinning & Pinging bounce unboxing) ก่อนจะเปิดเผยข้อมูลภาพไอเทม ชื่อระบุระดับความหายากแบบสวยงามสไตล์ LINE Rangers</li>
+        <li><b>ปุ่มกดเปิดกล่อง (Claim Trigger Buttons):</b> ติดตั้งปุ่ม <code>🎁 Guarantee Box</code> ในหน้า [RangerGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/RangerGacha.tsx) และ [GearGacha.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/GearGacha.tsx) วางไว้ข้างๆ ปุ่ม Reset History โดยปุ่มจะมีตัวเลขแสดงจำนวนกล่องที่รอเปิดพร้อมเอฟเฟกต์แอนิเมชันปุ่มสั่นไหวกระตุ้นความสนใจ (Pulse & Glow animation) เมื่อมีกล่องที่พร้อมเปิดสุ่มรางวัล</li>
+      </ul>
     </div>
   </body>
 </html>
