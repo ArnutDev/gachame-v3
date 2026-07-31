@@ -120,7 +120,7 @@
     "featuredRates": {
       "eq_2608_wpn_09": 0.6,
       "eq_2608_acc_08": 1.0,
-      "eq_2608_amr_07": 1.5
+      "eq_2608_amr_07": 0.4
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -138,11 +138,11 @@
     "name": "Gears from Kaiju No. 8 tie-up",
     "type": "gear_boost",
     "event": "2026-08",
-    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredItems": ["eq_2608_wpn_09", "eq_2608_acc_18", "eq_2608_amr_07"],
     "featuredRates": {
-      "eq_2608_wpn_19": 0.6,
+      "eq_2608_wpn_09": 0.6,
       "eq_2608_acc_18": 1.0,
-      "eq_2608_amr_07": 1.5
+      "eq_2608_amr_07": 0.4
     },
     "active": true,
     "startDate": "2026-08-01",
@@ -160,11 +160,77 @@
     "name": "Gears from Kaiju No. 8 tie-up",
     "type": "gear_boost",
     "event": "2026-08",
+    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_08", "eq_2608_amr_07"],
+    "featuredRates": {
+      "eq_2608_wpn_19": 0.6,
+      "eq_2608_acc_08": 1.0,
+      "eq_2608_amr_07": 0.4
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_5",
+    "name": "Gears from Kaiju No. 8 tie-up",
+    "type": "gear_boost",
+    "event": "2026-08",
+    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredRates": {
+      "eq_2608_wpn_19": 0.6,
+      "eq_2608_acc_18": 1.0,
+      "eq_2608_amr_07": 0.4
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_6",
+    "name": "Gears from Kaiju No. 8 tie-up",
+    "type": "gear_boost",
+    "event": "2026-08",
     "featuredItems": ["eq_2608_wpn_29", "eq_2608_acc_08", "eq_2608_amr_07"],
     "featuredRates": {
       "eq_2608_wpn_29": 0.6,
       "eq_2608_acc_08": 1.0,
-      "eq_2608_amr_07": 1.5
+      "eq_2608_amr_07": 0.4
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "5": 48.0,
+      "6": 46.0,
+      "7": 3.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "collab_gear_2026_08_box_7",
+    "name": "Gears from Kaiju No. 8 tie-up",
+    "type": "gear_boost",
+    "event": "2026-08",
+    "featuredItems": ["eq_2608_wpn_29", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredRates": {
+      "eq_2608_wpn_29": 0.6,
+      "eq_2608_acc_18": 1.0,
+      "eq_2608_amr_07": 0.4
     },
     "active": true,
     "startDate": "2026-08-01",

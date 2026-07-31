@@ -145,5 +145,10 @@
       "New gacha history and tracking system.",
       "Add new content for August."
     ]
+  },
+  {
+    "version": "3.0.1",
+    "date": "31-07-2026",
+    "changes": ["Adjust gacha rates"]
   }
 ]

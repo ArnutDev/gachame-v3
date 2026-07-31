@@ -91,7 +91,7 @@ export default function Home() {
                 Gacha Gears
               </h2>
               <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-grow">
-                Pull 6★ to 9★ Weapons, Armor, and Accessories.
+                Pull 6★ to 9★ Weapons, Armor and Accessories.
               </p>
 
               {/* Action Button Indicator */}
