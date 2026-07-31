@@ -1,0 +1,72 @@
+[
+  {
+    "version": "1.10.0",
+    "date": "02-09-2025",
+    "changes": [
+      "Added September Rangers gacha",
+      "Added September Gears gacha"
+    ]
+  },
+  {
+    "version": "1.10.1",
+    "date": "05-09-2025",
+    "changes": [
+      "Fixed minor gacha bug"
+    ]
+  },
+  {
+    "version": "2.0.0",
+    "date": "02-10-2025",
+    "changes": [
+      "Added October Rangers gacha",
+      "Added October Gears gacha",
+      "Migrated to React"
+    ]
+  },
+  {
+    "version": "2.0.1",
+    "date": "04-10-2025",
+    "changes": [
+      "Fixed UI"
+    ]
+  },
+  {
+    "version": "2.1.0",
+    "date": "28-11-2025",
+    "changes": [
+      "Added December Rangers gacha",
+      "Added December Gears gacha"
+    ]
+  },
+  {
+    "version": "2.2.0",
+    "date": "30-01-2026",
+    "changes": [
+      "Added February Rangers gacha",
+      "Added February Gears gacha"
+    ]
+  },
+  {
+    "version": "2.3.0",
+    "date": "31-03-2026",
+    "changes": [
+      "Added April Rangers gacha",
+      "Added April Gears gacha"
+    ]
+  },
+  {
+    "version": "2.4.0",
+    "date": "29-05-2026",
+    "changes": [
+      "Added June Rangers gacha",
+      "Added June Gears gacha"
+    ]
+  },
+  {
+    "version": "2.4.1",
+    "date": "29-05-2026",
+    "changes": [
+      "Fixed bug in Gears gacha"
+    ]
+  }
+]

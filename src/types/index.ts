@@ -112,3 +112,9 @@ export interface GachaState {
   ownedGears: Record<string, number>; // Maps ItemCode to quantity owned
   settings: UserSettings;
 }
+
+export interface UpdateLog {
+  version: string;
+  date: string;
+  changes: string[];
+}

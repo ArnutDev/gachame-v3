@@ -130,6 +130,14 @@
         <li><b>การดึงข้อมูลทดแทนแบบถาวร (Permanent Normal 6-star Fallback):</b> ยืนยันการทำงานของพูลสุ่มสำหรับในอนาคตที่จะไม่มีเกียร์ 6 ดาวของอีเวนต์แล้ว โดยระบบจะดึงเกียร์ 6 ดาวปกติ (แบบถาวร) จาก [6.json](file:///D:/Arnut/Coding_projects/gachame/src/data/gears/6.json) มาสุ่มให้ผู้เล่นเมื่อสุ่มได้ระดับ 6 ดาว แทนที่จะพยายามดึงข้อมูลจากไฟล์อีเวนต์ ซึ่งระบบรองรับลักษณะการทำงานนี้ได้อย่างสมบูรณ์แบบโดยไม่ต้องแก้ไขโค้ดใดๆ เพิ่มเติม</li>
         <li><b>ข้อควรระวัง:</b> เพื่อความถูกต้องของระบบนำส่งข้อมูล ต้องไม่มีการนำ Item ID ของเกียร์ 6 ดาวอีเวนต์ที่ไม่มีอยู่จริงไปใส่ไว้ในการตั้งค่า <code>featuredItems</code> ของแบนเนอร์ (ในไฟล์ <code>banners.json</code>) เพื่อไม่ให้ขัดกับกฎการตรวจสอบโครงสร้างแบนเนอร์</li>
       </ul>
+
+      <h2>10. หน้าประวัติการอัปเดตระบบ (System Updates Page)</h2>
+      <ul>
+        <li><b>ฐานข้อมูลการอัปเดต (JSON Data):</b> สร้างไฟล์ [updates.json](file:///D:/Arnut/Coding_projects/gachame/src/data/updates.json) จัดเก็บข้อมูลเวอร์ชัน วันที่ปล่อย และรายการการแก้ไขปรับปรุงทั้งหมด</li>
+        <li><b>ระบบดึงและตรวจสอบข้อมูล (Loader & Repository):</b> พัฒนา [updateLoader.ts](file:///D:/Arnut/Coding_projects/gachame/src/data/loaders/updateLoader.ts) เพื่อดึงข้อมูลแบบไดนามิกด้วย Vite glob และใช้ [updateRepository.ts](file:///D:/Arnut/Coding_projects/gachame/src/data/repositories/updateRepository.ts) ในการตรวจสอบประเภทโครงสร้างข้อมูลและทำแคชข้อมูล (Caching)</li>
+        <li><b>หน้าแสดงผลประวัติ (Updates Page):</b> สร้างคอมโพเนนต์หน้าเว็บ [Updates.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Updates.tsx) จัดเรียงเวอร์ชันล่าสุดขึ้นก่อน (กลับด้านข้อมูลจากล่างขึ้นบนของ JSON) มีการรองรับสถานะการโหลดข้อมูล (Loading State), พูลข้อมูลว่าง (Empty State) และกรณีขัดข้อง (Error State) พร้อมดีไซน์การ์ดที่โดดเด่นสะดุดตาเฉพาะสำหรับเวอร์ชันล่าสุด</li>
+        <li><b>จดทะเบียนเมนูนำทาง (Routing & Navigation):</b> เพิ่มเส้นทางลิงก์ <code>/updates</code> ใน [main.tsx](file:///D:/Arnut/Coding_projects/gachame/src/main.tsx) และเพิ่มเมนูในแถบนำทางหลักใน [Navigation.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/Navigation.tsx)</li>
+      </ul>
     </div>
   </body>
 </html>

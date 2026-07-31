@@ -9,6 +9,7 @@ import RangerGacha from './pages/RangerGacha';
 import GearGacha from './pages/GearGacha';
 import About from './pages/About';
 import DevTesting from './pages/DevTesting';
+import Updates from './pages/Updates';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route index element={<Home />} />
           <Route path="ranger-gacha" element={<RangerGacha />} />
           <Route path="gear-gacha" element={<GearGacha />} />
+          <Route path="updates" element={<Updates />} />
           <Route path="about" element={<About />} />
           <Route path="dev" element={<DevTesting />} />
         </Route>
