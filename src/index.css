@@ -240,8 +240,8 @@ button {
     top: 70px;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(11, 12, 16, 0.96);
+    height: calc(100vh - 70px);
+    background-color: rgba(11, 12, 16, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     display: flex;

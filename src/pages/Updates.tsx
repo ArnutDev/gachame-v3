@@ -33,7 +33,7 @@ export default function Updates() {
       {/* Header */}
       <div className="text-center mb-10 animate-fade-in">
         <h1 className="text-3xl sm:text-4xl font-black tracking-tight mb-2 bg-gradient-to-r from-text-primary via-accent-cyan to-accent-teal bg-clip-text text-transparent uppercase">
-          System Updates
+          Updates
         </h1>
         <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
           Log of changes, feature releases, and bug fixes for GachaMe.

@@ -138,6 +138,12 @@
         <li><b>หน้าแสดงผลประวัติ (Updates Page):</b> สร้างคอมโพเนนต์หน้าเว็บ [Updates.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Updates.tsx) จัดเรียงเวอร์ชันล่าสุดขึ้นก่อน (กลับด้านข้อมูลจากล่างขึ้นบนของ JSON) มีการรองรับสถานะการโหลดข้อมูล (Loading State), พูลข้อมูลว่าง (Empty State) และกรณีขัดข้อง (Error State) พร้อมดีไซน์การ์ดที่โดดเด่นสะดุดตาเฉพาะสำหรับเวอร์ชันล่าสุด</li>
         <li><b>จดทะเบียนเมนูนำทาง (Routing & Navigation):</b> เพิ่มเส้นทางลิงก์ <code>/updates</code> ใน [main.tsx](file:///D:/Arnut/Coding_projects/gachame/src/main.tsx) และเพิ่มเมนูในแถบนำทางหลักใน [Navigation.tsx](file:///D:/Arnut/Coding_projects/gachame/src/components/Navigation.tsx)</li>
       </ul>
+
+      <h2>11. การปรับปรุงความสวยงามหน้าแรกและแก้ไขเมนูโมบายล์ (Home Cards Theme & Mobile Menu Fix)</h2>
+      <ul>
+        <li><b>กรอบการ์ดหน้าแรกสีฟ้า:</b> ปรับแต่งกรอบ (Border) ของการ์ดนำทางทั้งสองใบในหน้า [Home.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Home.tsx) ให้เป็นโทนสีฟ้าเรืองแสง <code>border-accent-cyan/45</code> ตั้งแต่สถานะปกติ เพื่อสร้างมิติและความสว่างที่เข้ากับโลโก้แบรนด์</li>
+        <li><b>แก้ไขพื้นหลังเมนูโมบายล์หาย (Containing Block Issue):</b> แก้ไขไฟล์สไตล์ [index.css](file:///D:/Arnut/Coding_projects/gachame/src/index.css) ในส่วน <code>.nav-wrapper</code> ของหน้าจออุปกรณ์เคลื่อนที่ โดยเปลี่ยนคุณสมบัติการวัดขอบล่างจาก <code>bottom: 0</code> มาเป็นการกำหนดความสูงแน่นอนด้วย <code>height: calc(100vh - 70px)</code> เพื่อแก้ปัญหา Container ทรุดตัวเหลือความสูง 0 พิกเซลจากผลกระทบของ Positioning Context ของ header ที่มี backdrop-filter และตั้งค่าความทึบสีพื้นหลังให้อ่านง่ายเป็น <code>rgba(11, 12, 16, 0.98)</code></li>
+      </ul>
     </div>
   </body>
 </html>

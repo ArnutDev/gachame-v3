@@ -24,7 +24,7 @@ export default function Home() {
           <Card
             hoverable
             glow
-            className="flex flex-col h-full border border-border-color/85 bg-bg-secondary/25 group-hover:border-accent-cyan/50 hover:shadow-xl hover:shadow-accent-cyan/5"
+            className="flex flex-col h-full border border-accent-cyan/45 bg-bg-secondary/25 group-hover:border-accent-cyan/75 hover:shadow-xl hover:shadow-accent-cyan/10"
           >
             {/* Top Part: Image Banner */}
             <div className="relative rounded-lg overflow-hidden mb-5 border border-border-color/40 group-hover:border-accent-cyan/35 transition-all duration-300">
@@ -67,7 +67,7 @@ export default function Home() {
           <Card
             hoverable
             glow
-            className="flex flex-col h-full border border-border-color/85 bg-bg-secondary/25 group-hover:border-accent-teal/50 hover:shadow-xl hover:shadow-accent-teal/5"
+            className="flex flex-col h-full border border-accent-cyan/45 bg-bg-secondary/25 group-hover:border-accent-teal/75 hover:shadow-xl hover:shadow-accent-teal/10"
           >
             {/* Top Part: Image Banner */}
             <div className="relative rounded-lg overflow-hidden mb-5 border border-border-color/40 group-hover:border-accent-teal/35 transition-all duration-300">

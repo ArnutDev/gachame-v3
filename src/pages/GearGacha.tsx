@@ -102,7 +102,7 @@ export default function GearGacha() {
             Gear <span className="text-accent-teal">Gacha Simulator</span>
           </h1>
           <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
-            Select an active Gear banner and simulate pulls. Experience the premium card flip reveals and verify gear distribution.
+            Select an active Gear banner and simulate pulls.
           </p>
         </div>
         <Button

@@ -102,7 +102,7 @@ export default function RangerGacha() {
             Ranger <span className="text-accent-cyan">Gacha Simulator</span>
           </h1>
           <p className="text-text-secondary text-sm sm:text-base mt-2 max-w-2xl">
-            Select an active Ranger banner and simulate pulls. Verify drop percentages and experience the premium reveal animations.
+            Select an active Ranger banner and simulate pulls.
           </p>
         </div>
         <Button
