@@ -1,6 +1,9 @@
 import { Banner, RangerRarity, GearRarity, Ranger, Gear } from '../../types';
 import { loadBannersJson } from '../loaders/bannerLoader';
-import { validateBannersJsonStructure, validateBannerProbabilityAndPool } from '../validators/bannerValidator';
+import {
+  validateBannersJsonStructure,
+  validateBannerProbabilityAndPool,
+} from '../validators/bannerValidator';
 import { getCombinedRangers } from './rangerRepository';
 import { getCombinedGears } from './gearRepository';
 
@@ -10,7 +13,9 @@ const validationErrors: string[] = [];
 /**
  * Helper to compile the entire item pool (Ranger or Gear) associated with a banner.
  */
-async function compilePoolForBanner(banner: Banner): Promise<(Ranger | Gear)[]> {
+async function compilePoolForBanner(
+  banner: Banner
+): Promise<(Ranger | Gear)[]> {
   const isGear = banner.type === 'gear' || banner.type === 'gear_boost';
   if (isGear) {
     const rarities: GearRarity[] = ['5', '6', '7', '8', '9'];
@@ -19,7 +24,12 @@ async function compilePoolForBanner(banner: Banner): Promise<(Ranger | Gear)[]> 
     );
     return pools.flat();
   } else {
-    const rarities: RangerRarity[] = ['7_normal', '7_ultra', '8_normal', '8_ultra'];
+    const rarities: RangerRarity[] = [
+      '7_normal',
+      '7_ultra',
+      '8_normal',
+      '8_ultra',
+    ];
     const pools = await Promise.all(
       rarities.map((r) => getCombinedRangers(r, banner.event))
     );
@@ -38,12 +48,14 @@ export async function getBanners(): Promise<Banner[]> {
 
   validationErrors.length = 0; // Reset errors
   const rawData = await loadBannersJson();
-  
+
   // 1. Structure validation
   const structValidation = validateBannersJsonStructure(rawData);
   if (!structValidation.isValid) {
     validationErrors.push(...structValidation.errors);
-    throw new Error(`Banners JSON structural validation failed: ${structValidation.errors.join('; ')}`);
+    throw new Error(
+      `Banners JSON structural validation failed: ${structValidation.errors.join('; ')}`
+    );
   }
 
   // Filter and validate only active banners to match active banner specification
@@ -53,7 +65,10 @@ export async function getBanners(): Promise<Banner[]> {
   for (const banner of banners) {
     try {
       const itemsPool = await compilePoolForBanner(banner);
-      const crossValidation = validateBannerProbabilityAndPool(banner, itemsPool);
+      const crossValidation = validateBannerProbabilityAndPool(
+        banner,
+        itemsPool
+      );
       if (!crossValidation.isValid) {
         const contextualErrors = crossValidation.errors.map(
           (err) => `[Banner ID: ${banner.id}] ${err}`
@@ -61,7 +76,9 @@ export async function getBanners(): Promise<Banner[]> {
         validationErrors.push(...contextualErrors);
       }
     } catch (err: any) {
-      validationErrors.push(`[Banner ID: ${banner.id}] Failed to compile items pool or validate: ${err.message}`);
+      validationErrors.push(
+        `[Banner ID: ${banner.id}] Failed to compile items pool or validate: ${err.message}`
+      );
     }
   }
 

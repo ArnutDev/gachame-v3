@@ -30,7 +30,9 @@ export default function GearGacha() {
   const [pullError, setPullError] = useState<string | null>(null);
   const [isGuaranteeOpen, setIsGuaranteeOpen] = useState<boolean>(false);
 
-  const gearAvailable = (gearPityCount >= 90 && !gearBox90Claimed ? 1 : 0) + (gearPityCount >= 150 && !gearBox150Claimed ? 1 : 0);
+  const gearAvailable =
+    (gearPityCount >= 90 && !gearBox90Claimed ? 1 : 0) +
+    (gearPityCount >= 150 && !gearBox150Claimed ? 1 : 0);
   const [isPulling, setIsPulling] = useState<boolean>(false);
   const [gearCatalog, setGearCatalog] = useState<Gear[]>([]);
 
@@ -38,11 +40,17 @@ export default function GearGacha() {
   useEffect(() => {
     async function loadCatalog() {
       try {
-        const events = Array.from(new Set(banners.map((b) => b.event).filter(Boolean))) as string[];
+        const events = Array.from(
+          new Set(banners.map((b) => b.event).filter(Boolean))
+        ) as string[];
         const rarities: GearRarity[] = ['5', '6', '7', '8', '9'];
-        const basePools = await Promise.all(rarities.map((r) => getCombinedGears(r)));
+        const basePools = await Promise.all(
+          rarities.map((r) => getCombinedGears(r))
+        );
         const eventPools = await Promise.all(
-          events.map((ev) => Promise.all(rarities.map((r) => getCombinedGears(r, ev))))
+          events.map((ev) =>
+            Promise.all(rarities.map((r) => getCombinedGears(r, ev)))
+          )
         );
         const all = [...basePools.flat(), ...eventPools.flat().flat()];
         const unique = Array.from(new Map(all.map((g) => [g.id, g])).values());
@@ -59,9 +67,14 @@ export default function GearGacha() {
   // Automatically select the first Gear banner on page mount if a Ranger banner is active in global state
   useEffect(() => {
     if (banners.length > 0) {
-      const isCurrentRanger = currentBanner && currentBanner.type !== 'gear' && currentBanner.type !== 'gear_boost';
+      const isCurrentRanger =
+        currentBanner &&
+        currentBanner.type !== 'gear' &&
+        currentBanner.type !== 'gear_boost';
       if (!currentBanner || isCurrentRanger) {
-        const firstGear = banners.find((b) => (b.type === 'gear' || b.type === 'gear_boost') && b.active);
+        const firstGear = banners.find(
+          (b) => (b.type === 'gear' || b.type === 'gear_boost') && b.active
+        );
         if (firstGear) {
           selectBanner(firstGear.id);
         }
@@ -78,18 +91,21 @@ export default function GearGacha() {
     setPullError(null);
     setLastPullCount(count);
     setIsPulling(true);
-    
+
     try {
       // Execute the pull logic
       const outcomes = await performPull(count);
-      
+
       // Artificial delay (500ms) for tension / summoning animation
       await new Promise((resolve) => setTimeout(resolve, 500));
-      
+
       setResults(outcomes);
       setShowResults(true);
     } catch (err) {
-      const errorMsg = err instanceof Error ? err.message : 'Something went wrong during the pull';
+      const errorMsg =
+        err instanceof Error
+          ? err.message
+          : 'Something went wrong during the pull';
       setPullError(errorMsg);
     } finally {
       setIsPulling(false);
@@ -115,12 +131,12 @@ export default function GearGacha() {
         </div>
         <div className="flex items-center gap-3 self-start sm:self-center shrink-0">
           <Button
-            variant={gearAvailable > 0 ? "primary" : "secondary"}
+            variant={gearAvailable > 0 ? 'primary' : 'secondary'}
             size="sm"
             onClick={() => setIsGuaranteeOpen(true)}
             className={`font-bold uppercase tracking-wider gap-2 relative ${
-              gearAvailable > 0 
-                ? 'animate-pulse shadow-md shadow-accent-teal/15 border-accent-teal/50 bg-gradient-to-r from-accent-teal to-emerald-400 text-bg-primary' 
+              gearAvailable > 0
+                ? 'animate-pulse shadow-md shadow-accent-teal/15 border-accent-teal/50 bg-gradient-to-r from-accent-teal to-emerald-400 text-bg-primary'
                 : 'bg-accent-teal/25 border-accent-teal/80 hover:bg-accent-teal/35 text-text-primary'
             }`}
           >
@@ -147,15 +163,29 @@ export default function GearGacha() {
         <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-bg-secondary/35 border border-white/5 backdrop-blur-md shadow-md shadow-black/5">
           <span className="text-base text-accent-teal select-none">📊</span>
           <div className="text-left">
-            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">Total Pulls</div>
-            <div className="text-sm font-black text-text-primary font-mono">{gearPityCount} <span className="text-[10px] text-text-secondary/80 font-medium font-sans">times</span></div>
+            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">
+              Total Pulls
+            </div>
+            <div className="text-sm font-black text-text-primary font-mono">
+              {gearPityCount}{' '}
+              <span className="text-[10px] text-text-secondary/80 font-medium font-sans">
+                times
+              </span>
+            </div>
           </div>
         </div>
         <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-bg-secondary/35 border border-white/5 backdrop-blur-md shadow-md shadow-black/5">
           <span className="text-base select-none">♦️</span>
           <div className="text-left">
-            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">Ruby Spent</div>
-            <div className="text-sm font-black text-yellow-300 font-mono">{gearRubySpent} <span className="text-[9px] text-yellow-300 font-sans tracking-wide uppercase">Ruby</span></div>
+            <div className="text-[9px] uppercase font-black tracking-wider text-text-secondary/90">
+              Ruby Spent
+            </div>
+            <div className="text-sm font-black text-yellow-300 font-mono">
+              {gearRubySpent}{' '}
+              <span className="text-[9px] text-yellow-300 font-sans tracking-wide uppercase">
+                Ruby
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -163,8 +193,19 @@ export default function GearGacha() {
       {/* Error Displays */}
       {(stateError || pullError) && (
         <div className="mb-6 p-4 rounded-lg bg-error/10 border border-error/30 text-error text-sm font-semibold flex items-center gap-3">
-          <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          <svg
+            className="w-5 h-5 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2.5"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
           </svg>
           <div>{pullError || stateError}</div>
         </div>
@@ -174,8 +215,12 @@ export default function GearGacha() {
       {gearBanners.length === 0 ? (
         <div className="flex flex-col items-center justify-center p-12 text-center border border-border-color rounded-xl bg-bg-secondary/20">
           <span className="text-4xl mb-4">📭</span>
-          <h3 className="text-lg font-bold text-text-primary">No Active Gear Banners</h3>
-          <p className="text-text-secondary text-sm mt-1">There are currently no active Gear banners configured in the system.</p>
+          <h3 className="text-lg font-bold text-text-primary">
+            No Active Gear Banners
+          </h3>
+          <p className="text-text-secondary text-sm mt-1">
+            There are currently no active Gear banners configured in the system.
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -193,18 +238,34 @@ export default function GearGacha() {
                   return banner.featuredItems
                     .map((itemId) => {
                       const item = gearCatalog.find((g) => g.id === itemId);
-                      return item ? { id: item.id, name: item.name, image: item.image, rarity: item.rarity } : null;
+                      return item
+                        ? {
+                            id: item.id,
+                            name: item.name,
+                            image: item.image,
+                            rarity: item.rarity,
+                          }
+                        : null;
                     })
-                    .filter((item): item is NonNullable<typeof item> => item !== null);
+                    .filter(
+                      (item): item is NonNullable<typeof item> => item !== null
+                    );
                 } else {
                   // Non-buff banner: show top 6 event gears of that event month sorted by rarity descending
                   const eventGears = gearCatalog.filter(
                     (g) => g.event === banner.event
                   );
                   const sortedEventGears = [...eventGears]
-                    .sort((a, b) => parseInt(b.rarity, 10) - parseInt(a.rarity, 10))
+                    .sort(
+                      (a, b) => parseInt(b.rarity, 10) - parseInt(a.rarity, 10)
+                    )
                     .slice(0, 6);
-                  return sortedEventGears.map((g) => ({ id: g.id, name: g.name, image: g.image, rarity: g.rarity }));
+                  return sortedEventGears.map((g) => ({
+                    id: g.id,
+                    name: g.name,
+                    image: g.image,
+                    rarity: g.rarity,
+                  }));
                 }
               })()}
               featuredItemsRarities={banner.featuredItems.map((id) => {
@@ -229,34 +290,22 @@ export default function GearGacha() {
         <div className="flex flex-col items-center">
           {/* Results Cards Layout */}
           {results.length === 6 ? (
-            <div className="w-full flex flex-col gap-6 mb-8 mt-2">
-              {/* Top Row: 3 cards */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                {results.slice(0, 3).map((outcome, idx) => (
-                  <div key={outcome.rollIndex + '-' + outcome.item.id} className="w-[140px] sm:w-[160px] flex-shrink-0">
-                    <PullResultCard
-                      outcome={outcome}
-                      revealDelay={idx * 150} // 150ms staggered flip reveal animation
-                    />
-                  </div>
-                ))}
-              </div>
-              
-              {/* Bottom Row: 3 cards */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                {results.slice(3, 6).map((outcome, idx) => (
-                  <div key={outcome.rollIndex + '-' + outcome.item.id} className="w-[140px] sm:w-[160px] flex-shrink-0">
-                    <PullResultCard
-                      outcome={outcome}
-                      revealDelay={(idx + 3) * 150} // Continue staggered reveal sequence
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="w-full flex flex-wrap justify-center gap-2 sm:gap-6 max-w-full sm:max-w-[550px] mb-3 sm:mb-8 mt-2">
+              {results.map((outcome, idx) => (
+                <div
+                  key={outcome.rollIndex + '-' + outcome.item.id}
+                  className="w-[85px] min-[400px]:w-[95px] sm:w-[160px] flex-shrink-0"
+                >
+                  <PullResultCard
+                    outcome={outcome}
+                    revealDelay={idx * 150} // 150ms staggered flip reveal animation
+                  />
+                </div>
+              ))}
             </div>
           ) : (
             /* Single Pull Display */
-            <div className="w-full max-w-[200px] mx-auto mb-8 mt-2">
+            <div className="w-full max-w-[120px] sm:max-w-[200px] mx-auto mb-3 sm:mb-8 mt-2">
               {results.map((outcome) => (
                 <PullResultCard
                   key={outcome.rollIndex + '-' + outcome.item.id}
@@ -268,7 +317,7 @@ export default function GearGacha() {
           )}
 
           {/* Action buttons inside Modal */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-2">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-1 sm:mt-2">
             <Button
               variant="secondary"
               onClick={handleCloseResults}
@@ -301,7 +350,9 @@ export default function GearGacha() {
           <div className="relative w-16 h-16 mb-6">
             <div className="absolute inset-0 rounded-full bg-accent-teal/15 animate-ping" />
             <div className="relative w-16 h-16 rounded-full border-2 border-accent-teal/20 border-t-accent-teal animate-spin flex items-center justify-center">
-              <span className="text-xl font-bold text-accent-teal animate-pulse">⚙️</span>
+              <span className="text-xl font-bold text-accent-teal animate-pulse">
+                ⚙️
+              </span>
             </div>
           </div>
           <h3 className="text-base font-bold text-text-primary mb-1 animate-pulse">

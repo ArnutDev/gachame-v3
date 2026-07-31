@@ -46,7 +46,9 @@ export function validateGearRaw(data: unknown): ValidationResult {
  * Loads permanent Base Ranger configurations by rarity.
  * Delegated to data/repositories/rangerRepository.ts
  */
-export async function loadBaseRangers(rarity: RangerRarity): Promise<RangerRaw[]> {
+export async function loadBaseRangers(
+  rarity: RangerRarity
+): Promise<RangerRaw[]> {
   return getBaseRangersRaw(rarity);
 }
 
@@ -62,7 +64,10 @@ export async function loadBaseGears(rarity: GearRarity): Promise<GearRaw[]> {
  * Loads event-specific Ranger configurations.
  * Delegated to data/repositories/rangerRepository.ts
  */
-export async function loadEventRangers(event: string, rarity: RangerRarity): Promise<RangerRaw[]> {
+export async function loadEventRangers(
+  event: string,
+  rarity: RangerRarity
+): Promise<RangerRaw[]> {
   return getEventRangersRaw(event, rarity);
 }
 
@@ -70,7 +75,10 @@ export async function loadEventRangers(event: string, rarity: RangerRarity): Pro
  * Loads event-specific Gear configurations.
  * Delegated to data/repositories/gearRepository.ts
  */
-export async function loadEventGears(event: string, rarity: GearRarity): Promise<GearRaw[]> {
+export async function loadEventGears(
+  event: string,
+  rarity: GearRarity
+): Promise<GearRaw[]> {
   return getEventGearsRaw(event, rarity);
 }
 
@@ -78,7 +86,10 @@ export async function loadEventGears(event: string, rarity: GearRarity): Promise
  * Loads and combines permanent Base Rangers with temporary Event Rangers dynamically.
  * Delegated to data/repositories/rangerRepository.ts
  */
-export async function loadCombinedRangers(rarity: RangerRarity, event?: string): Promise<Ranger[]> {
+export async function loadCombinedRangers(
+  rarity: RangerRarity,
+  event?: string
+): Promise<Ranger[]> {
   return repoCombinedRangers(rarity, event);
 }
 
@@ -86,7 +97,10 @@ export async function loadCombinedRangers(rarity: RangerRarity, event?: string):
  * Loads and combines permanent Base Gears with temporary Event Gears dynamically.
  * Delegated to data/repositories/gearRepository.ts
  */
-export async function loadCombinedGears(rarity: GearRarity, event?: string): Promise<Gear[]> {
+export async function loadCombinedGears(
+  rarity: GearRarity,
+  event?: string
+): Promise<Gear[]> {
   return repoCombinedGears(rarity, event);
 }
 

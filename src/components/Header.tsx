@@ -8,7 +8,11 @@ export default function Header() {
   return (
     <header className="app-header">
       <div className="header-container">
-        <NavLink to="/" className="header-logo" onClick={() => setIsMenuOpen(false)}>
+        <NavLink
+          to="/"
+          className="header-logo"
+          onClick={() => setIsMenuOpen(false)}
+        >
           <img
             src="https://gachame.github.io/images/coupon-logo.png"
             alt="GachaMe Logo"

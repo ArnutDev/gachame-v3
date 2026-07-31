@@ -9,7 +9,11 @@ interface GuaranteeModalProps {
   type: 'ranger' | 'gear';
 }
 
-export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModalProps) {
+export default function GuaranteeModal({
+  isOpen,
+  onClose,
+  type,
+}: GuaranteeModalProps) {
   const {
     currentBanner,
     rangerPityCount,
@@ -27,7 +31,9 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
   if (!currentBanner) return null;
 
   const isGear = type === 'gear';
-  const eventName = currentBanner.event ? `Event ${currentBanner.event}` : 'Current Event';
+  const eventName = currentBanner.event
+    ? `Event ${currentBanner.event}`
+    : 'Current Event';
 
   // Calculate available Ranger boxes
   const rangerEarned = Math.floor(rangerPityCount / 100);
@@ -58,7 +64,8 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
   };
 
   const handleOpenGearBox = async (milestone: 90 | 150) => {
-    const isAvailable = milestone === 90 ? gearBox90Available : gearBox150Available;
+    const isAvailable =
+      milestone === 90 ? gearBox90Available : gearBox150Available;
     if (!isAvailable || isUnboxing) return;
 
     setIsUnboxing(true);
@@ -122,7 +129,8 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                 alt={reward.name}
                 className="w-24 h-24 object-contain drop-shadow-[0_0_8px_rgba(102,252,241,0.5)]"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://gachame.github.io/images/coupon-logo.png';
+                  (e.target as HTMLImageElement).src =
+                    'https://gachame.github.io/images/coupon-logo.png';
                 }}
               />
             </div>
@@ -132,7 +140,11 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
             <h3 className="text-xl font-black text-text-primary mb-6 tracking-tight">
               {reward.name}
             </h3>
-            <Button variant="primary" onClick={() => setReward(null)} className="font-extrabold px-6">
+            <Button
+              variant="primary"
+              onClick={() => setReward(null)}
+              className="font-extrabold px-6"
+            >
               Claim & Continue
             </Button>
           </div>
@@ -147,14 +159,20 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                   Ranger Pity Box
                 </h4>
                 <p className="text-xs text-text-secondary mb-6 max-w-sm">
-                  Receive a random <span className="text-accent-cyan font-bold">8★ Normal Event Ranger</span> of {eventName} for every 100 pulls. (6+1 counts as 6 pulls)
+                  Receive a random{' '}
+                  <span className="text-accent-cyan font-bold">
+                    8★ Normal Event Ranger
+                  </span>{' '}
+                  of {eventName} for every 100 pulls. (6+1 counts as 6 pulls)
                 </p>
 
                 {/* Progress bar */}
                 <div className="w-full max-w-xs bg-bg-secondary border border-border-color rounded-full h-4 mb-2 overflow-hidden p-0.5 relative">
                   <div
                     className="h-full bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full transition-all duration-500"
-                    style={{ width: `${Math.min(100, rangerPityCount % 100)}%` }}
+                    style={{
+                      width: `${Math.min(100, rangerPityCount % 100)}%`,
+                    }}
                   />
                   <span className="absolute inset-0 flex items-center justify-center text-[9px] font-black text-text-primary mix-blend-difference font-mono">
                     {rangerPityCount % 100} / 100
@@ -192,7 +210,9 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                   Gear Pity Milestones
                 </h4>
                 <p className="text-xs text-text-secondary mb-8 max-w-sm">
-                  Receive a random <span className="text-accent-cyan font-bold">Event Gear</span> at 90 and 150 pulls. (5+1 counts as 5 pulls)
+                  Receive a random{' '}
+                  <span className="text-accent-cyan font-bold">Event Gear</span>{' '}
+                  at 90 and 150 pulls. (5+1 counts as 5 pulls)
                 </p>
 
                 <div className="w-full max-w-sm flex flex-col gap-4">
@@ -210,9 +230,16 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                       </div>
                     </div>
                     {gearBox90Claimed ? (
-                      <span className="text-xs font-bold text-text-secondary/40 uppercase">Claimed</span>
+                      <span className="text-xs font-bold text-text-secondary/40 uppercase">
+                        Claimed
+                      </span>
                     ) : gearBox90Available ? (
-                      <Button variant="primary" size="sm" onClick={() => handleOpenGearBox(90)} className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={() => handleOpenGearBox(90)}
+                        className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse"
+                      >
                         Open
                       </Button>
                     ) : (
@@ -236,9 +263,16 @@ export default function GuaranteeModal({ isOpen, onClose, type }: GuaranteeModal
                       </div>
                     </div>
                     {gearBox150Claimed ? (
-                      <span className="text-xs font-bold text-text-secondary/40 uppercase">Claimed</span>
+                      <span className="text-xs font-bold text-text-secondary/40 uppercase">
+                        Claimed
+                      </span>
                     ) : gearBox150Available ? (
-                      <Button variant="primary" size="sm" onClick={() => handleOpenGearBox(150)} className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        onClick={() => handleOpenGearBox(150)}
+                        className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse"
+                      >
                         Open
                       </Button>
                     ) : (

@@ -21,7 +21,9 @@ export async function getBaseGearsRaw(rarity: GearRarity): Promise<GearRaw[]> {
 
   if (!validation.isValid) {
     validationErrors.push(...validation.errors);
-    throw new Error(`Validation failed for ${context}: ${validation.errors.join('; ')}`);
+    throw new Error(
+      `Validation failed for ${context}: ${validation.errors.join('; ')}`
+    );
   }
 
   const list = rawData as GearRaw[];
@@ -32,7 +34,10 @@ export async function getBaseGearsRaw(rarity: GearRarity): Promise<GearRaw[]> {
 /**
  * Loads and validates raw event Gear list of a specific rarity.
  */
-export async function getEventGearsRaw(event: string, rarity: GearRarity): Promise<GearRaw[]> {
+export async function getEventGearsRaw(
+  event: string,
+  rarity: GearRarity
+): Promise<GearRaw[]> {
   const cacheKey = `event/${event}/${rarity}`;
   if (rawCache.has(cacheKey)) {
     return rawCache.get(cacheKey)!;
@@ -48,7 +53,9 @@ export async function getEventGearsRaw(event: string, rarity: GearRarity): Promi
 
   if (!validation.isValid) {
     validationErrors.push(...validation.errors);
-    throw new Error(`Validation failed for ${context}: ${validation.errors.join('; ')}`);
+    throw new Error(
+      `Validation failed for ${context}: ${validation.errors.join('; ')}`
+    );
   }
 
   const list = rawData as GearRaw[];
@@ -61,7 +68,10 @@ export async function getEventGearsRaw(event: string, rarity: GearRarity): Promi
  * Maps raw Gear JSON data structures to fully resolved domain models.
  * Enforces cross-file validation (e.g. no duplication between Event and Base content).
  */
-export async function getCombinedGears(rarity: GearRarity, event?: string): Promise<Gear[]> {
+export async function getCombinedGears(
+  rarity: GearRarity,
+  event?: string
+): Promise<Gear[]> {
   const baseGearsRaw = await getBaseGearsRaw(rarity);
   let eventGearsRaw: GearRaw[] = [];
 

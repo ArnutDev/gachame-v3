@@ -13,7 +13,9 @@ export default function Home() {
           Welcome to GachaMe
         </h1>
         <p className="text-text-secondary text-base sm:text-lg leading-relaxed">
-          A fan-made LINE Rangers gacha simulator where you can pull for both Rangers and Gears. Test your luck and enjoy unlimited summons in your browser.
+          A fan-made LINE Rangers gacha simulator where you can pull for both
+          Rangers and Gears. Test your luck and enjoy unlimited summons in your
+          browser.
         </p>
       </div>
 

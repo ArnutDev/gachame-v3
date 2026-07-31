@@ -52,7 +52,7 @@ export default function RangerCard({
     <Card
       hoverable={!!onClick}
       onClick={onClick}
-      className={`relative flex flex-col items-center text-center p-3 rounded-lg border bg-bg-secondary/40 backdrop-blur-md overflow-hidden ${rarityBorderClass} ${rarityGlowClass}`}
+      className={`relative flex flex-col items-center text-center p-1.5 sm:p-3 rounded-lg border bg-bg-secondary/40 backdrop-blur-md overflow-hidden ${rarityBorderClass} ${rarityGlowClass}`}
     >
       {/* Quantity Duplicate Badge */}
       {quantity > 0 && (
@@ -78,7 +78,7 @@ export default function RangerCard({
       )}
 
       {/* Avatar Container */}
-      <div className="w-20 h-20 mb-3 mt-2">
+      <div className="w-10 h-10 sm:w-20 sm:h-20 mb-1 sm:mb-3 mt-0.5 sm:mt-2">
         <ImageContainer
           src={ranger.image}
           alt={ranger.name}
@@ -87,14 +87,17 @@ export default function RangerCard({
       </div>
 
       {/* Name */}
-      <h4 className="text-sm font-semibold text-text-primary truncate w-full mb-1">
+      <h4 className="text-[10px] sm:text-sm font-semibold text-text-primary truncate w-full mb-0.5">
         {ranger.name}
       </h4>
 
       {/* Star Rarity Display */}
       <div className="flex items-center justify-center mt-auto">
-        <span className={`text-[11px] font-extrabold ${rarityTextClass} flex items-center gap-0.5`}>
-          {starCount}<span className="text-yellow-500">★</span>
+        <span
+          className={`text-[9px] sm:text-[11px] font-extrabold ${rarityTextClass} flex items-center gap-0.5`}
+        >
+          {starCount}
+          <span className="text-yellow-500">★</span>
         </span>
       </div>
     </Card>

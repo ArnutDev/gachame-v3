@@ -10,7 +10,12 @@ export interface BannerCardProps {
   onSelect: () => void;
   onPull?: (count: number) => void;
   disabled?: boolean;
-  featuredItemsDetails?: { id: string; name: string; image: string; rarity: string }[];
+  featuredItemsDetails?: {
+    id: string;
+    name: string;
+    image: string;
+    rarity: string;
+  }[];
   featuredItemsRarities?: { id: string; rarity: string }[];
 }
 
@@ -28,7 +33,7 @@ export default function BannerCard({
   // Helper to resolve month and tag details dynamically
   const getBannerTag = (): { label: string; colorClass: string } | null => {
     const eventStr = banner.event;
-    
+
     // Parse month number
     let month: number | null = null;
     if (eventStr) {
@@ -53,8 +58,8 @@ export default function BannerCard({
         }
         return {
           label: isGear ? 'Collab Gear' : 'Collab',
-          colorClass: isGear 
-            ? 'bg-accent-teal/10 border-accent-teal/30 text-accent-teal' 
+          colorClass: isGear
+            ? 'bg-accent-teal/10 border-accent-teal/30 text-accent-teal'
             : 'bg-accent-cyan/10 border-accent-cyan/30 text-accent-cyan',
         };
       } else {
@@ -76,19 +81,29 @@ export default function BannerCard({
         colorClass: 'bg-orange-500/10 border-orange-500/30 text-orange-400',
       };
     }
-    
+
     return {
       label: isGear ? 'Gear Box' : 'Normal',
-      colorClass: isGear 
-        ? 'bg-accent-teal/10 border-accent-teal/30 text-accent-teal' 
+      colorClass: isGear
+        ? 'bg-accent-teal/10 border-accent-teal/30 text-accent-teal'
         : 'bg-white/5 border-white/10 text-text-secondary',
     };
   };
 
   const getBannerPeriodLabel = (): string => {
     const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     const eventStr = banner.event || banner.startDate;
     if (eventStr) {
@@ -139,7 +154,12 @@ export default function BannerCard({
 
       {/* Event Date Range */}
       <p className="text-[11.5px] text-text-primary mb-4">
-        Period: <span className={`font-extrabold ${isGear ? 'text-accent-teal' : 'text-accent-cyan'}`}>{getBannerPeriodLabel()}</span>
+        Period:{' '}
+        <span
+          className={`font-extrabold ${isGear ? 'text-accent-teal' : 'text-accent-cyan'}`}
+        >
+          {getBannerPeriodLabel()}
+        </span>
       </p>
 
       {/* Featured Items Preview inside Card */}
@@ -150,12 +170,14 @@ export default function BannerCard({
               <div
                 key={item.id}
                 className={`group/item relative w-20 h-20 rounded-2xl overflow-hidden bg-black/45 border p-0.5 transition-all ${
-                  isGear ? 'border-accent-teal/35 hover:border-accent-teal/80 shadow-md shadow-accent-teal/5' : 'border-accent-cyan/35 hover:border-accent-cyan/80 shadow-md shadow-accent-cyan/5'
+                  isGear
+                    ? 'border-accent-teal/35 hover:border-accent-teal/80 shadow-md shadow-accent-teal/5'
+                    : 'border-accent-cyan/35 hover:border-accent-cyan/80 shadow-md shadow-accent-cyan/5'
                 }`}
                 title={item.name}
               >
                 <ImageContainer src={item.image} alt={item.name} />
-                
+
                 {/* Micro tooltip on hover */}
                 <div className="absolute bottom-0 inset-x-0 bg-black/90 text-[9px] font-extrabold text-center text-text-primary py-0.5 px-0.5 truncate opacity-0 group-hover/item:opacity-100 transition-opacity pointer-events-none">
                   {item.name}
@@ -176,13 +198,16 @@ export default function BannerCard({
             if (!rate || rate === 0) return null;
             const displayName = isGear
               ? `${rarity}★`
-              : rarity.replace('7_normal', '7★ Normal')
-                         .replace('7_ultra', '7★ Ultra')
-                         .replace('8_normal', '8★ Normal')
-                         .replace('8_ultra', '8★ Ultra');
+              : rarity
+                  .replace('7_normal', '7★ Normal')
+                  .replace('7_ultra', '7★ Ultra')
+                  .replace('8_normal', '8★ Normal')
+                  .replace('8_ultra', '8★ Ultra');
 
             // Resolve featured rates for this specific rarity
-            const featuredForRarity = featuredItemsRarities.filter((item) => item.rarity === rarity);
+            const featuredForRarity = featuredItemsRarities.filter(
+              (item) => item.rarity === rarity
+            );
             const featuredRates = featuredForRarity
               .map((item) => banner.featuredRates?.[item.id])
               .filter((r): r is number => r !== undefined && r > 0);
@@ -222,7 +247,10 @@ export default function BannerCard({
 
       {/* Action Pull Buttons */}
       {onPull && (
-        <div className="grid grid-cols-2 gap-2 mt-2" onClick={(e) => e.stopPropagation()}>
+        <div
+          className="grid grid-cols-2 gap-2 mt-2"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Button
             disabled={disabled}
             variant="secondary"

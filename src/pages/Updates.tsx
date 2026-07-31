@@ -14,7 +14,7 @@ export default function Updates() {
         setIsLoading(true);
         setError(null);
         const data = await getUpdates();
-        
+
         // Reverse array to display the latest updates first (JSON bottom-to-top)
         const reversed = [...data].reverse();
         setUpdates(reversed);
@@ -44,7 +44,10 @@ export default function Updates() {
       {isLoading ? (
         <div className="flex flex-col gap-5">
           {[1, 2, 3].map((n) => (
-            <div key={n} className="w-full h-32 bg-bg-secondary/25 border border-border-color rounded-lg animate-pulse" />
+            <div
+              key={n}
+              className="w-full h-32 bg-bg-secondary/25 border border-border-color rounded-lg animate-pulse"
+            />
           ))}
         </div>
       ) : error ? (
@@ -63,8 +66,8 @@ export default function Updates() {
               hoverable
               glow={index === 0} // Highlight latest version card with a subtle glow
               className={`relative border transition-all duration-300 ${
-                index === 0 
-                  ? 'border-accent-cyan/40 bg-bg-secondary/45 shadow-md shadow-accent-cyan/5' 
+                index === 0
+                  ? 'border-accent-cyan/40 bg-bg-secondary/45 shadow-md shadow-accent-cyan/5'
                   : 'border-border-color bg-bg-secondary/25'
               }`}
             >
@@ -88,8 +91,13 @@ export default function Updates() {
               {/* Bullet list of changes */}
               <ul className="list-none pl-0 flex flex-col gap-2.5">
                 {log.changes.map((change, cIdx) => (
-                  <li key={cIdx} className="flex items-start gap-2.5 text-text-secondary text-sm leading-relaxed">
-                    <span className={`text-[10px] mt-1.5 ${index === 0 ? 'text-accent-cyan' : 'text-text-secondary/60'}`}>
+                  <li
+                    key={cIdx}
+                    className="flex items-start gap-2.5 text-text-secondary text-sm leading-relaxed"
+                  >
+                    <span
+                      className={`text-[10px] mt-1.5 ${index === 0 ? 'text-accent-cyan' : 'text-text-secondary/60'}`}
+                    >
                       ✦
                     </span>
                     <span>{change}</span>

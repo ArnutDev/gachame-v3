@@ -51,16 +51,20 @@ Thank you for visiting, and have a great day!
         <div className="flex flex-col gap-2 items-center mb-8 text-sm">
           <div className="flex items-center gap-2 text-text-secondary">
             <span className="text-lg">📧</span>
-            <p className="text-accent-cyan font-medium">
-              {profileData.email}
-            </p>
+            <p className="text-accent-cyan font-medium">{profileData.email}</p>
           </div>
         </div>
 
         {/* Google Form Link Button */}
         <Button
           variant="secondary"
-          onClick={() => window.open(profileData.googleFormUrl, '_blank', 'noopener,noreferrer')}
+          onClick={() =>
+            window.open(
+              profileData.googleFormUrl,
+              '_blank',
+              'noopener,noreferrer'
+            )
+          }
           className="px-8 py-3 text-sm font-extrabold tracking-wider uppercase flex items-center gap-2 transition-all"
         >
           Google Form

@@ -12,7 +12,7 @@ export async function getUpdates(): Promise<UpdateLog[]> {
   }
 
   const rawData = await loadUpdatesJson();
-  
+
   if (!Array.isArray(rawData)) {
     throw new Error('Updates JSON configuration must be an array');
   }
@@ -33,7 +33,9 @@ export async function getUpdates(): Promise<UpdateLog[]> {
         changes: item.changes,
       });
     } else {
-      throw new Error(`Invalid update log entry structure: ${JSON.stringify(item)}`);
+      throw new Error(
+        `Invalid update log entry structure: ${JSON.stringify(item)}`
+      );
     }
   }
 

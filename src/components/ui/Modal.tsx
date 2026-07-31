@@ -60,13 +60,13 @@ export default function Modal({
   return (
     <div
       onClick={handleOverlayClick}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-bg-primary/80 backdrop-blur-sm transition-all duration-300 animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-bg-primary/80 backdrop-blur-sm transition-all duration-300 animate-fadeIn"
     >
       <div
         className={`w-full ${sizeClasses[size]} bg-bg-secondary border border-border-color rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-scaleIn`}
       >
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border-color bg-black/10">
+        <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-border-color bg-black/10">
           <h3 className="text-lg font-bold text-text-primary font-sans">
             {title || ''}
           </h3>
@@ -93,7 +93,7 @@ export default function Modal({
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 overflow-y-auto flex-grow text-text-secondary text-sm leading-relaxed">
+        <div className="py-3 px-4 sm:p-6 overflow-y-auto flex-grow text-text-secondary text-sm leading-relaxed">
           {children}
         </div>
       </div>

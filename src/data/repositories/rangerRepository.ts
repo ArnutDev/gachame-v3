@@ -1,5 +1,8 @@
 import { RangerRaw, Ranger, RangerRarity, RangerType } from '../../types';
-import { loadBaseRangerJson, loadEventRangerJson } from '../loaders/rangerLoader';
+import {
+  loadBaseRangerJson,
+  loadEventRangerJson,
+} from '../loaders/rangerLoader';
 import { validateRangerRaw } from '../validators/rangerValidator';
 
 // Caches loaded and validated RangerRaw files by file paths
@@ -9,7 +12,9 @@ const validationErrors: string[] = [];
 /**
  * Loads and validates raw base Ranger list of a specific rarity.
  */
-export async function getBaseRangersRaw(rarity: RangerRarity): Promise<RangerRaw[]> {
+export async function getBaseRangersRaw(
+  rarity: RangerRarity
+): Promise<RangerRaw[]> {
   const cacheKey = `base/${rarity}`;
   if (rawCache.has(cacheKey)) {
     return rawCache.get(cacheKey)!;
@@ -21,7 +26,9 @@ export async function getBaseRangersRaw(rarity: RangerRarity): Promise<RangerRaw
 
   if (!validation.isValid) {
     validationErrors.push(...validation.errors);
-    throw new Error(`Validation failed for ${context}: ${validation.errors.join('; ')}`);
+    throw new Error(
+      `Validation failed for ${context}: ${validation.errors.join('; ')}`
+    );
   }
 
   const list = rawData as RangerRaw[];
@@ -32,7 +39,10 @@ export async function getBaseRangersRaw(rarity: RangerRarity): Promise<RangerRaw
 /**
  * Loads and validates raw event Ranger list of a specific rarity.
  */
-export async function getEventRangersRaw(event: string, rarity: RangerRarity): Promise<RangerRaw[]> {
+export async function getEventRangersRaw(
+  event: string,
+  rarity: RangerRarity
+): Promise<RangerRaw[]> {
   const cacheKey = `event/${event}/${rarity}`;
   if (rawCache.has(cacheKey)) {
     return rawCache.get(cacheKey)!;
@@ -48,7 +58,9 @@ export async function getEventRangersRaw(event: string, rarity: RangerRarity): P
 
   if (!validation.isValid) {
     validationErrors.push(...validation.errors);
-    throw new Error(`Validation failed for ${context}: ${validation.errors.join('; ')}`);
+    throw new Error(
+      `Validation failed for ${context}: ${validation.errors.join('; ')}`
+    );
   }
 
   const list = rawData as RangerRaw[];
@@ -61,7 +73,10 @@ export async function getEventRangersRaw(event: string, rarity: RangerRarity): P
  * Maps raw Ranger JSON data structures to fully resolved domain models.
  * Enforces cross-file validation (e.g. no duplication between Event and Base content).
  */
-export async function getCombinedRangers(rarity: RangerRarity, event?: string): Promise<Ranger[]> {
+export async function getCombinedRangers(
+  rarity: RangerRarity,
+  event?: string
+): Promise<Ranger[]> {
   const baseRangersRaw = await getBaseRangersRaw(rarity);
   let eventRangersRaw: RangerRaw[] = [];
 

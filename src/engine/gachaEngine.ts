@@ -35,7 +35,9 @@ export function validateBannerConfig(
   });
 
   if (Math.abs(totalRarityRate - 100) > 0.001) {
-    errors.push(`Total rarity probability must sum to 100%. Got ${totalRarityRate}%`);
+    errors.push(
+      `Total rarity probability must sum to 100%. Got ${totalRarityRate}%`
+    );
   }
 
   // 2. Featured items must exist in the pool
@@ -76,7 +78,9 @@ export function validateBannerConfig(
 
     const remainingRate = rarityRate - sumFeaturedRate;
     if (remainingRate < -0.0001) {
-      errors.push(`Remaining rate for rarity "${rarity}" is negative (${remainingRate}%)`);
+      errors.push(
+        `Remaining rate for rarity "${rarity}" is negative (${remainingRate}%)`
+      );
     }
   });
 
@@ -138,8 +142,12 @@ export function calculateItemProbabilities<T extends Ranger | Gear>(
     return probabilities;
   }
 
-  const featuredInPool = rarityPool.filter((item) => featuredItems.includes(item.id));
-  const nonFeaturedInPool = rarityPool.filter((item) => !featuredItems.includes(item.id));
+  const featuredInPool = rarityPool.filter((item) =>
+    featuredItems.includes(item.id)
+  );
+  const nonFeaturedInPool = rarityPool.filter(
+    (item) => !featuredItems.includes(item.id)
+  );
 
   // 1. Assign explicit rates to featured items
   let sumFeaturedRates = 0;
@@ -211,16 +219,21 @@ export function rollGacha<T extends Ranger | Gear>(
   // 1. Validation
   const validation = validateBannerConfig(banner, itemsPool);
   if (!validation.isValid) {
-    throw new Error(`Invalid banner configuration: ${validation.errors.join(', ')}`);
+    throw new Error(
+      `Invalid banner configuration: ${validation.errors.join(', ')}`
+    );
   }
 
   // 2. Select Rarity (Stage 1)
-  const selectedRarity = selectRarity(banner.rarityRates, randomFn) as RangerRarity | GearRarity;
+  const selectedRarity = selectRarity(banner.rarityRates, randomFn) as
+    RangerRarity | GearRarity;
 
   // 3. Pool Generation
   const rarityPool = generatePoolByRarity(itemsPool, selectedRarity);
   if (rarityPool.length === 0) {
-    throw new Error(`Item pool contains no items of selected rarity: ${selectedRarity}`);
+    throw new Error(
+      `Item pool contains no items of selected rarity: ${selectedRarity}`
+    );
   }
 
   // 4. Calculate Item Probabilities

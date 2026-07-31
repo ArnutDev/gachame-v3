@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { loadBanners, loadCombinedRangers, loadCombinedGears } from '../services/dataLoader';
+import {
+  loadBanners,
+  loadCombinedRangers,
+  loadCombinedGears,
+} from '../services/dataLoader';
 import {
   runEngineUnitTests,
   runEngineBenchmark,
@@ -64,7 +68,12 @@ export default function DevTesting() {
           );
           pool = pools.flat();
         } else {
-          const rarities: RangerRarity[] = ['7_normal', '7_ultra', '8_normal', '8_ultra'];
+          const rarities: RangerRarity[] = [
+            '7_normal',
+            '7_ultra',
+            '8_normal',
+            '8_ultra',
+          ];
           const pools = await Promise.all(
             rarities.map((r) => loadCombinedRangers(r, selectedBanner.event))
           );
@@ -100,7 +109,11 @@ export default function DevTesting() {
 
     setTimeout(() => {
       try {
-        const report = generateEngineStatisticalReport(selectedBanner, itemsPool, count);
+        const report = generateEngineStatisticalReport(
+          selectedBanner,
+          itemsPool,
+          count
+        );
         setTotalPulls(report.totalPulls);
         setRarityStats(report.rarityStats);
         setItemStats(report.itemStats);
@@ -119,7 +132,11 @@ export default function DevTesting() {
 
     setTimeout(() => {
       try {
-        const result100k = runEngineBenchmark(selectedBanner, itemsPool, 100000);
+        const result100k = runEngineBenchmark(
+          selectedBanner,
+          itemsPool,
+          100000
+        );
         const result1M = runEngineBenchmark(selectedBanner, itemsPool, 1000000);
         setBenchmarks([result100k, result1M]);
       } catch (err: any) {
@@ -132,11 +149,16 @@ export default function DevTesting() {
 
   const formatRarityLabel = (rarity: string) => {
     switch (rarity) {
-      case '8_ultra': return '8★ Ultra';
-      case '8_normal': return '8★ Normal';
-      case '7_ultra': return '7★ Ultra';
-      case '7_normal': return '7★ Normal';
-      default: return `${rarity}★`;
+      case '8_ultra':
+        return '8★ Ultra';
+      case '8_normal':
+        return '8★ Normal';
+      case '7_ultra':
+        return '7★ Ultra';
+      case '7_normal':
+        return '7★ Normal';
+      default:
+        return `${rarity}★`;
     }
   };
 
@@ -148,7 +170,9 @@ export default function DevTesting() {
     <div className="dev-page">
       <div className="dev-header">
         <h1>Gacha Engine Developer Console</h1>
-        <p className="subtitle">Run unit tests, verify performance, and validate statistical rates.</p>
+        <p className="subtitle">
+          Run unit tests, verify performance, and validate statistical rates.
+        </p>
       </div>
 
       {error && <div className="error-banner">{error}</div>}
@@ -169,7 +193,9 @@ export default function DevTesting() {
               disabled={loading || benchmarking}
             >
               {banners.map((b) => (
-                <option key={b.id} value={b.id}>{b.name}</option>
+                <option key={b.id} value={b.id}>
+                  {b.name}
+                </option>
               ))}
             </select>
           </div>
@@ -177,13 +203,18 @@ export default function DevTesting() {
           {selectedBanner && (
             <div className="banner-details">
               <div className="detail-row">
-                <strong>Type:</strong> <span className="type-badge">{selectedBanner.type.toUpperCase()}</span>
+                <strong>Type:</strong>{' '}
+                <span className="type-badge">
+                  {selectedBanner.type.toUpperCase()}
+                </span>
               </div>
               <div className="detail-row">
-                <strong>Associated Event:</strong> <span>{selectedBanner.event || 'None (Permanent)'}</span>
+                <strong>Associated Event:</strong>{' '}
+                <span>{selectedBanner.event || 'None (Permanent)'}</span>
               </div>
               <div className="detail-row">
-                <strong>Total Items in Pool:</strong> <span>{itemsPool.length}</span>
+                <strong>Total Items in Pool:</strong>{' '}
+                <span>{itemsPool.length}</span>
               </div>
               <div className="rarity-rates-list">
                 <strong>Configured Rates:</strong>
@@ -192,7 +223,8 @@ export default function DevTesting() {
                     .filter(([_, rate]) => rate > 0)
                     .map(([rarity, rate]) => (
                       <li key={rarity}>
-                        {formatRarityLabel(rarity)}: <span className="rate-text">{rate}%</span>
+                        {formatRarityLabel(rarity)}:{' '}
+                        <span className="rate-text">{rate}%</span>
                       </li>
                     ))}
                 </ul>
@@ -208,8 +240,13 @@ export default function DevTesting() {
             <h3>Unit Tests Results</h3>
             <div className="tests-list">
               {unitTests.map((t, idx) => (
-                <div key={idx} className={`test-item ${t.passed ? 'test-pass' : 'test-fail'}`}>
-                  <span className="test-status-icon">{t.passed ? '✔' : '✘'}</span>
+                <div
+                  key={idx}
+                  className={`test-item ${t.passed ? 'test-pass' : 'test-fail'}`}
+                >
+                  <span className="test-status-icon">
+                    {t.passed ? '✔' : '✘'}
+                  </span>
                   <div className="test-item-body">
                     <strong>{t.name}</strong>
                     <span className="test-message">{t.message}</span>
@@ -227,7 +264,9 @@ export default function DevTesting() {
               onClick={runBenchmarks}
               disabled={loading || benchmarking || !selectedBanner}
             >
-              {benchmarking ? 'Running Benchmarks...' : 'Run Speed Benchmarks (100k & 1M)'}
+              {benchmarking
+                ? 'Running Benchmarks...'
+                : 'Run Speed Benchmarks (100k & 1M)'}
             </button>
 
             {benchmarks.length > 0 && (
@@ -244,7 +283,9 @@ export default function DevTesting() {
                     <tr key={idx}>
                       <td>{b.pullCount.toLocaleString()}</td>
                       <td>{b.timeMs.toFixed(1)} ms</td>
-                      <td className="rate-text">{Math.round(b.pullsPerSecond).toLocaleString()} /s</td>
+                      <td className="rate-text">
+                        {Math.round(b.pullsPerSecond).toLocaleString()} /s
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -256,21 +297,44 @@ export default function DevTesting() {
         {/* Pull Actions Controller Card */}
         <div className="dev-card actions-card" style={{ gridColumn: '1 / -1' }}>
           <h2>Statistical Rate Simulation</h2>
-          <p>Execute pull operations and compare actual results against mathematical expectations.</p>
+          <p>
+            Execute pull operations and compare actual results against
+            mathematical expectations.
+          </p>
           <div className="pull-buttons-grid flex-buttons">
-            <button className="btn-pull" onClick={() => runSimulation(100)} disabled={loading || benchmarking || !selectedBanner}>
+            <button
+              className="btn-pull"
+              onClick={() => runSimulation(100)}
+              disabled={loading || benchmarking || !selectedBanner}
+            >
               100 Pulls
             </button>
-            <button className="btn-pull" onClick={() => runSimulation(1000)} disabled={loading || benchmarking || !selectedBanner}>
+            <button
+              className="btn-pull"
+              onClick={() => runSimulation(1000)}
+              disabled={loading || benchmarking || !selectedBanner}
+            >
               1,000 Pulls
             </button>
-            <button className="btn-pull" onClick={() => runSimulation(10000)} disabled={loading || benchmarking || !selectedBanner}>
+            <button
+              className="btn-pull"
+              onClick={() => runSimulation(10000)}
+              disabled={loading || benchmarking || !selectedBanner}
+            >
               10,000 Pulls
             </button>
-            <button className="btn-pull" onClick={() => runSimulation(100000)} disabled={loading || benchmarking || !selectedBanner}>
+            <button
+              className="btn-pull"
+              onClick={() => runSimulation(100000)}
+              disabled={loading || benchmarking || !selectedBanner}
+            >
               100,000 Pulls
             </button>
-            <button className="btn-pull btn-heavy" onClick={() => runSimulation(1000000)} disabled={loading || benchmarking || !selectedBanner}>
+            <button
+              className="btn-pull btn-heavy"
+              onClick={() => runSimulation(1000000)}
+              disabled={loading || benchmarking || !selectedBanner}
+            >
               1,000,000 Pulls (Statistical Verification)
             </button>
           </div>
@@ -285,7 +349,9 @@ export default function DevTesting() {
 
       {totalPulls > 0 && !loading && (
         <div className="stats-results">
-          <h2>Simulation Results (Total Pulls: {totalPulls.toLocaleString()})</h2>
+          <h2>
+            Simulation Results (Total Pulls: {totalPulls.toLocaleString()})
+          </h2>
 
           <div className="results-grid">
             {/* Rarity statistics table */}
@@ -304,14 +370,20 @@ export default function DevTesting() {
                 <tbody>
                   {rarityStats.map((stat) => {
                     const delta = stat.delta;
-                    const deltaClass = delta > 0 ? 'delta-plus' : delta < 0 ? 'delta-minus' : '';
+                    const deltaClass =
+                      delta > 0 ? 'delta-plus' : delta < 0 ? 'delta-minus' : '';
                     return (
                       <tr key={stat.rarity}>
-                        <td><strong>{formatRarityLabel(stat.rarity)}</strong></td>
+                        <td>
+                          <strong>{formatRarityLabel(stat.rarity)}</strong>
+                        </td>
                         <td>{stat.expected.toFixed(2)}%</td>
                         <td>{stat.actual.toFixed(2)}%</td>
                         <td>{stat.count.toLocaleString()}</td>
-                        <td className={deltaClass}>{delta > 0 ? '+' : ''}{delta.toFixed(3)}%</td>
+                        <td className={deltaClass}>
+                          {delta > 0 ? '+' : ''}
+                          {delta.toFixed(3)}%
+                        </td>
                       </tr>
                     );
                   })}
@@ -338,9 +410,17 @@ export default function DevTesting() {
                   <tbody>
                     {itemStats.map((stat) => {
                       const delta = stat.delta;
-                      const deltaClass = delta > 0 ? 'delta-plus' : delta < 0 ? 'delta-minus' : '';
+                      const deltaClass =
+                        delta > 0
+                          ? 'delta-plus'
+                          : delta < 0
+                            ? 'delta-minus'
+                            : '';
                       return (
-                        <tr key={stat.id} className={stat.isFeatured ? 'featured-row' : ''}>
+                        <tr
+                          key={stat.id}
+                          className={stat.isFeatured ? 'featured-row' : ''}
+                        >
                           <td>
                             <span className="item-name">{stat.name}</span>
                             <span className="item-id-sub">{stat.id}</span>
@@ -356,7 +436,10 @@ export default function DevTesting() {
                           <td>{stat.expected.toFixed(3)}%</td>
                           <td>{stat.actual.toFixed(3)}%</td>
                           <td>{stat.count.toLocaleString()}</td>
-                          <td className={deltaClass}>{delta > 0 ? '+' : ''}{delta.toFixed(4)}%</td>
+                          <td className={deltaClass}>
+                            {delta > 0 ? '+' : ''}
+                            {delta.toFixed(4)}%
+                          </td>
                         </tr>
                       );
                     })}

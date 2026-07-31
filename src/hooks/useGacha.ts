@@ -80,11 +80,14 @@ export function useGacha() {
       if (record.isFeatured) {
         featuredCount++;
       }
-      
+
       rarityCounts[record.rarity] = (rarityCounts[record.rarity] || 0) + 1;
     });
 
-    const rarityDistribution: Record<string, { count: number; percentage: number }> = {};
+    const rarityDistribution: Record<
+      string,
+      { count: number; percentage: number }
+    > = {};
     Object.entries(rarityCounts).forEach(([rarity, count]) => {
       rarityDistribution[rarity] = {
         count,

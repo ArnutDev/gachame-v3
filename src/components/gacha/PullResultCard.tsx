@@ -17,7 +17,7 @@ export default function PullResultCard({
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
   const isGear = !('type' in outcome.item);
   const isFeatured = outcome.isFeatured;
-  
+
   // Rarity flags
 
   useEffect(() => {
@@ -55,10 +55,12 @@ export default function PullResultCard({
       className="relative flex flex-col items-center justify-center aspect-square rounded-lg border border-accent-cyan/20 bg-gradient-to-br from-bg-secondary/40 via-bg-tertiary/60 to-bg-secondary/40 backdrop-blur-md cursor-pointer hover:border-accent-cyan/50 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md shadow-accent-cyan/5 animate-pulse"
     >
       {/* Mystery Glowing Logo/Icon */}
-      <div className="w-12 h-12 flex items-center justify-center rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-2 shadow-inner shadow-accent-cyan/5">
-        <span className="text-xl font-black text-accent-cyan font-sans">?</span>
+      <div className="w-7 h-7 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-1 sm:mb-2 shadow-inner shadow-accent-cyan/5">
+        <span className="text-sm sm:text-xl font-black text-accent-cyan font-sans">
+          ?
+        </span>
       </div>
-      <span className="text-[10px] text-accent-cyan/60 font-bold uppercase tracking-widest font-sans">
+      <span className="text-[7.5px] sm:text-[10px] text-accent-cyan/60 font-bold uppercase tracking-widest font-sans">
         Gacha Vault
       </span>
       {/* Sparkle details */}
@@ -71,9 +73,10 @@ export default function PullResultCard({
   const renderCardFront = () => {
     // Add special highlighting wrapper classes for featured pulls
     let highlightClasses = 'w-full h-full';
-    
+
     if (isFeatured) {
-      highlightClasses += ' ring-2 ring-accent-cyan shadow-xl shadow-accent-cyan/15 animate-scaleIn';
+      highlightClasses +=
+        ' ring-2 ring-accent-cyan shadow-xl shadow-accent-cyan/15 animate-scaleIn';
     } else {
       highlightClasses += ' animate-scaleIn';
     }

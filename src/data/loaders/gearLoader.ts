@@ -21,7 +21,10 @@ export async function loadBaseGearJson(rarity: GearRarity): Promise<unknown> {
  * Headless loader for Event Gear JSON files.
  * Returns raw unknown data, or null if the event doesn't define gears for this rarity.
  */
-export async function loadEventGearJson(event: string, rarity: GearRarity): Promise<unknown | null> {
+export async function loadEventGearJson(
+  event: string,
+  rarity: GearRarity
+): Promise<unknown | null> {
   const fileKey = `/src/data/events/${event}/gears/${rarity}.json`;
   const resolver = eventGearFiles[fileKey];
   if (!resolver) {
