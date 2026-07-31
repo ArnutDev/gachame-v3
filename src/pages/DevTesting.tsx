@@ -58,7 +58,7 @@ export default function DevTesting() {
     async function fetchPoolAndTest() {
       try {
         setLoading(true);
-        const isGear = selectedBanner.type === 'gear';
+        const isGear = selectedBanner.type === 'gear' || selectedBanner.type === 'gear_boost';
         let pool: (Ranger | Gear)[] = [];
 
         if (isGear) {

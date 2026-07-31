@@ -55,7 +55,7 @@ export function runEngineUnitTests(
   pool: (Ranger | Gear)[]
 ): TestCaseResult[] {
   const results: TestCaseResult[] = [];
-  const isGear = banner.type === 'gear';
+  const isGear = banner.type === 'gear' || banner.type === 'gear_boost';
 
   // Helper for test assertions
   const assertTest = (
@@ -394,7 +394,7 @@ export function generateEngineStatisticalReport(
     itemCounts[o.item.id] = (itemCounts[o.item.id] || 0) + 1;
   });
 
-  const isGear = banner.type === 'gear';
+  const isGear = banner.type === 'gear' || banner.type === 'gear_boost';
   const relevantRarities = isGear
     ? ['9', '8', '7', '6', '5']
     : ['8_ultra', '8_normal', '7_ultra', '7_normal'];
