@@ -141,7 +141,7 @@
 
       <h2>11. การปรับปรุงความสวยงามหน้าแรกและแก้ไขเมนูโมบายล์ (Home Cards Theme & Mobile Menu Fix)</h2>
       <ul>
-        <li><b>กรอบการ์ดหน้าแรกสีฟ้า:</b> ปรับแต่งกรอบ (Border) ของการ์ดนำทางทั้งสองใบในหน้า [Home.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Home.tsx) ให้เป็นโทนสีฟ้าเรืองแสง <code>border-accent-cyan/45</code> ตั้งแต่สถานะปกติ เพื่อสร้างมิติและความสว่างที่เข้ากับโลโก้แบรนด์</li>
+        <li><b>กรอบการ์ดหน้าแรกสีฟ้าและสีปุ่มนำทาง:</b> ปรับแต่งกรอบ (Border) ของการ์ดนำทางทั้งสองใบในหน้า [Home.tsx](file:///D:/Arnut/Coding_projects/gachame/src/pages/Home.tsx) ให้เป็นโทนสีฟ้าเรืองแสง <code>border-accent-cyan/45</code> ตั้งแต่สถานะปกติ เพื่อสร้างมิติที่เข้ากับโลโก้แบรนด์ พร้อมเปลี่ยนสีปุ่มในตัวการ์ดสุ่มเรนเจอร์ (Ranger Card) ให้ใช้เกรเดียนท์เฉดสีเขียวทีลเรืองแสงแบบเดียวกันกับการ์ดสุ่มเกียร์เพื่อความกลมกลืนตามต้องการ</li>
         <li><b>แก้ไขพื้นหลังเมนูโมบายล์หาย (Containing Block Issue):</b> แก้ไขไฟล์สไตล์ [index.css](file:///D:/Arnut/Coding_projects/gachame/src/index.css) ในส่วน <code>.nav-wrapper</code> ของหน้าจออุปกรณ์เคลื่อนที่ โดยเปลี่ยนคุณสมบัติการวัดขอบล่างจาก <code>bottom: 0</code> มาเป็นการกำหนดความสูงแน่นอนด้วย <code>height: calc(100vh - 70px)</code> เพื่อแก้ปัญหา Container ทรุดตัวเหลือความสูง 0 พิกเซลจากผลกระทบของ Positioning Context ของ header ที่มี backdrop-filter และตั้งค่าความทึบสีพื้นหลังให้อ่านง่ายเป็น <code>rgba(11, 12, 16, 0.98)</code></li>
       </ul>
     </div>

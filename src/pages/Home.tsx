@@ -53,7 +53,7 @@ export default function Home() {
               <div className="mt-auto">
                 <Button
                   variant="primary"
-                  className="w-full justify-center gap-2 pointer-events-none font-black uppercase tracking-wider text-xs py-3.5 shadow-md shadow-accent-cyan/15 group-hover:shadow-lg group-hover:shadow-accent-cyan/35 group-hover:brightness-110 transition-all duration-300"
+                  className="w-full justify-center gap-2 pointer-events-none font-black uppercase tracking-wider text-xs py-3.5 bg-gradient-to-r from-accent-teal to-emerald-400 text-bg-primary border-none shadow-md shadow-accent-teal/15 group-hover:shadow-lg group-hover:shadow-accent-teal/35 group-hover:brightness-110 transition-all duration-300"
                 >
                   <span> Click to Gacha</span>
                 </Button>

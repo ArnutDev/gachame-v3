@@ -63,7 +63,7 @@ Thank you for visiting, and have a great day!
           onClick={() => window.open(profileData.googleFormUrl, '_blank', 'noopener,noreferrer')}
           className="px-8 py-3 text-sm font-extrabold tracking-wider uppercase flex items-center gap-2 transition-all"
         >
-          <span>📝</span> Send Feedback / Contact Form
+          Google Form
         </Button>
       </Card>
     </div>
