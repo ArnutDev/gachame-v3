@@ -165,6 +165,12 @@ export default function RangerGacha() {
                   return eventNormals.map((r) => ({ id: r.id, name: r.name, image: r.image, rarity: r.rarity }));
                 }
               })()}
+              featuredItemsRarities={banner.featuredItems.map((id) => {
+                const item = rangerCatalog.find((r) => r.id === id);
+                return item
+                  ? { id: item.id, rarity: item.rarity }
+                  : { id, rarity: id.includes('u-') ? '8_ultra' : '8_normal' };
+              })}
             />
           ))}
         </div>

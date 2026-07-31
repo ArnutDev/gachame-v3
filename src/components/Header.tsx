@@ -9,7 +9,11 @@ export default function Header() {
     <header className="app-header">
       <div className="header-container">
         <NavLink to="/" className="header-logo" onClick={() => setIsMenuOpen(false)}>
-          <span className="logo-icon">🎯</span>
+          <img
+            src="https://gachame.github.io/images/coupon-logo.png"
+            alt="GachaMe Logo"
+            className="h-8 w-auto object-contain"
+          />
           <span className="logo-text">
             Gacha<span className="logo-highlight">Me</span>
           </span>

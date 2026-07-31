@@ -162,6 +162,12 @@ export default function GearGacha() {
                   return sortedEventGears.map((g) => ({ id: g.id, name: g.name, image: g.image, rarity: g.rarity }));
                 }
               })()}
+              featuredItemsRarities={banner.featuredItems.map((id) => {
+                const item = gearCatalog.find((g) => g.id === id);
+                return item
+                  ? { id: item.id, rarity: item.rarity }
+                  : { id, rarity: '8' }; // Default fallback for gear
+              })}
             />
           ))}
         </div>

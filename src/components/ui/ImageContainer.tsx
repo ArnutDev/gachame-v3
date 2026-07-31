@@ -6,6 +6,7 @@ export interface ImageContainerProps {
   aspectRatio?: 'square' | 'video' | 'auto';
   fallbackSrc?: string;
   className?: string;
+  objectFit?: 'contain' | 'cover';
 }
 
 export default function ImageContainer({
@@ -14,6 +15,7 @@ export default function ImageContainer({
   aspectRatio = 'square',
   fallbackSrc,
   className = '',
+  objectFit = 'contain',
 }: ImageContainerProps) {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
@@ -69,7 +71,7 @@ export default function ImageContainer({
           <img
             src={fallbackSrc}
             alt={alt}
-            className="w-full h-full object-contain"
+            className={`w-full h-full object-${objectFit}`}
           />
         ) : (
           defaultFallback
@@ -83,7 +85,7 @@ export default function ImageContainer({
             setLoading(false);
             setError(true);
           }}
-          className={`w-full h-full object-contain transition-all duration-300 ${
+          className={`w-full h-full object-${objectFit} transition-all duration-300 ${
             loading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
           }`}
         />

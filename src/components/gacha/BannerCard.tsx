@@ -11,6 +11,7 @@ export interface BannerCardProps {
   onPull?: (count: number) => void;
   disabled?: boolean;
   featuredItemsDetails?: { id: string; name: string; image: string; rarity: string }[];
+  featuredItemsRarities?: { id: string; rarity: string }[];
 }
 
 export default function BannerCard({
@@ -20,6 +21,7 @@ export default function BannerCard({
   onPull,
   disabled = false,
   featuredItemsDetails = [],
+  featuredItemsRarities = [],
 }: BannerCardProps) {
   const isGear = banner.type === 'gear' || banner.type === 'gear_boost';
 
@@ -179,13 +181,39 @@ export default function BannerCard({
                          .replace('8_normal', '8★ Normal')
                          .replace('8_ultra', '8★ Ultra');
 
+            // Resolve featured rates for this specific rarity
+            const featuredForRarity = featuredItemsRarities.filter((item) => item.rarity === rarity);
+            const featuredRates = featuredForRarity
+              .map((item) => banner.featuredRates?.[item.id])
+              .filter((r): r is number => r !== undefined && r > 0);
+
+            let featuredText = '';
+            if (featuredRates.length > 0) {
+              const firstRate = featuredRates[0];
+              const allSame = featuredRates.every((r) => r === firstRate);
+              if (allSame) {
+                featuredText = `(Rate Up: ${firstRate}% each)`;
+              } else {
+                const minRate = Math.min(...featuredRates);
+                const maxRate = Math.max(...featuredRates);
+                featuredText = `(Rate Up: ${minRate}% - ${maxRate}%)`;
+              }
+            }
+
             return (
               <div
                 key={rarity}
-                className="flex items-center gap-1.5 px-2 py-1 bg-black/20 rounded border border-border-color text-xs"
+                className="flex flex-col sm:flex-row sm:items-center gap-1.5 px-2 py-1 bg-black/20 rounded border border-border-color text-xs"
               >
-                <span className="text-text-secondary">{displayName}:</span>
-                <span className="text-accent-teal font-bold">{rate}%</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-text-secondary">{displayName}:</span>
+                  <span className="text-accent-teal font-bold">{rate}%</span>
+                </div>
+                {featuredText && (
+                  <span className="text-[10.5px] text-text-secondary/70 font-medium">
+                    {featuredText}
+                  </span>
+                )}
               </div>
             );
           })}

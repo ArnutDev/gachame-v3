@@ -6,10 +6,15 @@ import ImageContainer from '../components/ui/ImageContainer';
 export default function About() {
   const profileData = {
     avatarUrl: 'https://github.com/ArnutDev.png',
-    name: 'Arnut Dev',
-    description: 'Creator & Developer of GachaMe, a premium browser-based LINE Rangers Gacha simulator designed to provide clean statistical analysis and a premium user experience.',
-    email: 'arnut.dev@example.com',
-    googleFormUrl: 'https://forms.gle/example-google-form',
+    name: 'Arnut',
+    description: `Hello! My name is Arnut, and I created this website to improve my development skills and prepare for my future career.
+
+I hope you enjoy using the gacha simulator! If you have any questions, suggestions, or encounter any issues such as bugs, please feel free to contact me via email or the Google Form below.
+
+Thank you for visiting, and have a great day!
+`,
+    email: 'arnut.contact@gmail.com',
+    googleFormUrl: 'https://forms.gle/XNHZhGq1qYZCMrNx5',
   };
 
   return (
@@ -34,7 +39,7 @@ export default function About() {
 
         {/* Developer Badge */}
         <span className="px-3 py-1 mb-6 bg-accent-cyan/10 border border-accent-cyan/30 text-accent-cyan text-xs font-black rounded-full uppercase tracking-wider">
-          Developer
+          Unemployed Developer
         </span>
 
         {/* Description */}
@@ -46,9 +51,9 @@ export default function About() {
         <div className="flex flex-col gap-2 items-center mb-8 text-sm">
           <div className="flex items-center gap-2 text-text-secondary">
             <span className="text-lg">📧</span>
-            <a href={`mailto:${profileData.email}`} className="text-accent-cyan hover:underline font-medium">
+            <p className="text-accent-cyan font-medium">
               {profileData.email}
-            </a>
+            </p>
           </div>
         </div>
 
