@@ -268,13 +268,13 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           nextGearRuby = gearRubySpent + rubyIncrement;
           setGearRubySpent(nextGearRuby);
         } else {
-          // pull 1 times = 1 pull, pull 6+1 times (pullCount = 7) = 6 pulls
-          const pityIncrement = pullCount === 7 ? 6 : pullCount;
+          // pull 1 times = 1 pull, pull 6+1 times (pullCount = 7) = 7 pulls
+          const pityIncrement = pullCount === 7 ? 7 : pullCount;
           nextRangerPity = rangerPityCount + pityIncrement;
           setRangerPityCount(nextRangerPity);
 
           // Ranger ruby calculation: 1 pull = 50, 6+1 (pullCount = 7) = 300
-          const rubyIncrement = pullCount === 7 ? 300 : pullCount * 50;
+          const rubyIncrement = pullCount === 7 ? 300 : pullCount * 50; // Note: pullCount is 7, but cost is 300 (equivalent to 6 pulls cost)
           nextRangerRuby = rangerRubySpent + rubyIncrement;
           setRangerRubySpent(nextRangerRuby);
         }

@@ -162,7 +162,7 @@ export default function GuaranteeModal({
                   <span className="text-accent-cyan font-bold">
                     8★ Normal Event Ranger
                   </span>{' '}
-                  of {eventName} once at 100 pulls. (6+1 counts as 6 pulls)
+                  of {eventName} once at 100 pulls. (6+1 counts as 7 pulls)
                 </p>
 
                 {/* Progress bar */}
