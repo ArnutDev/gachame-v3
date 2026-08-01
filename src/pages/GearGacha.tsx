@@ -248,7 +248,8 @@ export default function GearGacha() {
                         : null;
                     })
                     .filter(
-                      (item): item is NonNullable<typeof item> => item !== null
+                      (item): item is NonNullable<typeof item> =>
+                        item !== null && (item.rarity === '8' || item.rarity === '9')
                     );
                 } else {
                   // Non-buff banner: show top 6 event gears of that event month sorted by rarity descending
