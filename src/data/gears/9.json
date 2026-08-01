@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "Name": "Leonard's Plasma Sword",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_09_icon.png",
+    "ItemCode": "eq_wpn_evt_09"
+  },
+  {
+    "Name": "Leonard's Chem Grenade",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_19_icon.png",
+    "ItemCode": "eq_wpn_evt_19"
+  },
+  {
+    "Name": "Leonard's Power Megaphone",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_29_icon.png",
+    "ItemCode": "eq_wpn_evt_29"
+  },
+  {
+    "Name": "Leonard's Mechanic Cap",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_09_icon.png",
+    "ItemCode": "eq_amr_evt_09"
+  },
+  {
+    "Name": "Leonard's Omni-Goggles",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_19_icon.png",
+    "ItemCode": "eq_amr_evt_19"
+  },
+  {
+    "Name": "Leonard's Secret Toolbox",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_29_icon.png",
+    "ItemCode": "eq_amr_evt_29"
+  }
+]
