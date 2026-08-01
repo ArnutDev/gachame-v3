@@ -20,7 +20,7 @@ export default function RangerGacha() {
     error: stateError,
     rangerPityCount,
     rangerRubySpent,
-    rangerBoxesClaimed,
+    rangerBoxClaimed,
   } = useGacha();
 
   const [showResults, setShowResults] = useState<boolean>(false);
@@ -29,8 +29,7 @@ export default function RangerGacha() {
   const [pullError, setPullError] = useState<string | null>(null);
   const [isGuaranteeOpen, setIsGuaranteeOpen] = useState<boolean>(false);
 
-  const rangerEarned = Math.floor(rangerPityCount / 100);
-  const rangerAvailable = Math.max(0, rangerEarned - rangerBoxesClaimed);
+  const rangerAvailable = rangerPityCount >= 100 && !rangerBoxClaimed ? 1 : 0;
   const [isPulling, setIsPulling] = useState<boolean>(false);
   const [rangerCatalog, setRangerCatalog] = useState<Ranger[]>([]);
 

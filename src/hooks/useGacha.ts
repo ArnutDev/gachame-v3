@@ -34,7 +34,7 @@ export function useGacha() {
     gearPityCount,
     rangerRubySpent,
     gearRubySpent,
-    rangerBoxesClaimed,
+    rangerBoxClaimed,
     gearBox90Claimed,
     gearBox150Claimed,
   } = context;
@@ -127,7 +127,7 @@ export function useGacha() {
     gearPityCount,
     rangerRubySpent,
     gearRubySpent,
-    rangerBoxesClaimed,
+    rangerBoxClaimed,
     gearBox90Claimed,
     gearBox150Claimed,
 

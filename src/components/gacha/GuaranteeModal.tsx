@@ -18,7 +18,7 @@ export default function GuaranteeModal({
     currentBanner,
     rangerPityCount,
     gearPityCount,
-    rangerBoxesClaimed,
+    rangerBoxClaimed,
     gearBox90Claimed,
     gearBox150Claimed,
     claimRangerGuarantee,
@@ -36,8 +36,7 @@ export default function GuaranteeModal({
     : 'Current Event';
 
   // Calculate available Ranger boxes
-  const rangerEarned = Math.floor(rangerPityCount / 100);
-  const rangerAvailable = Math.max(0, rangerEarned - rangerBoxesClaimed);
+  const rangerAvailable = rangerPityCount >= 100 && !rangerBoxClaimed ? 1 : 0;
 
   // Check Gear box availability
   const gearBox90Available = gearPityCount >= 90 && !gearBox90Claimed;
@@ -163,7 +162,7 @@ export default function GuaranteeModal({
                   <span className="text-accent-cyan font-bold">
                     8★ Normal Event Ranger
                   </span>{' '}
-                  of {eventName} for every 100 pulls. (6+1 counts as 6 pulls)
+                  of {eventName} once at 100 pulls. (6+1 counts as 6 pulls)
                 </p>
 
                 {/* Progress bar */}
@@ -171,26 +170,34 @@ export default function GuaranteeModal({
                   <div
                     className="h-full bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full transition-all duration-500"
                     style={{
-                      width: `${Math.min(100, rangerPityCount % 100)}%`,
+                      width: `${Math.min(100, rangerPityCount)}%`,
                     }}
                   />
                   <span className="absolute inset-0 flex items-center justify-center text-[9px] font-black text-text-primary mix-blend-difference font-mono">
-                    {rangerPityCount % 100} / 100
+                    {Math.min(100, rangerPityCount)} / 100
                   </span>
                 </div>
 
                 <div className="text-[11px] text-text-secondary/60 mb-6 font-mono font-semibold">
-                  Total Pulls: {rangerPityCount} • Claimed: {rangerBoxesClaimed}
+                  Total Pulls: {rangerPityCount} • Claimed: {rangerBoxClaimed ? 'Yes' : 'No'}
                 </div>
 
                 {/* Claim action */}
-                {rangerAvailable > 0 ? (
+                {rangerBoxClaimed ? (
+                  <Button
+                    variant="secondary"
+                    disabled
+                    className="w-full max-w-xs font-black uppercase tracking-wider py-3.5"
+                  >
+                    Claimed
+                  </Button>
+                ) : rangerAvailable > 0 ? (
                   <Button
                     variant="primary"
                     onClick={handleOpenRangerBox}
                     className="w-full max-w-xs font-black uppercase tracking-wider py-3.5 shadow-lg shadow-accent-cyan/20 animate-pulse"
                   >
-                    Open Guarantee Box ({rangerAvailable})
+                    Open Guarantee Box
                   </Button>
                 ) : (
                   <Button
@@ -198,7 +205,7 @@ export default function GuaranteeModal({
                     disabled
                     className="w-full max-w-xs font-black uppercase tracking-wider py-3.5"
                   >
-                    Locked ({100 - (rangerPityCount % 100)} pulls remaining)
+                    Locked ({100 - rangerPityCount} pulls remaining)
                   </Button>
                 )}
               </div>
