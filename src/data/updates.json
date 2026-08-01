@@ -150,5 +150,10 @@
     "version": "3.0.1",
     "date": "31-07-2026",
     "changes": ["Adjust gacha rates"]
+  },
+  {
+    "version": "3.0.2",
+    "date": "01-08-2026",
+    "changes": ["Fixed guarantee calculation.", "Added guarantee reward box."]
   }
 ]

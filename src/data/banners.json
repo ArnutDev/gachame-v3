@@ -78,7 +78,50 @@
       "7_normal": 70.0
     }
   },
-
+  {
+    "id": "collab_ranger_2026_08_box_4",
+    "name": "Rangers from Kaiju No. 8 tie-up",
+    "type": "boost",
+    "event": "2026-08",
+    "featuredItems": ["u1617e-ka", "u1621e-re", "u1617u-ka", "u1621u-re"],
+    "featuredRates": {
+      "u1617e-ka": 1.32,
+      "u1621e-re": 1.32,
+      "u1617u-ka": 0.18,
+      "u1621u-re": 0.18
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "collab_ranger_2026_08_box_5",
+    "name": "Rangers from Kaiju No. 8 tie-up",
+    "type": "boost",
+    "event": "2026-08",
+    "featuredItems": ["u1619e-ki", "u1623e-ho", "u1619u-ki", "u1623u-ho"],
+    "featuredRates": {
+      "u1619e-ki": 1.32,
+      "u1623e-ho": 1.32,
+      "u1619u-ki": 0.18,
+      "u1623u-ho": 0.18
+    },
+    "active": true,
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
   {
     "id": "collab_gear_2026_08_box_1",
     "name": "Gears from Kaiju No. 8 tie-up",
