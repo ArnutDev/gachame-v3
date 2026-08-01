@@ -154,6 +154,9 @@
   {
     "version": "3.0.2",
     "date": "01-08-2026",
-    "changes": ["Fixed guarantee calculation.", "Added guarantee reward box."]
+    "changes": [
+      "Fixed guarantee calculation.",
+      "Added new ranger gacha banner."
+    ]
   }
 ]

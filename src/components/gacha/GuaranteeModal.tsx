@@ -153,11 +153,11 @@ export default function GuaranteeModal({
             {!isGear ? (
               /* Ranger Gacha Guarantee view */
               <div className="w-full flex flex-col items-center">
-                <div className="text-6xl mb-4 animate-bounce">🎁</div>
-                <h4 className="text-lg font-extrabold text-text-primary mb-1">
+                <div className="text-4xl mb-2 animate-bounce">🎁</div>
+                <h4 className="text-base font-extrabold text-text-primary mb-1">
                   Ranger Pity Box
                 </h4>
-                <p className="text-xs text-text-secondary mb-6 max-w-sm">
+                <p className="text-xs text-text-secondary mb-4 max-w-sm">
                   Receive a random{' '}
                   <span className="text-accent-cyan font-bold">
                     8★ Normal Event Ranger
@@ -178,7 +178,7 @@ export default function GuaranteeModal({
                   </span>
                 </div>
 
-                <div className="text-[11px] text-text-secondary/60 mb-6 font-mono font-semibold">
+                <div className="text-[11px] text-text-secondary/60 mb-4 font-mono font-semibold">
                   Total Pulls: {rangerPityCount} • Claimed: {rangerBoxClaimed ? 'Yes' : 'No'}
                 </div>
 
@@ -187,7 +187,7 @@ export default function GuaranteeModal({
                   <Button
                     variant="secondary"
                     disabled
-                    className="w-full max-w-xs font-black uppercase tracking-wider py-3.5"
+                    className="w-full max-w-xs font-black uppercase tracking-wider py-2.5"
                   >
                     Claimed
                   </Button>
@@ -195,7 +195,7 @@ export default function GuaranteeModal({
                   <Button
                     variant="primary"
                     onClick={handleOpenRangerBox}
-                    className="w-full max-w-xs font-black uppercase tracking-wider py-3.5 shadow-lg shadow-accent-cyan/20 animate-pulse"
+                    className="w-full max-w-xs font-black uppercase tracking-wider py-2.5 shadow-lg shadow-accent-cyan/20 animate-pulse"
                   >
                     Open Guarantee Box
                   </Button>
@@ -203,7 +203,7 @@ export default function GuaranteeModal({
                   <Button
                     variant="secondary"
                     disabled
-                    className="w-full max-w-xs font-black uppercase tracking-wider py-3.5"
+                    className="w-full max-w-xs font-black uppercase tracking-wider py-2.5"
                   >
                     Locked ({100 - rangerPityCount} pulls remaining)
                   </Button>
@@ -212,23 +212,22 @@ export default function GuaranteeModal({
             ) : (
               /* Gear Gacha Guarantee view */
               <div className="w-full flex flex-col items-center">
-                <div className="text-6xl mb-4 animate-bounce">🎁</div>
-                <h4 className="text-lg font-extrabold text-text-primary mb-1">
+                <div className="text-4xl mb-2 animate-bounce">🎁</div>
+                <h4 className="text-base font-extrabold text-text-primary mb-1">
                   Gear Pity Milestones
                 </h4>
-                <p className="text-xs text-text-secondary mb-8 max-w-sm">
+                <p className="text-xs text-text-secondary mb-4 max-w-sm">
                   Receive a random{' '}
                   <span className="text-accent-cyan font-bold">Event Gear</span>{' '}
                   at 90 and 150 pulls. (5+1 counts as 6 pulls)
                 </p>
 
-                <div className="w-full max-w-xs flex flex-col gap-6">
+                <div className="w-full max-w-md grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Milestone 90 Box */}
                   <div className="w-full flex flex-col items-center p-4 rounded-xl border border-border-color bg-bg-secondary/40 relative">
                     <div className="absolute top-0 right-0 bg-accent-cyan/10 text-accent-cyan text-[7px] font-mono font-black px-1.5 py-0.5 rounded-bl uppercase">
                       Milestone 1
                     </div>
-                    <div className="text-2xl mb-2">🎁</div>
                     <h5 className="text-xs font-black text-text-primary mb-2">
                       90 Pulls Milestone
                     </h5>
@@ -279,7 +278,6 @@ export default function GuaranteeModal({
                     <div className="absolute top-0 right-0 bg-accent-cyan/10 text-accent-cyan text-[7px] font-mono font-black px-1.5 py-0.5 rounded-bl uppercase">
                       Milestone 2
                     </div>
-                    <div className="text-2xl mb-2">🎁</div>
                     <h5 className="text-xs font-black text-text-primary mb-2">
                       150 Pulls Milestone
                     </h5>
@@ -326,7 +324,7 @@ export default function GuaranteeModal({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-text-secondary/60 mt-8 font-mono font-semibold">
+                <div className="text-[11px] text-text-secondary/60 mt-4 font-mono font-semibold">
                   Total Gear Pulls: {gearPityCount}
                 </div>
               </div>

@@ -63,7 +63,7 @@ export default function Modal({
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-bg-primary/80 backdrop-blur-sm transition-all duration-300 animate-fadeIn"
     >
       <div
-        className={`w-full ${sizeClasses[size]} bg-bg-secondary border border-border-color rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-scaleIn`}
+        className={`w-full ${sizeClasses[size]} bg-bg-secondary border border-border-color rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh] min-h-0 animate-scaleIn`}
       >
         {/* Modal Header */}
         <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-border-color bg-black/10">
