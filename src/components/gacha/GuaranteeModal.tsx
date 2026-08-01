@@ -219,73 +219,109 @@ export default function GuaranteeModal({
                 <p className="text-xs text-text-secondary mb-8 max-w-sm">
                   Receive a random{' '}
                   <span className="text-accent-cyan font-bold">Event Gear</span>{' '}
-                  at 90 and 150 pulls. (5+1 counts as 5 pulls)
+                  at 90 and 150 pulls. (5+1 counts as 6 pulls)
                 </p>
 
-                <div className="w-full max-w-sm flex flex-col gap-4">
+                <div className="w-full max-w-xs flex flex-col gap-6">
                   {/* Milestone 90 Box */}
-                  <div className="flex items-center justify-between p-4 rounded-xl border border-border-color/80 bg-bg-secondary/40">
-                    <div className="flex items-center gap-3">
-                      <div className="text-3xl">🎁</div>
-                      <div className="text-left">
-                        <div className="text-sm font-extrabold text-text-primary">
-                          90 Pulls Milestone
-                        </div>
-                        <div className="text-[10px] text-text-secondary/60 font-mono">
-                          Progress: {Math.min(90, gearPityCount)} / 90
-                        </div>
-                      </div>
+                  <div className="w-full flex flex-col items-center p-4 rounded-xl border border-border-color bg-bg-secondary/40 relative">
+                    <div className="absolute top-0 right-0 bg-accent-cyan/10 text-accent-cyan text-[7px] font-mono font-black px-1.5 py-0.5 rounded-bl uppercase">
+                      Milestone 1
                     </div>
-                    {gearBox90Claimed ? (
-                      <span className="text-xs font-bold text-text-secondary/40 uppercase">
-                        Claimed
+                    <div className="text-2xl mb-2">🎁</div>
+                    <h5 className="text-xs font-black text-text-primary mb-2">
+                      90 Pulls Milestone
+                    </h5>
+
+                    {/* Progress bar */}
+                    <div className="w-full bg-bg-secondary border border-border-color rounded-full h-3.5 mb-3 overflow-hidden p-0.5 relative">
+                      <div
+                        className="h-full bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full transition-all duration-500"
+                        style={{
+                          width: `${(Math.min(90, gearPityCount) / 90) * 100}%`,
+                        }}
+                      />
+                      <span className="absolute inset-0 flex items-center justify-center text-[8px] font-black text-text-primary mix-blend-difference font-mono">
+                        {Math.min(90, gearPityCount)} / 90
                       </span>
+                    </div>
+
+                    {/* Claim action */}
+                    {gearBox90Claimed ? (
+                      <Button
+                        variant="secondary"
+                        disabled
+                        className="w-full font-black uppercase text-[10px] py-2"
+                      >
+                        Claimed
+                      </Button>
                     ) : gearBox90Available ? (
                       <Button
                         variant="primary"
-                        size="sm"
                         onClick={() => handleOpenGearBox(90)}
-                        className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse"
+                        className="w-full font-black uppercase text-[10px] py-2 shadow shadow-accent-cyan/15 animate-pulse"
                       >
-                        Open
+                        Open Guarantee Box
                       </Button>
                     ) : (
-                      <span className="text-xs font-bold text-text-secondary/50 font-mono">
-                        {Math.max(0, 90 - gearPityCount)} left
-                      </span>
+                      <Button
+                        variant="secondary"
+                        disabled
+                        className="w-full font-black uppercase text-[10px] py-2"
+                      >
+                        Locked ({90 - gearPityCount} pulls remaining)
+                      </Button>
                     )}
                   </div>
 
                   {/* Milestone 150 Box */}
-                  <div className="flex items-center justify-between p-4 rounded-xl border border-border-color/80 bg-bg-secondary/40">
-                    <div className="flex items-center gap-3">
-                      <div className="text-3xl">🎁</div>
-                      <div className="text-left">
-                        <div className="text-sm font-extrabold text-text-primary">
-                          150 Pulls Milestone
-                        </div>
-                        <div className="text-[10px] text-text-secondary/60 font-mono">
-                          Progress: {Math.min(150, gearPityCount)} / 150
-                        </div>
-                      </div>
+                  <div className="w-full flex flex-col items-center p-4 rounded-xl border border-border-color bg-bg-secondary/40 relative">
+                    <div className="absolute top-0 right-0 bg-accent-cyan/10 text-accent-cyan text-[7px] font-mono font-black px-1.5 py-0.5 rounded-bl uppercase">
+                      Milestone 2
                     </div>
-                    {gearBox150Claimed ? (
-                      <span className="text-xs font-bold text-text-secondary/40 uppercase">
-                        Claimed
+                    <div className="text-2xl mb-2">🎁</div>
+                    <h5 className="text-xs font-black text-text-primary mb-2">
+                      150 Pulls Milestone
+                    </h5>
+
+                    {/* Progress bar */}
+                    <div className="w-full bg-bg-secondary border border-border-color rounded-full h-3.5 mb-3 overflow-hidden p-0.5 relative">
+                      <div
+                        className="h-full bg-gradient-to-r from-accent-cyan to-accent-teal rounded-full transition-all duration-500"
+                        style={{
+                          width: `${(Math.min(150, gearPityCount) / 150) * 100}%`,
+                        }}
+                      />
+                      <span className="absolute inset-0 flex items-center justify-center text-[8px] font-black text-text-primary mix-blend-difference font-mono">
+                        {Math.min(150, gearPityCount)} / 150
                       </span>
+                    </div>
+
+                    {/* Claim action */}
+                    {gearBox150Claimed ? (
+                      <Button
+                        variant="secondary"
+                        disabled
+                        className="w-full font-black uppercase text-[10px] py-2"
+                      >
+                        Claimed
+                      </Button>
                     ) : gearBox150Available ? (
                       <Button
                         variant="primary"
-                        size="sm"
                         onClick={() => handleOpenGearBox(150)}
-                        className="font-extrabold uppercase shadow shadow-accent-cyan/15 animate-pulse"
+                        className="w-full font-black uppercase text-[10px] py-2 shadow shadow-accent-cyan/15 animate-pulse"
                       >
-                        Open
+                        Open Guarantee Box
                       </Button>
                     ) : (
-                      <span className="text-xs font-bold text-text-secondary/50 font-mono">
-                        {Math.max(0, 150 - gearPityCount)} left
-                      </span>
+                      <Button
+                        variant="secondary"
+                        disabled
+                        className="w-full font-black uppercase text-[10px] py-2"
+                      >
+                        Locked ({150 - gearPityCount} pulls remaining)
+                      </Button>
                     )}
                   </div>
                 </div>

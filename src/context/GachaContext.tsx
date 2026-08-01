@@ -258,8 +258,8 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
         let nextGearRuby = gearRubySpent;
 
         if (isGear) {
-          // pull 1 times = 1 pull, pull 5+1 times (pullCount = 6) = 5 pulls
-          const pityIncrement = pullCount === 6 ? 5 : pullCount;
+          // pull 1 times = 1 pull, pull 5+1 times (pullCount = 6) = 6 pulls
+          const pityIncrement = pullCount === 6 ? 6 : pullCount;
           nextGearPity = gearPityCount + pityIncrement;
           setGearPityCount(nextGearPity);
 
