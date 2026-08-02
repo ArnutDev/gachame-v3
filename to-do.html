@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Update System - To-Do Checklist</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at top, #0f172a 0%, #020617 100%);
+      --card-bg: rgba(15, 23, 42, 0.6);
+      --card-border: rgba(255, 255, 255, 0.05);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-purple: #a855f7;
+      --accent-indigo: #6366f1;
+      --accent-blue: #3b82f6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --font-outfit: 'Outfit', sans-serif;
+      --font-inter: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      font-family: var(--font-inter);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 3rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 120px;
+      background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+      filter: blur(40px);
+      opacity: 0.25;
+      z-index: -1;
+    }
+
+    h1 {
+      font-family: var(--font-outfit);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 40%, var(--accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title {
+      font-family: var(--font-outfit);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title.todo {
+      color: var(--accent-blue);
+    }
+
+    .section-title.completed {
+      color: var(--accent-green);
+    }
+
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .task-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.06);
+      transform: translateX(4px);
+    }
+
+    /* Checklist Checkbox */
+    .checkbox {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .checkbox.pending {
+      border: 2px solid var(--accent-blue);
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .checkbox.done {
+      border: 2px solid var(--accent-green);
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .checkbox.done::before {
+      content: '✓';
+    }
+
+    .task-content {
+      flex-grow: 1;
+    }
+
+    .task-content h4 {
+      font-family: var(--font-outfit);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .task-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .task-content code {
+      font-family: Consolas, monospace;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      color: #93c5fd;
+      font-size: 0.85rem;
+    }
+
+    .badge-code {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-family: var(--font-outfit);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <h1>Auto Update System Checklist</h1>
+      <p class="subtitle">บันทึกขั้นตอนการพัฒนาระบบและการตั้งค่าก่อนเริ่มรันงานจริง</p>
+    </header>
+
+    <!-- PENDING TASKS SECTION -->
+    <div class="section">
+      <div class="section-title todo">
+        <span>📋</span> Things to Do (ขั้นตอนที่เหลือหลัง Push ขึ้น Git)
+      </div>
+      
+      <div class="task-list">
+        <!-- Step 1 -->
+        <div class="task-item">
+          <div class="checkbox pending"></div>
+          <div class="task-content">
+            <h4>รวมโค้ดเข้าสู่สายหลัก (Merge Pull Request)</h4>
+            <p>รวมกิ่ง <code>feat/auto-update</code> เข้าสู่กิ่ง <code>main</code> ใน GitHub เพื่อเปิดสิทธิ์การใช้งานเมนูสั่งรัน Actions (Manual Trigger)</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="task-item">
+          <div class="checkbox pending"></div>
+          <div class="task-content">
+            <h4>สร้างและตั้งค่า Secret ตัวแปร IMAGE_REPO_PAT</h4>
+            <p>นำรหัส Personal Access Token (PAT) ไปตั้งค่าไว้ใน Repository หลัก -> Settings -> Secrets and variables -> Actions โดยตั้งชื่อตัวแปรว่า <code>IMAGE_REPO_PAT</code></p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="task-item">
+          <div class="checkbox pending"></div>
+          <div class="task-content">
+            <h4>ปรับปรุงชื่อ Repository รูปภาพปลายทาง</h4>
+            <p>ตรวจสอบไฟล์ <code>.github/workflows/auto-update.yml</code> บรรทัดที่ 75 ปรับแก้จาก <code>gachame/images</code> เป็น Username และชื่อ Repo ปลายทางจริงของคุณ</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="task-item">
+          <div class="checkbox pending"></div>
+          <div class="task-content">
+            <h4>อัปเดตไฟล์ข้อมูลนำเข้าประจำเดือน (Rangers/Gears Input)</h4>
+            <p>เมื่อขึ้นรอบเดือนใหม่ ให้นำรายชื่อเรนเจอร์/เกียร์มาใส่ใน <code>tools/inputs/rangers.txt</code> และ <code>tools/inputs/gear.txt</code> โดยใช้สัญลักษณ์ <code>KEEP|</code> หรือ <code>TEMP|</code> นำหน้า</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="task-item">
+          <div class="checkbox pending"></div>
+          <div class="task-content">
+            <h4>สั่งรันการอัปเดตข้อมูล (Run GitHub Actions)</h4>
+            <p>ไปที่ Actions -> เลือก Auto Update Game Data -> กดปุ่ม <strong>Run workflow</strong> เพื่อเริ่มกระบวนการดึงข้อมูลและอัปโหลดรูปภาพทั้งหมด</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLETED TASKS SECTION -->
+    <div class="section">
+      <div class="section-title completed">
+        <span>✅</span> Completed Tasks (ขั้นตอนที่ดำเนินการเสร็จสิ้นแล้ว)
+      </div>
+      
+      <div class="task-list">
+        <!-- Task 1 -->
+        <div class="task-item">
+          <div class="checkbox done"></div>
+          <div class="task-content">
+            <h4>เขียนสคริปต์หลักและระบบคัดแยกข้อมูล (Ranger & Gear Parser)</h4>
+            <p>เขียนพัฒนาไฟล์ <code>tools/update.py</code> คัดแยกร่างปกติ/อัลตร้า และแบ่งเกียร์ตามระดับดาวอัตโนมัติสำเร็จ</p>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="task-item">
+          <div class="checkbox done"></div>
+          <div class="task-content">
+            <h4>ระบบส่งเรนเจอร์เข้า Base Database อัตโนมัติ (Base Promotion)</h4>
+            <p>ตั้งระบบอ่านจับคู่เรนเจอร์ในเดือนคู่ เพื่อดึงตัวที่ระบุว่า <code>KEEP</code> ของเดือนคี่ก่อนหน้ามาเขียนลง Base Database หลักสำเร็จ</p>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="task-item">
+          <div class="checkbox done"></div>
+          <div class="task-content">
+            <h4>ระบบเขียน Changelog บันทึกการอัปเดต (updates.json Engine)</h4>
+            <p>ระบบจะปัดเศษเวอร์ชันขึ้นทีละ 1 Minor และลงประวัติตามเวลาไทย (UTC+7) อัตโนมัติสำเร็จ</p>
+          </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="task-item">
+          <div class="checkbox done"></div>
+          <div class="task-content">
+            <h4>ระบบคลาวด์การประมวลผล (GitHub Actions Workflow)</h4>
+            <p>สร้างไฟล์การตั้งค่า <code>.github/workflows/auto-update.yml</code> พร้อมติดตั้งเบราว์เซอร์ Headless บนคลาวด์สำเร็จ</p>
+          </div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="task-item">
+          <div class="checkbox done"></div>
+          <div class="task-content">
+            <h4>ตั้งค่าและสร้างโครงสร้างคลังรูปภาพปลายทาง (Images Sync Target)</h4>
+            <p>ปรับแก้สคริปต์ Sync ให้แยกไฟล์รูปภาพส่งไปจัดเก็บแยกเป็นสัดส่วนที่โฟลเดอร์ <code>images/rangers</code> และ <code>images/gears</code> สำเร็จ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
