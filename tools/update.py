@@ -280,11 +280,12 @@ def save_event_rangers(rangers, event_str, project_root):
         if key not in grouped:
             grouped[key] = []
         
-        # Prepare object for event JSON (matches UI schema: Name, Image, UnitCode)
+        # Prepare object for event JSON (includes status to remember KEEP vs TEMP)
         grouped[key].append({
             "Name": r["Name"],
             "Image": r["Image"],
-            "UnitCode": r["UnitCode"]
+            "UnitCode": r["UnitCode"],
+            "status": r["status"]
         })
 
     for (star, form), items in grouped.items():
@@ -296,6 +297,7 @@ def save_event_rangers(rangers, event_str, project_root):
         with open(file_path, 'w', encoding='utf-8') as f:
             json.dump(items, f, ensure_ascii=False, indent=2)
         print(f"[SAVE] Saved Event Rangers: {file_path} ({len(items)} items)")
+
 
 def save_event_gears(gears, event_str, project_root):
     """Saves gears data to src/data/events/YYYY-MM/gears/*.json files."""
@@ -395,11 +397,29 @@ def update_base_database(event_str, project_root):
 
         # Match base IDs that are present in both
         keep_ids = set(norm_by_base.keys()).intersection(set(ult_by_base.keys()))
-        print(f"   [MATCH] Found {len(keep_ids)} rangers with both Normal and Ultra forms: {list(keep_ids)}")
+        
+        # Filter and clean up the items to add to base database (remove 'status' key)
+        base_norm_items = []
+        for bid in keep_ids:
+            item = norm_by_base[bid]
+            if item.get("status", "KEEP") == "KEEP":
+                base_norm_items.append({
+                    "Name": item["Name"],
+                    "Image": item["Image"],
+                    "UnitCode": item["UnitCode"]
+                })
+        
+        base_ult_items = []
+        for bid in keep_ids:
+            item = ult_by_base[bid]
+            if item.get("status", "KEEP") == "KEEP":
+                base_ult_items.append({
+                    "Name": item["Name"],
+                    "Image": item["Image"],
+                    "UnitCode": item["UnitCode"]
+                })
 
-        # Add to base database
-        base_norm_items = [norm_by_base[bid] for bid in keep_ids]
-        base_ult_items = [ult_by_base[bid] for bid in keep_ids]
+        print(f"   [MATCH] Found {len(keep_ids)} paired rangers. Promoting {len(base_norm_items)} KEEP rangers to base database.")
 
         base_norm_path = os.path.join(project_root, "src", "data", "rangers", f"{star_prefix}-normal.json")
         base_ult_path = os.path.join(project_root, "src", "data", "rangers", f"{star_prefix}-ultra.json")
