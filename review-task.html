@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Auto Update - Review Task Summary</title>
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at top, #131520 0%, #090a0f 100%);
+      --card-bg: rgba(20, 22, 37, 0.6);
+      --card-border: rgba(255, 255, 255, 0.05);
+      --text-primary: #f3f4f6;
+      --text-secondary: #9ca3af;
+      --accent-violet: #8b5cf6;
+      --accent-indigo: #6366f1;
+      --accent-teal: #14b8a6;
+      --accent-green: #10b981;
+      --accent-red: #ef4444;
+      --accent-glow: rgba(139, 92, 246, 0.15);
+      --font-outfit: 'Outfit', sans-serif;
+      --font-inter: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-primary);
+      font-family: var(--font-inter);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 150px;
+      background: radial-gradient(circle, var(--accent-indigo) 0%, transparent 70%);
+      filter: blur(40px);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    h1 {
+      font-family: var(--font-outfit);
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 30%, var(--accent-indigo) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* Badge Summary Grid */
+    .status-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .status-left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .status-badge {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-green);
+      font-family: var(--font-outfit);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-badge::before {
+      content: '✓';
+      font-weight: 900;
+    }
+
+    .status-details h2 {
+      font-family: var(--font-outfit);
+      font-size: 1.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .status-details p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .meta-list {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .meta-item strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    /* Core Tasks Grid */
+    .grid-tasks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-indigo), var(--accent-violet));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(99, 102, 241, 0.05);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent-indigo);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-outfit);
+    }
+
+    .card h3 {
+      font-family: var(--font-outfit);
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+
+    .card-list {
+      list-style: none;
+    }
+
+    .card-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .card-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--accent-violet);
+    }
+
+    /* Logs & Code Panel */
+    .logs-panel {
+      background: #06070a;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    .logs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 0.8rem;
+    }
+
+    .logs-title {
+      font-family: var(--font-outfit);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent-indigo);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logs-badge {
+      background: rgba(20, 184, 166, 0.1);
+      border: 1px solid rgba(20, 184, 166, 0.2);
+      color: var(--accent-teal);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    pre {
+      font-family: 'Consolas', 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #e5e7eb;
+      max-height: 400px;
+      padding-right: 0.5rem;
+    }
+
+    pre::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+
+    pre::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    pre::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .table-container h3 {
+      font-family: var(--font-outfit);
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-primary);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.9rem;
+    }
+
+    th {
+      font-family: var(--font-outfit);
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .badge-keep {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--accent-green);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .badge-temp {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      color: var(--accent-red);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .badge-yes {
+      color: var(--accent-green);
+      font-weight: 600;
+    }
+
+    .badge-no {
+      color: var(--text-secondary);
+    }
+
+    /* Actions Panel */
+    .setup-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .setup-panel h3 {
+      font-family: var(--font-outfit);
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, #fff, var(--accent-violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .setup-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: var(--accent-violet);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-family: var(--font-outfit);
+    }
+
+    .step-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .step-text p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .step-text code {
+      font-family: Consolas, monospace;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--accent-indigo);
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .status-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .meta-list {
+        width: 100%;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <h1>Test Auto Update</h1>
+      <p class="subtitle">ระบบดึงข้อมูลและจัดการอัปเดตอัตโนมัติประจำเดือน (LINE Rangers Sim)</p>
+    </header>
+
+    <!-- Status Section -->
+    <div class="status-panel">
+      <div class="status-left">
+        <span class="status-badge">PASS</span>
+        <div class="status-details">
+          <h2>Task Verification Successful</h2>
+          <p>ระบบอัปเดตประจำเดือนและการกรองข้อมูลได้รับการพัฒนาและรันทดสอบบนเครื่องประมวลผลเรียบร้อยแล้ว</p>
+        </div>
+      </div>
+      <div class="meta-list">
+        <div class="meta-item">
+          <strong>Environment</strong>
+          Python 3.14 (Local) / Actions (Ubuntu)
+        </div>
+        <div class="meta-item">
+          <strong>Selenium Type</strong>
+          Chrome Native Manager
+        </div>
+        <div class="meta-item">
+          <strong>Status Filter</strong>
+          KEEP / TEMP Enforced
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Changes Grid -->
+    <div class="grid-tasks">
+      <!-- Task 1 -->
+      <div class="card">
+        <div class="card-icon">01</div>
+        <h3>Script Refactoring</h3>
+        <p>ยกระดับไฟล์สคริปต์หลัก update.py ให้มีประสิทธิภาพและเป็นระบบอัตโนมัติมากยิ่งขึ้น</p>
+        <ul class="card-list">
+          <li><strong>Dynamic Pathing:</strong> ทำงานผ่าน Path สัมพัทธ์ทั้งหมด ไม่ขึ้นตรงกับโฟลเดอร์เครื่องเดิม</li>
+          <li><strong>Built-in Selenium Manager:</strong> เลิกใช้ไลบรารีดึง Driver ภายนอกเพื่อขจัดข้อผิดพลาดทางสถาปัตยกรรม</li>
+          <li><strong>Console UTF-8:</strong> บังคับส่งสัญญาณออกเป็น UTF-8 เพื่อรองรับสัญลักษณ์ในหน้าต่าง Windows CMD</li>
+        </ul>
+      </div>
+
+      <!-- Task 2 -->
+      <div class="card">
+        <div class="card-icon">02</div>
+        <h3>Auto Promotion Logic</h3>
+        <p>ตั้งกลไกแยกแยะและคัดลอกข้อมูลเข้าสู่ฐานข้อมูลหลักตามรอบปฏิทินปฏิทิน</p>
+        <ul class="card-list">
+          <li><strong>เดือนคี่ (Odd Month):</strong> เขียนข้อมูลบันทึกเข้าเฉพาะโฟลเดอร์ Event ประจำเดือนนั้น ๆ</li>
+          <li><strong>เดือนคู่ (Even Month):</strong> ย้อนกลับไปค้นหาและจับคู่เรนเจอร์ของเดือนคี่ก่อนหน้าที่มีทั้งร่างปกติและอัลตร้า</li>
+          <li><strong>KEEP/TEMP Filter:</strong> ตรวจเช็คฟิลด์สถานะ (status) คัดลอกเข้า Base Database เฉพาะตัวที่เป็น KEEP เท่านั้น</li>
+        </ul>
+      </div>
+
+      <!-- Task 3 -->
+      <div class="card">
+        <div class="card-icon">03</div>
+        <h3>Changelog & Pipeline</h3>
+        <p>ประสานงานแก้ไขระบบจดบันทึกเวอร์ชันและวางสถาปัตยกรรมบนคลาวด์ CI/CD</p>
+        <ul class="card-list">
+          <li><strong>Auto version bump:</strong> ปัดเวอร์ชันขึ้น 1 Minor โดยอัตโนมัติ (เช่น 3.0.2 -> 3.1.0 -> 3.2.0)</li>
+          <li><strong>updates.json Logging:</strong> ลงเวลาไทย (UTC+7) พร้อมข้อความ "Add new content for [Month]."</li>
+          <li><strong>GitHub Actions Workflow:</strong> รัน Scrape แบบไร้หน้าต่าง (Headless) คัดลอกรูปภาพและคัดแยกส่งไป Git ภาพนอก</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Test Log Output -->
+    <div class="logs-panel">
+      <div class="logs-header">
+        <div class="logs-title">
+          <span>⚙️</span> Terminal Execution Output Logs
+        </div>
+        <span class="logs-badge">Dry Run & Verification Log</span>
+      </div>
+      <pre>
+[START] Starting Auto Update System
+[DATE] Target Event Month: 2026-10
+[ROOT] Project Root: D:\Arnut\Coding_projects\gachame
+[SKIP] Skipping scraping step.
+[SYNC] Current month is EVEN (2026-10). Processing previous ODD month (2026-09) rangers to base database...
+   [ANALYZING] Analyzing star 8 normal/ultra rangers from 2026-09...
+   [MATCH] Found 4 paired rangers. Promoting 3 KEEP rangers to base database.
+   [ADD] Appended to base database: Reno (u1621e-re)
+   [ADD] Appended to base database: Hoshina (u1623e-ho)
+   [ADD] Appended to base database: Kafka (u1617e-ka)
+   [SAVE] Saved updates to D:\Arnut\Coding_projects\gachame\src\data\rangers\8-normal.json (3 items added)
+   [ADD] Appended to base database: Third Division Reno (u1621u-re)
+   [ADD] Appended to base database: 3rd Division VC Hoshina (u1623u-ho)
+   [ADD] Appended to base database: Third Division Kafka (u1617u-ka)
+   [ADD] Appended to base database: Third Division Kikoru (u1619u-ki)
+   [SAVE] Saved updates to D:\Arnut\Coding_projects\gachame\src\data\rangers\8-ultra.json (4 items added)
+[LOG] Updating changelog in updates.json...
+   [SUCCESS] Added version 3.3.0 to updates.json with changes: ['Add new content for October.']
+[FINISHED] Auto Update execution completed successfully.
+      </pre>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="table-container">
+      <h3>การทดสอบระบบคัดกรองข้อมูลเรนเจอร์ (Rangers Verification Matrix)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Ranger Name (Scraped)</th>
+            <th>Type</th>
+            <th>Input Status</th>
+            <th>Saved in Event Folder (09)</th>
+            <th>Promoted to Base Database (10)</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kafka</td>
+            <td>Normal (8★)</td>
+            <td><span class="badge-keep">KEEP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td>ดึงและเขียนบันทึกเข้าฐานข้อมูลหลักเรียบร้อย</td>
+          </tr>
+          <tr>
+            <td>Kikoru</td>
+            <td>Normal (8★)</td>
+            <td><span class="badge-temp">TEMP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-no">No</span></td>
+            <td>ข้ามการนำเข้าฐานข้อมูลหลักเนื่องจากสถานะเป็น TEMP</td>
+          </tr>
+          <tr>
+            <td>Reno</td>
+            <td>Normal (8★)</td>
+            <td><span class="badge-keep">KEEP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td>ดึงและเขียนบันทึกเข้าฐานข้อมูลหลักเรียบร้อย</td>
+          </tr>
+          <tr>
+            <td>Hoshina</td>
+            <td>Normal (8★)</td>
+            <td><span class="badge-keep">KEEP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td>ดึงและเขียนบันทึกเข้าฐานข้อมูลหลักเรียบร้อย</td>
+          </tr>
+          <tr>
+            <td>Third Division Kafka</td>
+            <td>Ultra (8★)</td>
+            <td><span class="badge-keep">KEEP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td>ดึงและเขียนบันทึกเข้าฐานข้อมูลหลักเรียบร้อย</td>
+          </tr>
+          <tr>
+            <td>Third Division Kikoru</td>
+            <td>Ultra (8★)</td>
+            <td><span class="badge-keep">KEEP</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td><span class="badge-yes">Yes</span></td>
+            <td>ร่างอัลตร้ามีคู่และตั้งเป็น KEEP จึงได้รับการบันทึก</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Production Setup Panel -->
+    <div class="setup-panel">
+      <h3>วิธีตั้งค่าเพื่อเริ่มใช้งานจริง (Production Deployment Checklist)</h3>
+      <div class="setup-steps">
+        <div class="step-item">
+          <span class="step-num">1</span>
+          <div class="step-text">
+            <h4>สร้าง GitHub Personal Access Token (PAT)</h4>
+            <p>สร้าง Token ใน GitHub Profile Settings -> Developer Settings -> Personal access tokens (classic) โดยกำหนด Scope สิทธิ์ **`repo`** ให้ครบถ้วน</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">2</span>
+          <div class="step-text">
+            <h4>ผูกตัวแปร Secrets ใน Repository หลัก</h4>
+            <p>นำ Token ที่ได้ไปตั้งค่าไว้ใน Repository หลัก (gachame-v3) -> Settings -> Secrets and variables -> Actions โดยตั้งชื่อตัวแปรว่า <code>IMAGE_REPO_PAT</code></p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">3</span>
+          <div class="step-text">
+            <h4>เปลี่ยนเป้าหมาย Repository รูปภาพ</h4>
+            <p>ในไฟล์ <code>.github/workflows/auto-update.yml</code> บรรทัดที่ 75 ปรับแก้จาก <code>repository: 'gachame/images'</code> ให้ชี้ไปยังคลังที่เก็บรูปภาพจริงของคุณ</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <span class="step-num">4</span>
+          <div class="step-text">
+            <h4>ทดสอบการสั่งงาน (Manual Trigger)</h4>
+            <p>ไปที่ Actions tab บน GitHub -> เลือก Auto Update Game Data -> กด **Run workflow** แล้วกรอกเดือน/เลือกประเภททดสอบที่ต้องการเพื่อเริ่มรันงาน</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
