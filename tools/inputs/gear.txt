@@ -1,0 +1,6 @@
+KEEP|9-Star Weapon []Leonard's Plasma Sword
+KEEP|9-Star Weapon []Leonard's Chem Grenade
+KEEP|9-Star Weapon []Leonard's Power Megaphone
+KEEP|9-Star Armor []Leonard's Mechanic Cap
+KEEP|9-Star Armor []Leonard's Omni-Goggles
+KEEP|9-Star Armor []Leonard's Secret Toolbox

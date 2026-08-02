@@ -1,0 +1,105 @@
+name: Auto Update Game Data
+
+on:
+  schedule:
+    # Run on the 1st day of every month at 00:00 ICT (17:00 UTC of the previous day)
+    - cron: '0 17 31,30,28,29 * *' # Scheduled run helper, runs around the month transition
+  workflow_dispatch:
+    inputs:
+      event_month:
+        description: 'Event month in YYYY-MM format (e.g. 2026-08). Leave empty for current month.'
+        required: false
+        type: string
+      skip_scrape:
+        description: 'Skip scraping and run only base database / changelog updates'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gachame repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f tools/requirements.txt ]; then pip install -r tools/requirements.txt; fi
+
+      - name: Install Google Chrome and ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Run Update Script
+        id: run_script
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          CMD="python tools/update.py"
+          if [ -n "${{ github.event.inputs.event_month }}" ]; then
+            CMD="$CMD --event ${{ github.event.inputs.event_month }}"
+          fi
+          if [ "${{ github.event.inputs.skip_scrape }}" = "true" ]; then
+            CMD="$CMD --skip-scrape"
+          fi
+          echo "Running command: $CMD"
+          $CMD
+
+      - name: Commit and push data updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/
+          # Only commit and push if there are changes in src/data/
+          git diff-index --quiet HEAD || git commit -m "chore: auto-update game data and changelog"
+          git push origin main
+
+      # --- Sync Images to External Repo ---
+      # This step checks out your external image hosting repository,
+      # copies the newly scraped images, commits, and pushes them.
+      # Needs IMAGE_REPO_PAT secret configured in Github repository secrets.
+      - name: Checkout Image Repository
+        uses: actions/checkout@v4
+        with:
+          # Change this to your actual images repository (e.g., 'username/repo-name')
+          repository: 'gachame/images'
+          # Use a GitHub secret Personal Access Token (PAT) with write access to the images repo
+          token: ${{ secrets.IMAGE_REPO_PAT }}
+          path: image-repo
+
+      - name: Copy new images to Image Repository
+        run: |
+          mkdir -p image-repo/rangers
+          mkdir -p image-repo/gears
+          
+          # Copy ranger images if they exist
+          if [ -d "tools/images/rangers" ] && [ "$(ls -A tools/images/rangers)" ]; then
+            cp -r tools/images/rangers/* image-repo/rangers/
+            echo "Copied Ranger images."
+          fi
+          
+          # Copy gear images if they exist
+          if [ -d "tools/images/gears" ] && [ "$(ls -A tools/images/gears)" ]; then
+            cp -r tools/images/gears/* image-repo/gears/
+            echo "Copied Gear images."
+          fi
+
+      - name: Commit and push images to Image Repository
+        run: |
+          cd image-repo
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add rangers/ gears/
+          # Only commit and push if there are new images
+          git diff-index --quiet HEAD || git commit -m "chore: upload new ranger and gear images"
+          git push

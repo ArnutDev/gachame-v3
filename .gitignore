@@ -38,3 +38,7 @@ dist-ssr/
 .DS_Store
 Thumbs.db
 scratch/
+
+# Python Virtual Environment
+.venv/
+
