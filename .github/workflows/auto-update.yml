@@ -79,18 +79,18 @@ jobs:
 
       - name: Copy new images to Image Repository
         run: |
-          mkdir -p image-repo/rangers
-          mkdir -p image-repo/gears
+          mkdir -p image-repo/images/rangers
+          mkdir -p image-repo/images/gears
           
           # Copy ranger images if they exist
           if [ -d "tools/images/rangers" ] && [ "$(ls -A tools/images/rangers)" ]; then
-            cp -r tools/images/rangers/* image-repo/rangers/
+            cp -r tools/images/rangers/* image-repo/images/rangers/
             echo "Copied Ranger images."
           fi
           
           # Copy gear images if they exist
           if [ -d "tools/images/gears" ] && [ "$(ls -A tools/images/gears)" ]; then
-            cp -r tools/images/gears/* image-repo/gears/
+            cp -r tools/images/gears/* image-repo/images/gears/
             echo "Copied Gear images."
           fi
 
@@ -99,7 +99,7 @@ jobs:
           cd image-repo
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add rangers/ gears/
+          git add images/rangers/ images/gears/
           # Only commit and push if there are new images
           git diff-index --quiet HEAD || git commit -m "chore: upload new ranger and gear images"
           git push
