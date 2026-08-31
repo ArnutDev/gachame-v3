@@ -1,6 +1,14 @@
-KEEP|9-Star Weapon []Leonard's Plasma Sword
-KEEP|9-Star Weapon []Leonard's Chem Grenade
-KEEP|9-Star Weapon []Leonard's Power Megaphone
-KEEP|9-Star Armor []Leonard's Mechanic Cap
-KEEP|9-Star Armor []Leonard's Omni-Goggles
-KEEP|9-Star Armor []Leonard's Secret Toolbox
+TEMP|9-Star Weapon Moonlight Bow
+TEMP|9-Star Armor Moonlight Stroll Boots
+TEMP|9-Star Accessory Moonlight Dream Earrings
+TEMP|8-Star Weapon Moonlit Dagger
+TEMP|8-Star Weapon Moonlight Shining Axe
+TEMP|8-Star Armor Moonlight Shining Shield
+TEMP|8-Star Accessory Moonlight Guard Gloves
+TEMP|8-Star Accessory Moonlight Shining Belt
+GUARANTEE|9-Star Weapon Moonlight Bow
+GUARANTEE|9-Star Armor Moonlight Stroll Boots
+GUARANTEE|9-Star Accessory Moonlight Dream Earrings
+GUARANTEE|8-Star Weapon Moonlit Dagger
+GUARANTEE|8-Star Accessory Moonlight Guard Gloves
+GUARANTEE|7-Star Armor Moon Shield
