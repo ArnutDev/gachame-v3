@@ -1,9 +1,6 @@
 name: Auto Update Game Data
 
 on:
-  schedule:
-    # Run on the 1st day of every month at 00:00 ICT (17:00 UTC of the previous day)
-    - cron: '0 17 31,30,28,29 * *' # Scheduled run helper, runs around the month transition
   workflow_dispatch:
     inputs:
       event_month:
@@ -36,11 +33,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f tools/requirements.txt ]; then pip install -r tools/requirements.txt; fi
-
-      - name: Install Google Chrome and ChromeDriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
 
       - name: Run Update Script
         id: run_script
