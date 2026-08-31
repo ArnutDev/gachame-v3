@@ -22,7 +22,7 @@ async function compilePoolForBanner(
     const pools = await Promise.all(
       rarities.map((r) => getCombinedGears(r, banner.event))
     );
-    return pools.flat();
+    return pools.flat().filter((g) => g.gacha !== false);
   } else {
     const rarities: RangerRarity[] = [
       '7_normal',
@@ -33,7 +33,7 @@ async function compilePoolForBanner(
     const pools = await Promise.all(
       rarities.map((r) => getCombinedRangers(r, banner.event))
     );
-    return pools.flat();
+    return pools.flat().filter((r) => r.gacha !== false);
   }
 }
 

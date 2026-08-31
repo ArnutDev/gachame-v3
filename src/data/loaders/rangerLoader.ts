@@ -35,3 +35,19 @@ export async function loadEventRangerJson(
   const module = await resolver();
   return (module as { default: unknown }).default;
 }
+
+/**
+ * Headless loader for Event Ranger Guarantee JSON file.
+ * Returns raw unknown data, or null if the event doesn't define guarantee rangers.
+ */
+export async function loadEventRangerGuaranteeJson(
+  event: string
+): Promise<unknown | null> {
+  const fileKey = `/src/data/events/${event}/rangers-guarantee.json`;
+  const resolver = eventRangerFiles[fileKey];
+  if (!resolver) {
+    return null;
+  }
+  const module = await resolver();
+  return (module as { default: unknown }).default;
+}

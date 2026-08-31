@@ -199,7 +199,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           const pools = await Promise.all(
             rarities.map((r) => getCombinedGears(r, currentBanner.event))
           );
-          itemsPool = pools.flat();
+          itemsPool = pools.flat().filter((g) => g.gacha !== false);
         } else {
           const rarities: RangerRarity[] = [
             '7_normal',
@@ -210,7 +210,7 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           const pools = await Promise.all(
             rarities.map((r) => getCombinedRangers(r, currentBanner.event))
           );
-          itemsPool = pools.flat();
+          itemsPool = pools.flat().filter((r) => r.gacha !== false);
         }
 
         if (itemsPool.length === 0) {
@@ -417,8 +417,15 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           .flat()
           .filter((r) => r.event === currentBanner.event);
 
+        const customGuaranteePool = eventPool.filter((r) => r.guarantee === true);
+        if (customGuaranteePool.length > 0) {
+          eventPool = customGuaranteePool;
+        } else {
+          eventPool = eventPool.filter((r) => r.guarantee !== false);
+        }
+
         if (eventPool.length === 0) {
-          eventPool = pools.flat();
+          eventPool = pools.flat().filter((r) => r.guarantee !== false);
         }
 
         if (eventPool.length === 0) {
@@ -518,13 +525,20 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
           .flat()
           .filter((g) => g.event === currentBanner.event);
 
+        const customGuaranteePool = eventPool.filter((g) => g.guarantee === true);
+        if (customGuaranteePool.length > 0) {
+          eventPool = customGuaranteePool;
+        } else {
+          eventPool = eventPool.filter((g) => g.guarantee !== false);
+        }
+
         if (eventPool.length === 0) {
           eventPool = pools
             .flat()
-            .filter((g) => g.rarity === '8' || g.rarity === '9');
+            .filter((g) => (g.rarity === '8' || g.rarity === '9') && g.guarantee !== false);
         }
         if (eventPool.length === 0) {
-          eventPool = pools.flat();
+          eventPool = pools.flat().filter((g) => g.guarantee !== false);
         }
 
         if (eventPool.length === 0) {

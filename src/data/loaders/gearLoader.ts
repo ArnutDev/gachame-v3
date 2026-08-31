@@ -33,3 +33,19 @@ export async function loadEventGearJson(
   const module = await resolver();
   return (module as { default: unknown }).default;
 }
+
+/**
+ * Headless loader for Event Gear Guarantee JSON file.
+ * Returns raw unknown data, or null if the event doesn't define guarantee gears.
+ */
+export async function loadEventGearGuaranteeJson(
+  event: string
+): Promise<unknown | null> {
+  const fileKey = `/src/data/events/${event}/gears-guarantee.json`;
+  const resolver = eventGearFiles[fileKey];
+  if (!resolver) {
+    return null;
+  }
+  const module = await resolver();
+  return (module as { default: unknown }).default;
+}

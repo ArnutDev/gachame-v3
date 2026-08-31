@@ -13,6 +13,9 @@ export interface RangerRaw {
   Name: string;
   Image: string;
   UnitCode: string;
+  Rarity?: string;
+  gacha?: boolean;
+  guarantee?: boolean;
 }
 
 /**
@@ -23,6 +26,9 @@ export interface GearRaw {
   Name: string;
   Image: string;
   ItemCode: string;
+  Rarity?: string;
+  gacha?: boolean;
+  guarantee?: boolean;
 }
 
 /**
@@ -37,6 +43,8 @@ export interface Ranger {
   image: string;
   event?: string; // YYYY-MM folder identifier for event-specific items
   releaseDate?: string;
+  gacha?: boolean;
+  guarantee?: boolean;
 }
 
 /**
@@ -49,6 +57,8 @@ export interface Gear {
   rarity: GearRarity;
   image: string;
   event?: string; // YYYY-MM folder identifier for event-specific items
+  gacha?: boolean;
+  guarantee?: boolean;
 }
 
 /**

@@ -266,14 +266,34 @@ def scrape_gear_data(driver, gears_to_scrape, image_folder):
 # --- File Exporters ---
 
 def save_event_rangers(rangers, event_str, project_root):
-    """Saves rangers data to src/data/events/YYYY-MM/rangers/*.json files."""
+    """Saves rangers data to src/data/events/YYYY-MM/rangers/*.json files, and guarantee rangers to rangers-guarantee.json."""
     if not rangers:
         print("[INFO] No rangers to save.")
         return
 
-    # Group by star rating
+    guarantee_rangers = [r for r in rangers if r.get("status") in ("GUARANTEE", "GTE")]
+    regular_rangers = [r for r in rangers if r.get("status") not in ("GUARANTEE", "GTE")]
+
+    # Save guarantee rangers
+    if guarantee_rangers:
+        folder_path = os.path.join(project_root, "src", "data", "events", event_str)
+        os.makedirs(folder_path, exist_ok=True)
+        file_path = os.path.join(folder_path, "rangers-guarantee.json")
+        items_to_save = []
+        for r in guarantee_rangers:
+            items_to_save.append({
+                "Name": r["Name"],
+                "Image": r["Image"],
+                "UnitCode": r["UnitCode"],
+                "Rarity": f"{r['star']}_{'ultra' if r['is_ultimate'] else 'normal'}"
+            })
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(items_to_save, f, ensure_ascii=False, indent=2)
+        print(f"[SAVE] Saved Event Rangers Guarantee: {file_path} ({len(items_to_save)} items)")
+
+    # Group regular by star rating
     grouped = {}
-    for r in rangers:
+    for r in regular_rangers:
         star = r["star"]
         is_ultimate = r["is_ultimate"]
         key = (star, "ultra" if is_ultimate else "normal")
@@ -300,14 +320,34 @@ def save_event_rangers(rangers, event_str, project_root):
 
 
 def save_event_gears(gears, event_str, project_root):
-    """Saves gears data to src/data/events/YYYY-MM/gears/*.json files."""
+    """Saves gears data to src/data/events/YYYY-MM/gears/*.json files, and guarantee gears to gears-guarantee.json."""
     if not gears:
         print("[INFO] No gears to save.")
         return
 
-    # Group by star rating
+    guarantee_gears = [g for g in gears if g.get("status") in ("GUARANTEE", "GTE")]
+    regular_gears = [g for g in gears if g.get("status") not in ("GUARANTEE", "GTE")]
+
+    # Save guarantee gears
+    if guarantee_gears:
+        folder_path = os.path.join(project_root, "src", "data", "events", event_str)
+        os.makedirs(folder_path, exist_ok=True)
+        file_path = os.path.join(folder_path, "gears-guarantee.json")
+        items_to_save = []
+        for g in guarantee_gears:
+            items_to_save.append({
+                "Name": g["Name"],
+                "Image": g["Image"],
+                "ItemCode": g["ItemCode"],
+                "Rarity": str(g["star"])
+            })
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump(items_to_save, f, ensure_ascii=False, indent=2)
+        print(f"[SAVE] Saved Event Gears Guarantee: {file_path} ({len(items_to_save)} items)")
+
+    # Group regular by star rating
     grouped = {}
-    for g in gears:
+    for g in regular_gears:
         star = g["star"]
         if star not in grouped:
             grouped[star] = []
