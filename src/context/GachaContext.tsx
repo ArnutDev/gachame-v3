@@ -116,15 +116,10 @@ export function GachaProvider({ children }: { children: React.ReactNode }) {
               setSelectedBannerId(initialBannerId);
             }
 
-            // Hydrate pity states
-            if (parsed.rangerBoxClaimed !== undefined)
-              setRangerBoxClaimed(parsed.rangerBoxClaimed);
-            else if (parsed.rangerBoxesClaimed !== undefined)
-              setRangerBoxClaimed(parsed.rangerBoxesClaimed > 0);
-            if (parsed.gearBox90Claimed !== undefined)
-              setGearBox90Claimed(parsed.gearBox90Claimed);
-            if (parsed.gearBox150Claimed !== undefined)
-              setGearBox150Claimed(parsed.gearBox150Claimed);
+            // Reset guarantee claim states on refresh to align with fresh pull counts
+            setRangerBoxClaimed(false);
+            setGearBox90Claimed(false);
+            setGearBox150Claimed(false);
 
             // Reset history in localStorage on refresh
             localStorage.setItem(
