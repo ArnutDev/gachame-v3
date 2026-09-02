@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Moonlight Bow",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_wpn_09_icon.png",
+    "ItemCode": "eq_2609_wpn_09",
+    "Rarity": "9"
+  },
+  {
+    "Name": "Moonlight Stroll Boots",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_amr_19_icon.png",
+    "ItemCode": "eq_2609_amr_19",
+    "Rarity": "9"
+  },
+  {
+    "Name": "Moonlight Dream Earrings",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_acc_29_icon.png",
+    "ItemCode": "eq_2609_acc_29",
+    "Rarity": "9"
+  },
+  {
+    "Name": "Moonlit Dagger",
+    "Image": "https://gachame.github.io/images/gears/eq_2409_wpn_08_icon.png",
+    "ItemCode": "eq_2409_wpn_08",
+    "Rarity": "8"
+  },
+  {
+    "Name": "Moonlight Guard Gloves",
+    "Image": "https://gachame.github.io/images/gears/eq_2509_acc_08_icon.png",
+    "ItemCode": "eq_2509_acc_08",
+    "Rarity": "8"
+  },
+  {
+    "Name": "Moon Shield",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_057_icon.png",
+    "ItemCode": "eq_amr_evt_057",
+    "Rarity": "7"
+  }
+]

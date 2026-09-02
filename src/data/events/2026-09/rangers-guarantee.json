@@ -1,0 +1,20 @@
+[
+  {
+    "Name": "Cancer Sally",
+    "Image": "https://gachame.github.io/images/rangers/u1630e-sally-thum.png",
+    "UnitCode": "u1630e-sally",
+    "Rarity": "8_normal"
+  },
+  {
+    "Name": "Gemini BOSS",
+    "Image": "https://gachame.github.io/images/rangers/u1628e-boss-thum.png",
+    "UnitCode": "u1628e-boss",
+    "Rarity": "8_normal"
+  },
+  {
+    "Name": "Aries CONY",
+    "Image": "https://gachame.github.io/images/rangers/u1626e-cony-thum.png",
+    "UnitCode": "u1626e-cony",
+    "Rarity": "8_normal"
+  }
+]
