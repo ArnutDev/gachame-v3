@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Moonlit Dagger",
+    "Image": "https://gachame.github.io/images/gears/eq_2409_wpn_08_icon.png",
+    "ItemCode": "eq_2409_wpn_08"
+  },
+  {
+    "Name": "Moonlight Shining Axe",
+    "Image": "https://gachame.github.io/images/gears/eq_2309_wpn_08_icon.png",
+    "ItemCode": "eq_2309_wpn_08"
+  },
+  {
+    "Name": "Moonlight Shining Shield",
+    "Image": "https://gachame.github.io/images/gears/eq_2309_amr_18_icon.png",
+    "ItemCode": "eq_2309_amr_18"
+  },
+  {
+    "Name": "Moonlight Guard Gloves",
+    "Image": "https://gachame.github.io/images/gears/eq_2509_acc_08_icon.png",
+    "ItemCode": "eq_2509_acc_08"
+  },
+  {
+    "Name": "Moonlight Shining Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_2309_acc_08_icon.png",
+    "ItemCode": "eq_2309_acc_08"
+  }
+]

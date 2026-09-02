@@ -20,11 +20,11 @@
     "name": "Rangers from Zodiac tie-up",
     "type": "boost",
     "event": "2026-09",
-    "featuredItems": ["u1617e-ka", "u1619e-ki", "u1617u-ka"],
+    "featuredItems": ["u1630e-sally", "u1628e-boss", "u1628u-boss"],
     "featuredRates": {
-      "u1617e-ka": 1.5,
-      "u1619e-ki": 1.5,
-      "u1617u-ka": 0.22
+      "u1630e-sally": 1.5,
+      "u1628e-boss": 1.5,
+      "u1628u-boss": 0.22
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -41,11 +41,11 @@
     "name": "Rangers from Zodiac tie-up",
     "type": "boost",
     "event": "2026-09",
-    "featuredItems": ["u1617e-ka", "u1619e-ki", "u1617u-ka"],
+    "featuredItems": ["u1630e-sally", "u1626e-cony", "u1626u-cony"],
     "featuredRates": {
-      "u1617e-ka": 1.5,
-      "u1619e-ki": 1.5,
-      "u1617u-ka": 0.22
+      "u1630e-sally": 1.5,
+      "u1626e-cony": 1.5,
+      "u1626u-cony": 0.22
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -80,22 +80,22 @@
     "type": "gear_boost",
     "event": "2026-09",
     "featuredItems": [
-      "eq_2608_wpn_09",
-      "eq_2608_acc_08",
-      "eq_2608_amr_07",
-      "eq_2608_amr_07",
-      "eq_2608_amr_07",
-      "eq_2608_amr_07",
-      "eq_2608_amr_07"
+      "eq_2609_wpn_09",
+      "eq_2409_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
     ],
     "featuredRates": {
-      "eq_2608_wpn_09": 0.6,
-      "eq_2608_acc_08": 1.0,
-      "eq_2608_amr_07": 0.4,
-      "eq_2608_amr_07": 0.4,
-      "eq_2608_amr_07": 0.4,
-      "eq_2608_amr_07": 0.4,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_wpn_09": 0.6,
+      "eq_2409_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -113,11 +113,23 @@
     "name": "Gears from Moongazing tie-up",
     "type": "gear_boost",
     "event": "2026-09",
-    "featuredItems": ["eq_2608_wpn_09", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredItems": [
+      "eq_2609_wpn_09",
+      "eq_2309_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
     "featuredRates": {
-      "eq_2608_wpn_09": 0.6,
-      "eq_2608_acc_18": 1.0,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_wpn_09": 0.6,
+      "eq_2309_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -135,11 +147,23 @@
     "name": "Gears from Moongazing tie-up",
     "type": "gear_boost",
     "event": "2026-09",
-    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_08", "eq_2608_amr_07"],
+    "featuredItems": [
+      "eq_2609_wpn_09",
+      "eq_2309_amr_18",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
     "featuredRates": {
-      "eq_2608_wpn_19": 0.6,
-      "eq_2608_acc_08": 1.0,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_wpn_09": 0.6,
+      "eq_2309_amr_18": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -157,11 +181,23 @@
     "name": "Gears from Moongazing tie-up",
     "type": "gear_boost",
     "event": "2026-09",
-    "featuredItems": ["eq_2608_wpn_19", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredItems": [
+      "eq_2609_wpn_09",
+      "eq_2509_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
     "featuredRates": {
-      "eq_2608_wpn_19": 0.6,
-      "eq_2608_acc_18": 1.0,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_wpn_09": 0.6,
+      "eq_2509_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -179,11 +215,23 @@
     "name": "Gears from Moongazing tie-up",
     "type": "gear_boost",
     "event": "2026-09",
-    "featuredItems": ["eq_2608_wpn_29", "eq_2608_acc_08", "eq_2608_amr_07"],
+    "featuredItems": [
+      "eq_2609_wpn_09",
+      "eq_2309_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
     "featuredRates": {
-      "eq_2608_wpn_29": 0.6,
-      "eq_2608_acc_08": 1.0,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_wpn_09": 0.6,
+      "eq_2309_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",
@@ -197,15 +245,333 @@
     }
   },
   {
-    "id": "collab_gear_2026_09_box_7",
+    "id": "even_gear_2026_09_box_7",
     "name": "Gears from Moongazing tie-up",
     "type": "gear_boost",
     "event": "2026-09",
-    "featuredItems": ["eq_2608_wpn_29", "eq_2608_acc_18", "eq_2608_amr_07"],
+    "featuredItems": [
+      "eq_2609_amr_19",
+      "eq_2409_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
     "featuredRates": {
-      "eq_2608_wpn_29": 0.6,
-      "eq_2608_acc_18": 1.0,
-      "eq_2608_amr_07": 0.4
+      "eq_2609_amr_19": 0.6,
+      "eq_2409_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_8",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_amr_19",
+      "eq_2309_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_amr_19": 0.6,
+      "eq_2309_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_9",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_amr_19",
+      "eq_2309_amr_18",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_amr_19": 0.6,
+      "eq_2309_amr_18": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_10",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_amr_19",
+      "eq_2509_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_amr_19": 0.6,
+      "eq_2509_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_11",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_amr_19",
+      "eq_2309_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_amr_19": 0.6,
+      "eq_2309_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_12",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_acc_29",
+      "eq_2409_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_acc_29": 0.6,
+      "eq_2409_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_13",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_acc_29",
+      "eq_2309_wpn_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_acc_29": 0.6,
+      "eq_2309_wpn_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_14",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_acc_29",
+      "eq_2309_amr_18",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_acc_29": 0.6,
+      "eq_2309_amr_18": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_15",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_acc_29",
+      "eq_2509_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_acc_29": 0.6,
+      "eq_2509_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
+    },
+    "active": true,
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30",
+    "rarityRates": {
+      "5": 47.0,
+      "6": 46.0,
+      "7": 4.0,
+      "8": 2.0,
+      "9": 1.0
+    }
+  },
+  {
+    "id": "even_gear_2026_09_box_16",
+    "name": "Gears from Moongazing tie-up",
+    "type": "gear_boost",
+    "event": "2026-09",
+    "featuredItems": [
+      "eq_2609_acc_29",
+      "eq_2309_acc_08",
+      "eq_2209_wpn_07",
+      "eq_acc_evt_067",
+      "eq_wpn_evt_057",
+      "eq_amr_evt_057",
+      "eq_acc_evt_057"
+    ],
+    "featuredRates": {
+      "eq_2609_acc_29": 0.6,
+      "eq_2309_acc_08": 1.0,
+      "eq_2209_wpn_07": 0.4,
+      "eq_acc_evt_067": 0.4,
+      "eq_wpn_evt_057": 0.4,
+      "eq_amr_evt_057": 0.4,
+      "eq_acc_evt_057": 0.4
     },
     "active": true,
     "startDate": "2026-09-01",

@@ -1,0 +1,27 @@
+[
+  {
+    "Name": "Magic Moon Wand",
+    "Image": "https://gachame.github.io/images/gears/eq_2209_wpn_07_icon.png",
+    "ItemCode": "eq_2209_wpn_07"
+  },
+  {
+    "Name": "Moon Necklace",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_067_icon.png",
+    "ItemCode": "eq_acc_evt_067"
+  },
+  {
+    "Name": "Moonbrella",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_057_icon.png",
+    "ItemCode": "eq_wpn_evt_057"
+  },
+  {
+    "Name": "Moon Shield",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_057_icon.png",
+    "ItemCode": "eq_amr_evt_057"
+  },
+  {
+    "Name": "Moon Dumplings",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_057_icon.png",
+    "ItemCode": "eq_acc_evt_057"
+  }
+]

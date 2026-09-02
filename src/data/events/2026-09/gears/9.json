@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Moonlight Bow",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_wpn_09_icon.png",
+    "ItemCode": "eq_2609_wpn_09"
+  },
+  {
+    "Name": "Moonlight Stroll Boots",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_amr_19_icon.png",
+    "ItemCode": "eq_2609_amr_19"
+  },
+  {
+    "Name": "Moonlight Dream Earrings",
+    "Image": "https://gachame.github.io/images/gears/eq_2609_acc_29_icon.png",
+    "ItemCode": "eq_2609_acc_29"
+  }
+]
