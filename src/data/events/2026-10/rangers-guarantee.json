@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Lelouch",
+    "Image": "https://gachame.github.io/images/rangers/u1632e-le-thum.png",
+    "UnitCode": "u1632e-le"
+  },
+  {
+    "Name": "Suzaku",
+    "Image": "https://gachame.github.io/images/rangers/u1634e-su-thum.png",
+    "UnitCode": "u1634e-su"
+  },
+  {
+    "Name": "Kallen",
+    "Image": "https://gachame.github.io/images/rangers/u1638e-ka-thum.png",
+    "UnitCode": "u1638e-ka"
+  },
+  {
+    "Name": "C.C.",
+    "Image": "https://gachame.github.io/images/rangers/u1636e-cc-thum.png",
+    "UnitCode": "u1636e-cc"
+  }
+]

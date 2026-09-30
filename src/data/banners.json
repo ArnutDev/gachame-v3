@@ -1,34 +1,32 @@
 [
   {
-    "id": "even_ranger_2026_09_box_1",
-    "name": "Rangers from Zodiac tie-up",
+    "id": "even_ranger_2026_10_box_1",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "normal",
-    "event": "2026-09",
-    "featuredItems": [],
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_09_box_2",
-    "name": "Rangers from Zodiac tie-up",
-    "type": "boost",
-    "event": "2026-09",
-    "featuredItems": ["u1630e-sally", "u1628e-boss", "u1628u-boss"],
+    "event": "2026-10",
+    "featuredItems": [
+      "u1632e-le",
+      "u1632u-le",
+      "u1634e-su",
+      "u1634u-su",
+      "u1638e-ka",
+      "u1638u-ka",
+      "u1636e-cc",
+      "u1636u-cc"
+    ],
     "featuredRates": {
-      "u1630e-sally": 1.5,
-      "u1628e-boss": 1.5,
-      "u1628u-boss": 0.22
+      "u1632e-le": 0.88,
+      "u1632u-le": 0.12,
+      "u1634e-su": 0.88,
+      "u1634u-su": 0.12,
+      "u1638e-ka": 0.88,
+      "u1638u-ka": 0.12,
+      "u1636e-cc": 0.88,
+      "u1636u-cc": 0.12
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "8_ultra": 3.0,
       "8_normal": 5.0,
@@ -37,19 +35,20 @@
     }
   },
   {
-    "id": "even_ranger_2026_09_box_3",
-    "name": "Rangers from Zodiac tie-up",
+    "id": "even_ranger_2026_10_box_2",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "boost",
-    "event": "2026-09",
-    "featuredItems": ["u1630e-sally", "u1626e-cony", "u1626u-cony"],
+    "event": "2026-10",
+    "featuredItems": ["u1632e-le", "u1632u-le", "u1634e-su", "u1634u-su"],
     "featuredRates": {
-      "u1630e-sally": 1.5,
-      "u1626e-cony": 1.5,
-      "u1626u-cony": 0.22
+      "u1632e-le": 1.32,
+      "u1632u-le": 0.18,
+      "u1634e-su": 1.32,
+      "u1634u-su": 0.18
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "8_ultra": 3.0,
       "8_normal": 5.0,
@@ -58,14 +57,139 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_1",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_ranger_2026_10_box_3",
+    "name": "CODE GEASS Lelouch of the Rebellion",
+    "type": "boost",
+    "event": "2026-10",
+    "featuredItems": ["u1632e-le", "u1632u-le", "u1638e-ka", "u1638u-ka"],
+    "featuredRates": {
+      "u1632e-le": 1.32,
+      "u1632u-le": 0.18,
+      "u1638e-ka": 1.32,
+      "u1638u-ka": 0.18
+    },
+    "active": true,
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_10_box_4",
+    "name": "CODE GEASS Lelouch of the Rebellion",
+    "type": "boost",
+    "event": "2026-10",
+    "featuredItems": ["u1632e-le", "u1632u-le", "u1636e-cc", "u1636u-cc"],
+    "featuredRates": {
+      "u1632e-le": 1.32,
+      "u1632u-le": 0.18,
+      "u1636e-cc": 1.32,
+      "u1636u-cc": 0.18
+    },
+    "active": true,
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_10_box_5",
+    "name": "CODE GEASS Lelouch of the Rebellion",
+    "type": "boost",
+    "event": "2026-10",
+    "featuredItems": ["u1634e-su", "u1634u-su", "u1638e-ka", "u1638u-ka"],
+    "featuredRates": {
+      "u1634e-su": 1.32,
+      "u1634u-su": 0.18,
+      "u1638e-ka": 1.32,
+      "u1638u-ka": 0.18
+    },
+    "active": true,
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_10_box_6",
+    "name": "CODE GEASS Lelouch of the Rebellion",
+    "type": "boost",
+    "event": "2026-10",
+    "featuredItems": ["u1634e-su", "u1634u-su", "u1636e-cc", "u1636u-cc"],
+    "featuredRates": {
+      "u1634e-su": 1.32,
+      "u1634u-su": 0.18,
+      "u1636e-cc": 1.32,
+      "u1636u-cc": 0.18
+    },
+    "active": true,
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_10_box_7",
+    "name": "CODE GEASS Lelouch of the Rebellion",
+    "type": "boost",
+    "event": "2026-10",
+    "featuredItems": ["u1638e-ka", "u1638u-ka", "u1636e-cc", "u1636u-cc"],
+    "featuredRates": {
+      "u1638e-ka": 1.32,
+      "u1638u-ka": 0.18,
+      "u1636e-cc": 1.32,
+      "u1636u-cc": 0.18
+    },
+    "active": true,
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_gear_2026_10_box_1",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear",
-    "event": "2026-09",
-    "featuredItems": [],
+    "event": "2026-10",
+    "featuredItems": [
+      "eq_2610_amr_19",
+      "eq_2610_amr_09",
+      "eq_2610_amr_29",
+      "eq_2610_wpn_18",
+      "eq_2610_wpn_08",
+      "eq_2610_acc_07"
+    ],
+    "featuredRates": {
+      "eq_2610_amr_19": 0.2,
+      "eq_2610_amr_09": 0.2,
+      "eq_2610_amr_29": 0.2,
+      "eq_2610_wpn_18": 0.5,
+      "eq_2610_wpn_08": 0.5,
+      "eq_2610_acc_07": 0.2
+    },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -75,31 +199,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_2",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_2",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_wpn_09",
-      "eq_2409_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_19", "eq_2610_wpn_18"],
     "featuredRates": {
-      "eq_2609_wpn_09": 0.6,
-      "eq_2409_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_19": 0.6,
+      "eq_2610_wpn_18": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -109,31 +220,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_3",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_3",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_wpn_09",
-      "eq_2309_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_19", "eq_2610_wpn_08"],
     "featuredRates": {
-      "eq_2609_wpn_09": 0.6,
-      "eq_2309_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_19": 0.6,
+      "eq_2610_wpn_08": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -143,31 +241,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_4",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_4",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_wpn_09",
-      "eq_2309_amr_18",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_09", "eq_2610_wpn_18"],
     "featuredRates": {
-      "eq_2609_wpn_09": 0.6,
-      "eq_2309_amr_18": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_09": 0.6,
+      "eq_2610_wpn_18": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -177,31 +262,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_5",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_5",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_wpn_09",
-      "eq_2509_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_09", "eq_2610_wpn_08"],
     "featuredRates": {
-      "eq_2609_wpn_09": 0.6,
-      "eq_2509_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_09": 0.6,
+      "eq_2610_wpn_08": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -211,31 +283,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_6",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_6",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_wpn_09",
-      "eq_2309_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_29", "eq_2610_wpn_18"],
     "featuredRates": {
-      "eq_2609_wpn_09": 0.6,
-      "eq_2309_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_29": 0.6,
+      "eq_2610_wpn_18": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -245,337 +304,18 @@
     }
   },
   {
-    "id": "even_gear_2026_09_box_7",
-    "name": "Gears from Moongazing tie-up",
+    "id": "even_gear_2026_10_box_7",
+    "name": "CODE GEASS Lelouch of the Rebellion",
     "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_amr_19",
-      "eq_2409_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
+    "event": "2026-10",
+    "featuredItems": ["eq_2610_amr_29", "eq_2610_wpn_08"],
     "featuredRates": {
-      "eq_2609_amr_19": 0.6,
-      "eq_2409_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
+      "eq_2610_amr_29": 0.6,
+      "eq_2610_wpn_08": 1.0
     },
     "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_8",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_amr_19",
-      "eq_2309_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_amr_19": 0.6,
-      "eq_2309_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_9",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_amr_19",
-      "eq_2309_amr_18",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_amr_19": 0.6,
-      "eq_2309_amr_18": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_10",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_amr_19",
-      "eq_2509_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_amr_19": 0.6,
-      "eq_2509_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_11",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_amr_19",
-      "eq_2309_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_amr_19": 0.6,
-      "eq_2309_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_12",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_acc_29",
-      "eq_2409_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_acc_29": 0.6,
-      "eq_2409_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_13",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_acc_29",
-      "eq_2309_wpn_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_acc_29": 0.6,
-      "eq_2309_wpn_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_14",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_acc_29",
-      "eq_2309_amr_18",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_acc_29": 0.6,
-      "eq_2309_amr_18": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_15",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_acc_29",
-      "eq_2509_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_acc_29": 0.6,
-      "eq_2509_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_09_box_16",
-    "name": "Gears from Moongazing tie-up",
-    "type": "gear_boost",
-    "event": "2026-09",
-    "featuredItems": [
-      "eq_2609_acc_29",
-      "eq_2309_acc_08",
-      "eq_2209_wpn_07",
-      "eq_acc_evt_067",
-      "eq_wpn_evt_057",
-      "eq_amr_evt_057",
-      "eq_acc_evt_057"
-    ],
-    "featuredRates": {
-      "eq_2609_acc_29": 0.6,
-      "eq_2309_acc_08": 1.0,
-      "eq_2209_wpn_07": 0.4,
-      "eq_acc_evt_067": 0.4,
-      "eq_wpn_evt_057": 0.4,
-      "eq_amr_evt_057": 0.4,
-      "eq_acc_evt_057": 0.4
-    },
-    "active": true,
-    "startDate": "2026-09-01",
-    "endDate": "2026-09-30",
+    "startDate": "2026-10-01",
+    "endDate": "2026-10-31",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,

@@ -1,0 +1,22 @@
+[
+  {
+    "Name": "Black Rebel Lelouch",
+    "Image": "https://gachame.github.io/images/rangers/u1632u-le-thum.png",
+    "UnitCode": "u1632u-le"
+  },
+  {
+    "Name": "White Knight Suzaku",
+    "Image": "https://gachame.github.io/images/rangers/u1634u-su-thum.png",
+    "UnitCode": "u1634u-su"
+  },
+  {
+    "Name": "Crimson Demon Kallen",
+    "Image": "https://gachame.github.io/images/rangers/u1638u-ka-thum.png",
+    "UnitCode": "u1638u-ka"
+  },
+  {
+    "Name": "Immortal Witch C.C.",
+    "Image": "https://gachame.github.io/images/rangers/u1636u-cc-thum.png",
+    "UnitCode": "u1636u-cc"
+  }
+]

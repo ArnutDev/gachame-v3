@@ -1,19 +1,12 @@
-TEMP|9-Star Weapon Moonlight Bow
-TEMP|9-Star Armor Moonlight Stroll Boots
-TEMP|9-Star Accessory Moonlight Dream Earrings
-TEMP|8-Star Weapon Moonlit Dagger
-TEMP|8-Star Weapon Moonlight Shining Axe
-TEMP|8-Star Armor Moonlight Shining Shield
-TEMP|8-Star Accessory Moonlight Guard Gloves
-TEMP|8-Star Accessory Moonlight Shining Belt
-TEMP|7-Star Weapon Magic Moon Wand
-TEMP|7-Star Accessory Moon Necklace
-TEMP|7-Star Weapon Moonbrella
-TEMP|7-Star Armor Moon Shield
-TEMP|7-Star Accessory Moon Dumplings
-GUARANTEE|9-Star Weapon Moonlight Bow
-GUARANTEE|9-Star Armor Moonlight Stroll Boots
-GUARANTEE|9-Star Accessory Moonlight Dream Earrings
-GUARANTEE|8-Star Weapon Moonlit Dagger
-GUARANTEE|8-Star Accessory Moonlight Guard Gloves
-GUARANTEE|7-Star Armor Moon Shield
+TEMP|9-Star Armor [CG] Zero's Mask
+TEMP|9-Star Armor [CG] Zero's Clothes
+TEMP|9-Star Armor [CG] Suzaku's Knight ID
+TEMP|8-Star Weapon [CG] Radiant Wave Surge System Gauntlet
+TEMP|8-Star Weapon [CG] Li Xingke's Sword
+TEMP|7-Star Accessory [CG] Lancelot's Launch Key
+GUARANTEE|9-Star Armor [CG] Zero's Mask
+GUARANTEE|9-Star Armor [CG] Zero's Clothes
+GUARANTEE|9-Star Armor [CG] Suzaku's Knight ID
+GUARANTEE|8-Star Weapon [CG] Radiant Wave Surge System Gauntlet
+GUARANTEE|8-Star Weapon [CG] Li Xingke's Sword
+GUARANTEE|7-Star Accessory [CG] Lancelot's Launch Key

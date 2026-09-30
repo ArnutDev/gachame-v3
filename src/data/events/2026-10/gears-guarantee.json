@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "Zero's Mask",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_amr_19_icon.png",
+    "ItemCode": "eq_2610_amr_19"
+  },
+  {
+    "Name": "Zero's Clothes",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_amr_09_icon.png",
+    "ItemCode": "eq_2610_amr_09"
+  },
+  {
+    "Name": "Suzaku's Knight ID",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_amr_29_icon.png",
+    "ItemCode": "eq_2610_amr_29"
+  },
+  {
+    "Name": "Radiant Wave Gauntlet",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_wpn_18_icon.png",
+    "ItemCode": "eq_2610_wpn_18"
+  },
+  {
+    "Name": "Xingke's Sword",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_wpn_08_icon.png",
+    "ItemCode": "eq_2610_wpn_08"
+  },
+  {
+    "Name": "Lancelot's Launch Key",
+    "Image": "https://gachame.github.io/images/gears/eq_2610_acc_07_icon.png",
+    "ItemCode": "eq_2610_acc_07"
+  }
+]

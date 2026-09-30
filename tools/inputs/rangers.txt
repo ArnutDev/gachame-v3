@@ -3,6 +3,15 @@ KEEP|8-Star Gemini BOSS
 KEEP|8-Star Aries CONY
 KEEP|8-Star Ultimate Evolved Blue Gemini BOSS
 KEEP|8-Star Ultimate Evolved Dawn Aries CONY
-GUARANTEE|8-Star Cancer Sally
-GUARANTEE|8-Star Gemini BOSS
-GUARANTEE|8-Star Aries CONY
+GUARANTEE|8-Star Lelouch
+GUARANTEE|8-Star Suzaku Kururugi
+GUARANTEE|8-Star Kallen Kouzuki
+GUARANTEE|8-Star C.C.
+TEMP|8-Star Lelouch
+TEMP|8-Star Suzaku Kururugi
+TEMP|8-Star Kallen Kouzuki
+TEMP|8-Star C.C.
+TEMP|8-Star Ultimate Evolved Black Rebel Lelouch
+TEMP|8-Star Ultimate Evolved White Knight Suzaku Kururugi
+TEMP|8-Star Ultimate Evolved Crimson Demon Kallen　Kouzuki
+TEMP|8-Star Ultimate Evolved Immortal Witch C.C.
