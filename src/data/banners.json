@@ -1,32 +1,82 @@
 [
   {
-    "id": "even_ranger_2026_10_box_1",
-    "name": "CODE GEASS Lelouch of the Rebellion",
+    "id": "even_ranger_2026_11_box_1",
+    "name": "Rangers for November",
     "type": "normal",
-    "event": "2026-10",
+    "event": "2026-11",
+    "featuredItems": [],
+    "active": true,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_11_box_2",
+    "name": "Rangers for November",
+    "type": "boost",
+    "event": "2026-11",
+    "featuredItems": ["u1645e-jessica", "u1643e-sally", "u1643u-sally"],
+    "featuredRates": {
+      "u1645e-jessica": 1.5,
+      "u1643e-sally": 1.5,
+      "u1643u-sally": 0.22
+    },
+    "active": true,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_11_box_3",
+    "name": "Rangers for November",
+    "type": "boost",
+    "event": "2026-11",
+    "featuredItems": ["u1645e-jessica", "u1641e-crush", "u1641u-crush"],
+    "featuredRates": {
+      "u1645e-jessica": 1.5,
+      "u1641e-crush": 1.5,
+      "u1641u-crush": 0.22
+    },
+    "active": true,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
+    "rarityRates": {
+      "8_ultra": 3.0,
+      "8_normal": 5.0,
+      "7_ultra": 22.0,
+      "7_normal": 70.0
+    }
+  },
+  {
+    "id": "even_ranger_2026_11_box_4",
+    "name": "Rangers for November",
+    "type": "boost",
+    "event": "2026-11",
     "featuredItems": [
-      "u1632e-le",
-      "u1632u-le",
-      "u1634e-su",
-      "u1634u-su",
-      "u1638e-ka",
-      "u1638u-ka",
-      "u1636e-cc",
-      "u1636u-cc"
+      "u1643e-sally",
+      "u1643u-sally",
+      "u1641e-crush",
+      "u1641u-crush"
     ],
     "featuredRates": {
-      "u1632e-le": 0.88,
-      "u1632u-le": 0.12,
-      "u1634e-su": 0.88,
-      "u1634u-su": 0.12,
-      "u1638e-ka": 0.88,
-      "u1638u-ka": 0.12,
-      "u1636e-cc": 0.88,
-      "u1636u-cc": 0.12
+      "u1643e-sally": 1.5,
+      "u1643u-sally": 0.22,
+      "u1641e-crush": 1.5,
+      "u1641u-crush": 0.22
     },
     "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
     "rarityRates": {
       "8_ultra": 3.0,
       "8_normal": 5.0,
@@ -35,161 +85,14 @@
     }
   },
   {
-    "id": "even_ranger_2026_10_box_2",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1632e-le", "u1632u-le", "u1634e-su", "u1634u-su"],
-    "featuredRates": {
-      "u1632e-le": 1.32,
-      "u1632u-le": 0.18,
-      "u1634e-su": 1.32,
-      "u1634u-su": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_10_box_3",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1632e-le", "u1632u-le", "u1638e-ka", "u1638u-ka"],
-    "featuredRates": {
-      "u1632e-le": 1.32,
-      "u1632u-le": 0.18,
-      "u1638e-ka": 1.32,
-      "u1638u-ka": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_10_box_4",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1632e-le", "u1632u-le", "u1636e-cc", "u1636u-cc"],
-    "featuredRates": {
-      "u1632e-le": 1.32,
-      "u1632u-le": 0.18,
-      "u1636e-cc": 1.32,
-      "u1636u-cc": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_10_box_5",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1634e-su", "u1634u-su", "u1638e-ka", "u1638u-ka"],
-    "featuredRates": {
-      "u1634e-su": 1.32,
-      "u1634u-su": 0.18,
-      "u1638e-ka": 1.32,
-      "u1638u-ka": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_10_box_6",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1634e-su", "u1634u-su", "u1636e-cc", "u1636u-cc"],
-    "featuredRates": {
-      "u1634e-su": 1.32,
-      "u1634u-su": 0.18,
-      "u1636e-cc": 1.32,
-      "u1636u-cc": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_ranger_2026_10_box_7",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "boost",
-    "event": "2026-10",
-    "featuredItems": ["u1638e-ka", "u1638u-ka", "u1636e-cc", "u1636u-cc"],
-    "featuredRates": {
-      "u1638e-ka": 1.32,
-      "u1638u-ka": 0.18,
-      "u1636e-cc": 1.32,
-      "u1636u-cc": 0.18
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "8_ultra": 3.0,
-      "8_normal": 5.0,
-      "7_ultra": 22.0,
-      "7_normal": 70.0
-    }
-  },
-  {
-    "id": "even_gear_2026_10_box_1",
-    "name": "CODE GEASS Lelouch of the Rebellion",
+    "id": "even_gear_2026_11_box_1",
+    "name": "Leonard Gears for November",
     "type": "gear",
-    "event": "2026-10",
-    "featuredItems": [
-      "eq_2610_amr_19",
-      "eq_2610_amr_09",
-      "eq_2610_amr_29",
-      "eq_2610_wpn_18",
-      "eq_2610_wpn_08",
-      "eq_2610_acc_07"
-    ],
-    "featuredRates": {
-      "eq_2610_amr_19": 0.2,
-      "eq_2610_amr_09": 0.2,
-      "eq_2610_amr_29": 0.2,
-      "eq_2610_wpn_18": 0.5,
-      "eq_2610_wpn_08": 0.5,
-      "eq_2610_acc_07": 2.0
-    },
-    "active": true,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
+    "event": "2026-11",
+    "featuredItems": [],
+    "active": false,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -208,7 +111,7 @@
       "eq_2610_amr_19": 0.6,
       "eq_2610_wpn_18": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {
@@ -229,7 +132,7 @@
       "eq_2610_amr_19": 0.6,
       "eq_2610_wpn_08": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {
@@ -250,7 +153,7 @@
       "eq_2610_amr_09": 0.6,
       "eq_2610_wpn_18": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {
@@ -271,7 +174,7 @@
       "eq_2610_amr_09": 0.6,
       "eq_2610_wpn_08": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {
@@ -292,7 +195,7 @@
       "eq_2610_amr_29": 0.6,
       "eq_2610_wpn_18": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {
@@ -313,7 +216,7 @@
       "eq_2610_amr_29": 0.6,
       "eq_2610_wpn_08": 1.0
     },
-    "active": true,
+    "active": false,
     "startDate": "2026-10-01",
     "endDate": "2026-10-31",
     "rarityRates": {

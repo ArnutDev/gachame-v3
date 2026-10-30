@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "Cake Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_2611_wpn_09_icon.png",
+    "ItemCode": "eq_2611_wpn_09"
+  },
+  {
+    "Name": "Glorious Party Medal",
+    "Image": "https://gachame.github.io/images/gears/eq_2611_acc_19_icon.png",
+    "ItemCode": "eq_2611_acc_19"
+  },
+  {
+    "Name": "Leonard's Mechanic Cap",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_09_icon.png",
+    "ItemCode": "eq_amr_evt_09"
+  },
+  {
+    "Name": "Leonard's Quick Belt",
+    "Image": "https://gachame.github.io/images/gears/eq_amr_evt_08_icon.png",
+    "ItemCode": "eq_amr_evt_08"
+  },
+  {
+    "Name": "Leonard's Mysterious Syringe",
+    "Image": "https://gachame.github.io/images/gears/eq_acc_evt_28_icon.png",
+    "ItemCode": "eq_acc_evt_28"
+  },
+  {
+    "Name": "Leonard's Mighty Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_wpn_evt_007_icon.png",
+    "ItemCode": "eq_wpn_evt_007"
+  }
+]

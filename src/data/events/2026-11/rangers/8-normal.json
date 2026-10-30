@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "Inn Staff Jessica",
+    "Image": "https://gachame.github.io/images/rangers/u1645e-jessica-thum.png",
+    "UnitCode": "u1645e-jessica"
+  },
+  {
+    "Name": "Teacup Sally",
+    "Image": "https://gachame.github.io/images/rangers/u1643e-sally-thum.png",
+    "UnitCode": "u1643e-sally"
+  },
+  {
+    "Name": "Cleaner Crush",
+    "Image": "https://gachame.github.io/images/rangers/u1641e-crush-thum.png",
+    "UnitCode": "u1641e-crush"
+  }
+]

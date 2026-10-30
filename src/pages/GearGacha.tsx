@@ -216,7 +216,7 @@ export default function GearGacha() {
         <div className="flex flex-col items-center justify-center p-12 text-center border border-border-color rounded-xl bg-bg-secondary/20">
           <span className="text-4xl mb-4">📭</span>
           <h3 className="text-lg font-bold text-text-primary">
-            No Active Gear Banners
+            No Active Gear Banners (Coming Soon!)
           </h3>
           <p className="text-text-secondary text-sm mt-1">
             There are currently no active Gear banners configured in the system.
@@ -249,7 +249,8 @@ export default function GearGacha() {
                     })
                     .filter(
                       (item): item is NonNullable<typeof item> =>
-                        item !== null && (item.rarity === '8' || item.rarity === '9')
+                        item !== null &&
+                        (item.rarity === '8' || item.rarity === '9')
                     );
                 } else {
                   // Non-buff banner: show top 6 event gears of that event month sorted by rarity descending
