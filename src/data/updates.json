@@ -178,5 +178,10 @@
     "version": "3.3.0",
     "date": "30-10-2026",
     "changes": ["Add new content (Rangers Gacha only) for November."]
+  },
+  {
+    "version": "3.3.1",
+    "date": "31-10-2026",
+    "changes": ["Add new content (Gears Gacha only) for November."]
   }
 ]

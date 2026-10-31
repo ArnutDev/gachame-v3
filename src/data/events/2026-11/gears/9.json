@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "Name": "Cake Hammer",
+    "Image": "https://gachame.github.io/images/gears/eq_2611_wpn_09_icon.png",
+    "ItemCode": "eq_2611_wpn_09"
+  },
+  {
+    "Name": "Glorious Party Medal",
+    "Image": "https://gachame.github.io/images/gears/eq_2611_acc_19_icon.png",
+    "ItemCode": "eq_2611_acc_19"
+  }
+]

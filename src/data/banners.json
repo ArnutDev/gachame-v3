@@ -102,18 +102,17 @@
     }
   },
   {
-    "id": "even_gear_2026_10_box_2",
-    "name": "CODE GEASS Lelouch of the Rebellion",
+    "id": "even_gear_2026_11_box_2",
+    "name": "100 Million DLs Celebration",
     "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_19", "eq_2610_wpn_18"],
+    "event": "2026-11",
+    "featuredItems": ["eq_2611_wpn_09"],
     "featuredRates": {
-      "eq_2610_amr_19": 0.6,
-      "eq_2610_wpn_18": 1.0
+      "eq_2611_wpn_09": 0.8
     },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
+    "active": true,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
@@ -123,102 +122,17 @@
     }
   },
   {
-    "id": "even_gear_2026_10_box_3",
-    "name": "CODE GEASS Lelouch of the Rebellion",
+    "id": "even_gear_2026_11_box_3",
+    "name": "100 Million DLs Celebration",
     "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_19", "eq_2610_wpn_08"],
+    "event": "2026-11",
+    "featuredItems": ["eq_2611_acc_19"],
     "featuredRates": {
-      "eq_2610_amr_19": 0.6,
-      "eq_2610_wpn_08": 1.0
+      "eq_2611_acc_19": 0.8
     },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_10_box_4",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_09", "eq_2610_wpn_18"],
-    "featuredRates": {
-      "eq_2610_amr_09": 0.6,
-      "eq_2610_wpn_18": 1.0
-    },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_10_box_5",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_09", "eq_2610_wpn_08"],
-    "featuredRates": {
-      "eq_2610_amr_09": 0.6,
-      "eq_2610_wpn_08": 1.0
-    },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_10_box_6",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_29", "eq_2610_wpn_18"],
-    "featuredRates": {
-      "eq_2610_amr_29": 0.6,
-      "eq_2610_wpn_18": 1.0
-    },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
-    "rarityRates": {
-      "5": 47.0,
-      "6": 46.0,
-      "7": 4.0,
-      "8": 2.0,
-      "9": 1.0
-    }
-  },
-  {
-    "id": "even_gear_2026_10_box_7",
-    "name": "CODE GEASS Lelouch of the Rebellion",
-    "type": "gear_boost",
-    "event": "2026-10",
-    "featuredItems": ["eq_2610_amr_29", "eq_2610_wpn_08"],
-    "featuredRates": {
-      "eq_2610_amr_29": 0.6,
-      "eq_2610_wpn_08": 1.0
-    },
-    "active": false,
-    "startDate": "2026-10-01",
-    "endDate": "2026-10-31",
+    "active": true,
+    "startDate": "2026-11-01",
+    "endDate": "2026-11-30",
     "rarityRates": {
       "5": 47.0,
       "6": 46.0,
